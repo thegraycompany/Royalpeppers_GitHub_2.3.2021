@@ -26,6 +26,8 @@ export class HarvestOverview extends React.Component {
       Path: `${this.props.route.params.Path}`,
       Employee: `${this.props.route.params.Employee}`,
       Color: `${this.props.route.params.Color}`,
+      Email: `${this.props.route.params.Email}`,
+      TimeStart: `${this.props.route.params.TimeStart}`
     };
   }
 
@@ -99,15 +101,20 @@ export class HarvestOverview extends React.Component {
     var date = new Date().getDate();
     var month = new Date().getMonth() + 1;
     var year = new Date().getFullYear();
+    var hours = new Date().getHours(); //To get the Current Hours
+    var min = new Date().getMinutes(); //To get the Current Minutes
+    var sec = new Date().getSeconds(); //To get the Current Seconds
 
+    var Seconds = ((hours * 3600) + (min * 60) + sec);
+    var TotaleTijd = (Seconds - `${this.state.TimeStart}`);
     email(to, {
         // Optional additional arguments
         cc: [], // string or array of email addresses
         bcc: '', // string or array of email addresses
-        subject: 'Resultaat controle: ' + `${this.props.route.params.Location}` + ' Datum: ' + date + '.' + month + '.' + year,
-        body: 'Dit zijn de resultaten: ' + '\n' + `${this.props.route.params.Greenhouse}` + '\n'  + `${this.state.Path}` + '\n' + 'Sneetje: ' + `${this.state.Sneetje}` + '\n' + 'Buts: ' + `${this.state.Buts}` + '\n'
-        + 'Te bont: ' + `${this.state.TeBont}` + '\n' + 'Rafelige Steel: ' + `${this.state.RafeligeSteel}` + '\n' + 'Blad: ' + `${this.state.Blad}` + '\n' + 'Vrucht vergeten: ' + `${this.state.VruchtVergeten}` + '\n'
-        + 'Kar niet Schoon: ' + `${this.state.KarNietSchoon}` 
+        subject: 'Resultaat controle oogsten: ' + `${this.props.route.params.Location}` + ' Datum: ' + date + '.' + month + '.' + year,
+        body: 'Dit zijn de resultaten: ' + '\n' + `${this.props.route.params.Greenhouse}` + ';'  + `${this.state.Path}` + ';' + `${this.state.Sneetje}` + ';' + `${this.state.Buts}` + ';'
+        + `${this.state.TeBont}` + ';' + `${this.state.RafeligeSteel}` + ';' + `${this.state.Blad}` + ';' +  `${this.state.VruchtVergeten}` + ';'
+        + `${this.state.KarNietSchoon}` + ';' + date + '.' + month + '.' + year + ';' + `${this.state.Email}` + ';' + `${this.state.Employee}` + ';' + `${TotaleTijd}` + ';'
       }).catch(console.error)
 }
 

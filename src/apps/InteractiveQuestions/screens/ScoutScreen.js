@@ -19,6 +19,11 @@ export class ScoutScreen extends React.Component {
   };
 
   constructor(props) {
+    var hours = new Date().getHours(); //To get the Current Hours
+    var min = new Date().getMinutes(); //To get the Current Minutes
+    var sec = new Date().getSeconds(); //To get the Current Seconds
+
+    var Seconds = ((hours * 3600) + (min * 60) + sec);
     super(props);
     this.state = {
       Location: null,
@@ -30,6 +35,7 @@ export class ScoutScreen extends React.Component {
       Path: null,
       isVisiblePath: false,
 
+      TimeStart: Seconds,
       email: `${this.props.route.params.email}`,
     };
   }
@@ -77,180 +83,181 @@ export class ScoutScreen extends React.Component {
     } else if(this.state.email == "recep@royalpeppers.nl"){
       var locaties = [{label: 'Waddinxveen', value: 'Waddinxveen', icon: () => <Flag size={18} color="#000" />,},];
     }
-
     if(this.state.Location == "Rilland"){
-      var kassen = [{label: 'Kas 1R', value: 'Kas 1R', icon: () => <Flag size={18} color="#000" />},
-        {label: 'Kas 2R', value: 'Kas 2R', icon: () => <Flag size={18} color="#000" />},];
+      var kassen = [{label: '1R', value: '1R', icon: () => <Flag size={18} color="#000" />},
+        {label: '2R', value: '2R', icon: () => <Flag size={18} color="#000" />},];
     } else if(this.state.Location == "Anthony Lionweg"){
-      var kassen = [{label: 'Kas 1A', value: 'Kas 1A', icon: () => <Flag size={18} color="#000" />},
-      {label: 'Kas 2A', value: 'Kas 2A', icon: () => <Flag size={18} color="#000" />},];
+      var kassen = [{label: '1A', value: '1A', icon: () => <Flag size={18} color="#000" />},
+      {label: '2A', value: '2A', icon: () => <Flag size={18} color="#000" />},];
     } else if(this.state.Location == "Narcissenweg"){
-      var kassen = [{label: 'Kas 1N', value: 'Kas 1N', icon: () => <Flag size={18} color="#000" />},
-      {label: 'Kas 2N', value: 'Kas 2N', icon: () => <Flag size={18} color="#000" />},];
+      var kassen = [{label: '1N', value: '1N', icon: () => <Flag size={18} color="#000" />},
+      {label: '2N', value: '2N', icon: () => <Flag size={18} color="#000" />},];
     } else if(this.state.Location == "Waddinxveen"){
-      var kassen = [{label: 'Kas 1WV', value: 'Kas 1WV', icon: () => <Flag size={18} color="#000" />},
-      {label: 'Kas 2WV', value: 'Kas 2WV', icon: () => <Flag size={18} color="#000" />},];
+      var kassen = [{label: '1WV', value: '1WV', icon: () => <Flag size={18} color="#000" />},
+      {label: '2WV', value: '2WV', icon: () => <Flag size={18} color="#000" />},];
     } else if(this.state.Location == "Warmoeziersweg"){
-      var kassen = [{label: 'Kas 1W', value: 'Kas 1W', icon: () => <Flag size={18} color="#000" />},
-      {label: 'Kas 2W', value: 'Kas 2W', icon: () => <Flag size={18} color="#000" />},];
+      var kassen = [{label: '1W', value: '1W', icon: () => <Flag size={18} color="#000" />},
+      {label: '2W', value: '2W', icon: () => <Flag size={18} color="#000" />},];
     } else {
       var kassen = [{label: 'Selecteer eerst een Locatie', value: 'Selecteer eerst een Locatie', icon: () => <Flag size={18} color="#000" />},];
     }
 
-    if(this.state.Greenhouse == "Kas 1R"){
+
+    if(this.state.Greenhouse == "1R"){
       var i;
       var paden = [];
       for(i = 101; i < 197; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 201; i < 297; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 301; i < 397; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 401; i < 497; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
-    }else if(this.state.Greenhouse == "Kas 2R"){
+    }else if(this.state.Greenhouse == "2R"){
       var i
       var paden = [];
       for(i = 501; i < 597; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 616; i < 697; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 701; i < 797; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 801; i < 897; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
-    } else if(this.state.Greenhouse == "Kas 1A"){
+    } else if(this.state.Greenhouse == "1A"){
       var i
       var paden = [];
       for(i = 101; i < 178; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 201; i < 278; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 301; i < 371; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 401; i < 471; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
-    } else if(this.state.Greenhouse == "Kas 2A"){
+    } else if(this.state.Greenhouse == "2A"){
       var i
       var paden = [];
       for(i = 501; i < 559; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 611; i < 659; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 701; i < 755; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 801; i < 855; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
-    } else if(this.state.Greenhouse == "Kas 1W"){
+    } else if(this.state.Greenhouse == "1W"){
       var i
       var paden = [];
       for(i = 113; i < 169; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 201; i < 269; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 301; i < 359; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 401; i < 459; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
-    } else if(this.state.Greenhouse == "Kas 2W"){
+    } else if(this.state.Greenhouse == "2W"){
       var i
       var paden = [];
       for(i = 501; i < 579; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 601; i < 679; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 701; i < 773; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 801; i < 885; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
-    } else if(this.state.Greenhouse == "Kas 1N"){
+    } else if(this.state.Greenhouse == "1N"){
       var i
       var paden = [];
       for(i = 1; i < 145; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 201; i < 345; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 401; i < 575; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
-    } else if(this.state.Greenhouse == "Kas 2N"){
+    } else if(this.state.Greenhouse == "2N"){
       var i
       var paden = [];
       for(i = 601; i < 783; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
-    } else if(this.state.Greenhouse == "Kas 1WV"){
+    } else if(this.state.Greenhouse == "1WV"){
       var i
-      const paden = [];
+      var paden = [];
       for(i = 101; i < 161; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 201; i < 261; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 301; i < 355; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 401; i < 455; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 501; i < 555; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 601; i < 655; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 701; i < 755; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 801; i < 855; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:  `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
-    } else if(this.state.Greenhouse == "Kas 2WV"){
+    } else if(this.state.Greenhouse == "2WV"){
       var i
       var paden = [];
       for(i = 901; i < 961; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value:`${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 1001; i < 1061; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value: `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 1101; i < 1154; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label:  `${i}`, value: `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
       for(i = 1201; i < 1254; i++){
-        paden.push({label: "Pad " + `${i}`, value: 'Pad ' + `${i}`, icon: () => <Flag size={18} color="#000" />})
+        paden.push({label: `${i}`, value: `${i}`, icon: () => <Flag size={18} color="#000" />})
       }
     }
     else{
       var paden = [{label: 'Selecteer eerst een Kas', value: 'Selecteer eerst een Kas', icon: () => <Flag size={18} color="#000" />}];
     }   
+
 
     return (
       <View>
@@ -366,10 +373,15 @@ export class ScoutScreen extends React.Component {
   }
 
   navigateToScoutMistakes() {   
+    var hours = new Date().getHours(); //To get the Current Hours
+    var min = new Date().getMinutes(); //To get the Current Minutes
+    var sec = new Date().getSeconds(); //To get the Current Seconds
+    var Seconds = ((hours * 3600) + (min * 60) + sec);
+    this.setState({TimeStart: Seconds});
     if(this.state.Path == undefined){
       Alert.alert("Voer een geldige Locatie/Kas/Pad in");
     }else{
-      this.props.navigation.navigate('ScoutMistakes', {Location: this.state.Location, Greenhouse: this.state.Greenhouse, Path: this.state.Path});
+      this.props.navigation.navigate('ScoutMistakes', {Location: this.state.Location, Greenhouse: this.state.Greenhouse, Path: this.state.Path, Email: this.state.email, TimeStart: this.state.TimeStart});
     }
    }
 }

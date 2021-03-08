@@ -25,6 +25,8 @@ export class HarvestMistakes extends React.Component {
       Path: `${this.props.route.params.Path}`,
       Employee: `${this.props.route.params.Employee}`,
       Color: `${this.props.route.params.Color}`,
+      Email: `${this.props.route.params.Email}`,
+      TimeStart: `${this.props.route.params.TimeStart}`,
     };
   }
 
@@ -139,7 +141,7 @@ export class HarvestMistakes extends React.Component {
     this.props.navigation.navigate('HarvestOverview', {Location: this.state.Location, Greenhouse: this.state.Greenhouse, Path: this.state.Path,
       Employee: this.state.Employee, Color: this.state.Color, Sneetje: this.state.Sneetje, Buts: this.state.Buts, TeBont: this.state.TeBont,
       RafeligeSteel: this.state.RafeligeSteel, Blad: this.state.Blad, VruchtVergeten: this.state.VruchtVergeten,
-      KarNietSchoon: this.state.KarNietSchoon});
+      KarNietSchoon: this.state.KarNietSchoon, Email: this.state.Email, TimeStart: this.state.TimeStart});
   }
 
   addSneetje() {

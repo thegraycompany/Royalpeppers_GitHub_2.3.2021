@@ -95,6 +95,8 @@ export class ScoutOverview extends React.Component {
       Path: `${this.props.route.params.Path}`,
       Kas: `${this.props.route.params.Kas}`,
       Overig: `${this.props.route.params.Overig}`,
+      Email: `${this.props.route.params.Email}`,
+      TimeStart: `${this.props.route.params.TimeStart}`
     };
   }
 
@@ -216,16 +218,23 @@ export class ScoutOverview extends React.Component {
     var date = new Date().getDate();
     var month = new Date().getMonth() + 1;
     var year = new Date().getFullYear();
+    var hours = new Date().getHours(); //To get the Current Hours
+    var min = new Date().getMinutes(); //To get the Current Minutes
+    var sec = new Date().getSeconds(); //To get the Current Seconds
+
+    console.log(`${this.state.TimeStart}`);
+
+    var Seconds = ((hours * 3600) + (min * 60) + sec);
+    var TotaleTijd = (Seconds - `${this.state.TimeStart}`);
 
     email(to, {
         // Optional additional arguments
         cc: [], // string or array of email addresses
         bcc: '', // string or array of email addresses
-        subject: 'Resultaat controle: ' + `${this.props.route.params.Location}` + ' Datum: ' + date + '.' + month + '.' + year,
-        body: 'Dit zijn de resultaten: ' + '\n' + 'Kas ' + `${this.props.route.params.Greenhouse}` + '\n'  + `${this.state.Path}` + '\n' + 'Spint: ' + `${this.state.Spint}` + '\n' + 'Rups: ' + `${this.state.Rups}` + '\n'
-        + 'Witte Vlieg: ' + `${this.state.WitteVlieg}` + '\n' + 'Trips: ' + `${this.state.Trips}` + '\n' + 'Luis: ' + `${this.state.Luis}` + '\n' + 'Fruitmoot: ' + `${this.state.FruitMot}` + '\n'
-        + 'Kevers: ' + `${this.state.Kevers}` + '\n' + 'Fusarium: ' + `${this.state.Fusarium}` + '\n' + 'Pythium: ' + `${this.state.Pythium}` + '\n' + 'Mineer Vlieg: ' + `${this.state.MineerVlieg}` + '\n'
-        + 'Meeldauw: ' + `${this.state.Meeldauw}` + '\n' + 'Wants: ' + `${this.state.Wants}` + '\n'+ 'Kas Opmerking: ' + `${this.state.Kas}` + '\n' + 'OVerig: ' + `${this.state.Overig}` + '\n'
+        subject: 'Resultaat controle Scouten: ' + `${this.props.route.params.Location}` + ' Datum: ' + date + '.' + month + '.' + year,
+        body: 'Dit zijn de resultaten: ' + '\n' + `${this.props.route.params.Greenhouse}` + ';'  + `${this.state.Path}` + ';' + `${this.state.Spint}` + ';' + `${this.state.Rups}` + ';'
+        + `${this.state.WitteVlieg}` + ';' + `${this.state.Trips}` + ';' +  `${this.state.Luis}` + ';' + `${this.state.FruitMot}` + ';' + `${this.state.Kevers}` + ';' + `${this.state.Fusarium}` + ';' + `${this.state.Pythium}` + ';' 
+        + `${this.state.MineerVlieg}` + ';' + `${this.state.Meeldauw}` + ';' + `${this.state.Wants}` + ';'+ ';' + `${this.state.Kas}` + ';' + `${this.state.Overig}` + ';' + + date + '.' + month + '.' + year + ';' + `${this.state.Email}` + ';' + `${TotaleTijd}` + ';'
       }).catch(console.error)
 }
 

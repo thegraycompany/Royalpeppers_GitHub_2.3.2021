@@ -25,6 +25,8 @@ export class GrowMistakes extends React.Component {
       Greenhouse: `${this.props.route.params.Greenhouse}`,
       Path: `${this.props.route.params.Path}`,
       Employee: `${this.props.route.params.Employee}`,
+      Email: `${this.props.route.params.Email}`,
+      TimeStart: `${this.props.route.params.TimeStart}`,
     };
   }
 
@@ -141,7 +143,7 @@ export class GrowMistakes extends React.Component {
     this.props.navigation.navigate('GrowOverview', {Location: this.state.Location, Greenhouse: this.state.Greenhouse, Path: this.state.Path,
       Employee: this.state.Employee, KopGebroken: this.state.KopGebroken, KopVergeten: this.state.KopVergeten, StrakGedraaid: this.state.StrakGedraaid,
       TopNietGedraaid: this.state.TopNietGedraaid, VruchtOpDeGrond: this.state.VruchtOpDeGrond, BloemVruchtEraf: this.state.BloemVruchtEraf, 
-      PlaagNietGemeld: this.state.PlaagNietGemeld});
+      PlaagNietGemeld: this.state.PlaagNietGemeld, Email: this.state.Email, TimeStart: this.state.TimeStart});
   }
 
 
@@ -149,7 +151,7 @@ export class GrowMistakes extends React.Component {
     this.setState({KopGebroken: (this.state.KopGebroken + 1)})
   }
 
-  removeKG() {
+  removeKG() {Email
     if (this.state.KopGebroken >= 1 ){
     this.setState({KopGebroken: (this.state.KopGebroken - 1)})
     } else {

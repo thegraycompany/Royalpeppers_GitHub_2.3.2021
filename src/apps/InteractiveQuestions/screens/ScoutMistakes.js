@@ -57,7 +57,9 @@ export class ScoutMistakes extends React.Component {
       Location: `${this.props.route.params.Location}`,
       Greenhouse: `${this.props.route.params.Greenhouse}`,
       Path: `${this.props.route.params.Path}`,
-      Paden: `${this.props.route.params.paden}`
+      Paden: `${this.props.route.params.paden}`,
+      Email: `${this.props.route.params.Email}`,
+      TimeStart: `${this.props.route.params.TimeStart}`,
     };
   }
 
@@ -83,7 +85,24 @@ export class ScoutMistakes extends React.Component {
   }
 
   render() {
-
+    var SelecteerbarePoten = [
+      { label: 'Alle poten', value: 'Alle Poten', icon: () => <Icon.Flag size={18} color="#900" /> },
+      { label: '1', value: '1', icon: () => <Icon.Flag size={18} color="#900" /> },
+      { label: '2', value: '2', icon: () => <Icon.Flag size={18} color="#900" /> },
+      { label: '3', value: '3', icon: () => <Icon.Flag size={18} color="#900" /> },
+      { label: '4', value: '4', icon: () => <Icon.Flag size={18} color="#900" /> },
+      { label: '5', value: '5', icon: () => <Icon.Flag size={18} color="#900" /> },
+      { label: '6', value: '6', icon: () => <Icon.Flag size={18} color="#900" /> },
+      { label: '7', value: '7', icon: () => <Icon.Flag size={18} color="#900" /> },
+      { label: '8', value: '8', icon: () => <Icon.Flag size={18} color="#900" /> },
+      { label: '9', value: '9', icon: () => <Icon.Flag size={18} color="#900" /> },
+      { label: '10', value: '10', icon: () => <Icon.Flag size={18} color="#900" /> },
+      { label: '11', value: '11', icon: () => <Icon.Flag size={18} color="#900" /> },
+      { label: '12', value: '12', icon: () => <Icon.Flag size={18} color="#900" /> },
+      { label: '13', value: '13', icon: () => <Icon.Flag size={18} color="#900" /> },
+      { label: '14', value: '14', icon: () => <Icon.Flag size={18} color="#900" /> },
+      { label: '15', value: '15', icon: () => <Icon.Flag size={18} color="#900" /> },
+    ];
     const { Kas } = this.state.Kas;
     const { Overig } = this.state.Overig;
     return (
@@ -93,24 +112,7 @@ export class ScoutMistakes extends React.Component {
           <View style={styles.dropdown}>
             <Text style={styles.subTitle}>Spint</Text>
             <DropDownPicker
-              items={[
-                { label: 'Alle poten', value: 'Alle Poten', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '1', value: '1', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '2', value: '2', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '3', value: '3', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '4', value: '4', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '5', value: '5', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '6', value: '6', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '7', value: '7', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '8', value: '8', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '9', value: '9', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '10', value: '10', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '11', value: '11', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '12', value: '12', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '13', value: '13', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '14', value: '14', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '15', value: '15', icon: () => <Icon.Flag size={18} color="#900" /> },
-              ]}
+              items={SelecteerbarePoten}
 
               searchable={true}
               searchablePlaceholder="Zoek een "
@@ -153,24 +155,7 @@ export class ScoutMistakes extends React.Component {
           <View style={styles.dropdown}>
             <Text style={styles.subTitle}>Rups</Text>
             <DropDownPicker
-              items={[
-                { label: 'Alle poten', value: 'Alle Poten', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '1', value: '1', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '2', value: '2', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '3', value: '3', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '4', value: '4', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '5', value: '5', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '6', value: '6', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '7', value: '7', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '8', value: '8', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '9', value: '9', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '10', value: '10', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '11', value: '11', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '12', value: '12', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '13', value: '13', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '14', value: '14', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '15', value: '15', icon: () => <Icon.Flag size={18} color="#900" /> },
-              ]}
+              items={SelecteerbarePoten}
 
               searchable={true}
               searchablePlaceholder="Zoek een "
@@ -213,24 +198,7 @@ export class ScoutMistakes extends React.Component {
           <View style={styles.dropdown}>
             <Text style={styles.subTitle}>Witte Vlieg</Text>
             <DropDownPicker
-              items={[
-                { label: 'Alle poten', value: 'Alle Poten', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '1', value: '1', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '2', value: '2', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '3', value: '3', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '4', value: '4', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '5', value: '5', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '6', value: '6', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '7', value: '7', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '8', value: '8', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '9', value: '9', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '10', value: '10', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '11', value: '11', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '12', value: '12', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '13', value: '13', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '14', value: '14', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '15', value: '15', icon: () => <Icon.Flag size={18} color="#900" /> },
-              ]}
+              items={SelecteerbarePoten}
 
               searchable={true}
               searchablePlaceholder="Zoek een "
@@ -273,24 +241,7 @@ export class ScoutMistakes extends React.Component {
           <View style={styles.dropdown}>
             <Text style={styles.subTitle}>Trips</Text>
             <DropDownPicker
-              items={[
-                { label: 'Alle poten', value: 'Alle Poten', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '1', value: '1', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '2', value: '2', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '3', value: '3', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '4', value: '4', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '5', value: '5', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '6', value: '6', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '7', value: '7', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '8', value: '8', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '9', value: '9', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '10', value: '10', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '11', value: '11', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '12', value: '12', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '13', value: '13', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '14', value: '14', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '15', value: '15', icon: () => <Icon.Flag size={18} color="#900" /> },
-              ]}
+              items={SelecteerbarePoten}
 
               searchable={true}
               searchablePlaceholder="Zoek een "
@@ -333,24 +284,7 @@ export class ScoutMistakes extends React.Component {
           <View style={styles.dropdown}>
             <Text style={styles.subTitle}>Luis</Text>
             <DropDownPicker
-              items={[
-                { label: 'Alle poten', value: 'Alle Poten', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '1', value: '1', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '2', value: '2', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '3', value: '3', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '4', value: '4', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '5', value: '5', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '6', value: '6', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '7', value: '7', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '8', value: '8', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '9', value: '9', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '10', value: '10', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '11', value: '11', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '12', value: '12', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '13', value: '13', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '14', value: '14', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '15', value: '15', icon: () => <Icon.Flag size={18} color="#900" /> },
-              ]}
+              items={SelecteerbarePoten}
 
               searchable={true}
               searchablePlaceholder="Zoek een "
@@ -393,24 +327,7 @@ export class ScoutMistakes extends React.Component {
           <View style={styles.dropdown}>
             <Text style={styles.subTitle}>Fruit Mot</Text>
             <DropDownPicker
-              items={[
-                { label: 'Alle poten', value: 'Alle Poten', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '1', value: '1', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '2', value: '2', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '3', value: '3', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '4', value: '4', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '5', value: '5', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '6', value: '6', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '7', value: '7', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '8', value: '8', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '9', value: '9', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '10', value: '10', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '11', value: '11', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '12', value: '12', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '13', value: '13', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '14', value: '14', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '15', value: '15', icon: () => <Icon.Flag size={18} color="#900" /> },
-              ]}
+              items={SelecteerbarePoten}
 
               searchable={true}
               searchablePlaceholder="Zoek een "
@@ -453,24 +370,7 @@ export class ScoutMistakes extends React.Component {
           <View style={styles.dropdown}>
             <Text style={styles.subTitle}>Kevers</Text>
             <DropDownPicker
-              items={[
-                { label: 'Alle poten', value: 'Alle Poten', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '1', value: '1', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '2', value: '2', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '3', value: '3', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '4', value: '4', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '5', value: '5', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '6', value: '6', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '7', value: '7', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '8', value: '8', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '9', value: '9', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '10', value: '10', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '11', value: '11', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '12', value: '12', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '13', value: '13', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '14', value: '14', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '15', value: '15', icon: () => <Icon.Flag size={18} color="#900" /> },
-              ]}
+              items={SelecteerbarePoten}
 
               searchable={true}
               searchablePlaceholder="Zoek een "
@@ -513,24 +413,7 @@ export class ScoutMistakes extends React.Component {
           <View style={styles.dropdown}>
             <Text style={styles.subTitle}>Fusarium</Text>
             <DropDownPicker
-              items={[
-                { label: 'Alle poten', value: 'Alle Poten', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '1', value: '1', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '2', value: '2', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '3', value: '3', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '4', value: '4', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '5', value: '5', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '6', value: '6', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '7', value: '7', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '8', value: '8', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '9', value: '9', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '10', value: '10', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '11', value: '11', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '12', value: '12', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '13', value: '13', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '14', value: '14', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '15', value: '15', icon: () => <Icon.Flag size={18} color="#900" /> },
-              ]}
+              items={SelecteerbarePoten}
 
               searchable={true}
               searchablePlaceholder="Zoek een "
@@ -573,24 +456,7 @@ export class ScoutMistakes extends React.Component {
           <View style={styles.dropdown}>
             <Text style={styles.subTitle}>Pythium</Text>
             <DropDownPicker
-              items={[
-                { label: 'Alle poten', value: 'Alle Poten', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '1', value: '1', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '2', value: '2', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '3', value: '3', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '4', value: '4', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '5', value: '5', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '6', value: '6', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '7', value: '7', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '8', value: '8', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '9', value: '9', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '10', value: '10', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '11', value: '11', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '12', value: '12', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '13', value: '13', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '14', value: '14', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '15', value: '15', icon: () => <Icon.Flag size={18} color="#900" /> },
-              ]}
+              items={SelecteerbarePoten}
 
               searchable={true}
               searchablePlaceholder="Zoek een "
@@ -633,24 +499,7 @@ export class ScoutMistakes extends React.Component {
           <View style={styles.dropdown}>
             <Text style={styles.subTitle}>Mineer Vlieg</Text>
             <DropDownPicker
-              items={[
-                { label: 'Alle poten', value: 'Alle Poten', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '1', value: '1', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '2', value: '2', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '3', value: '3', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '4', value: '4', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '5', value: '5', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '6', value: '6', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '7', value: '7', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '8', value: '8', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '9', value: '9', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '10', value: '10', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '11', value: '11', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '12', value: '12', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '13', value: '13', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '14', value: '14', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '15', value: '15', icon: () => <Icon.Flag size={18} color="#900" /> },
-              ]}
+              items={SelecteerbarePoten}
 
               searchable={true}
               searchablePlaceholder="Zoek een "
@@ -693,24 +542,7 @@ export class ScoutMistakes extends React.Component {
           <View style={styles.dropdown}>
             <Text style={styles.subTitle}>Meeldauw</Text>
             <DropDownPicker
-              items={[
-                { label: 'Alle poten', value: 'Alle Poten', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '1', value: '1', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '2', value: '2', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '3', value: '3', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '4', value: '4', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '5', value: '5', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '6', value: '6', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '7', value: '7', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '8', value: '8', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '9', value: '9', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '10', value: '10', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '11', value: '11', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '12', value: '12', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '13', value: '13', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '14', value: '14', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '15', value: '15', icon: () => <Icon.Flag size={18} color="#900" /> },
-              ]}
+              items={SelecteerbarePoten}
 
               searchable={true}
               searchablePlaceholder="Zoek een "
@@ -754,24 +586,7 @@ export class ScoutMistakes extends React.Component {
           <View style={styles.dropdown}>
             <Text style={styles.subTitle}>Wants</Text>
             <DropDownPicker
-              items={[
-                { label: 'Alle poten', value: 'Alle Poten', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '1', value: '1', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '2', value: '2', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '3', value: '3', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '4', value: '4', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '5', value: '5', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '6', value: '6', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '7', value: '7', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '8', value: '8', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '9', value: '9', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '10', value: '10', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '11', value: '11', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '12', value: '12', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '13', value: '13', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '14', value: '14', icon: () => <Icon.Flag size={18} color="#900" /> },
-                { label: '15', value: '15', icon: () => <Icon.Flag size={18} color="#900" /> },
-              ]}
+              items={SelecteerbarePoten}
 
               searchable={true}
               searchablePlaceholder="Zoek een "
@@ -849,7 +664,7 @@ export class ScoutMistakes extends React.Component {
     this.props.navigation.navigate('ScoutOverview', {Location: this.state.Location, Greenhouse: this.state.Greenhouse, Path: this.state.Path, Kas: this.state.Kas,
       Overig: this.state.Overig, Spint: this.state.Spint, Rups: this.state.Rups, WitteVlieg: this.state.WitteVlieg, Trips: this.state.Trips, Luis: this.state.Luis,
     FruitMot: this.state.FruitMot, Kevers: this.state.Kevers, Fusarium: this.state.Fusarium, Pythium: this.state.Pythium, MineerVlieg: this.state.MineerVlieg,
-    Meeldauw: this.state.Meeldauw, Wants: this.state.Wants});
+    Meeldauw: this.state.Meeldauw, Wants: this.state.Wants, Kas: this.state.Kas, Overig: this.state.Overig, Email: this.state.Email, TimeStart: this.state.TimeStart});
   }
   onChangeKas(text) {
     this.setState({ Kas: text });

@@ -23,6 +23,8 @@ export class GrowOverview extends React.Component {
       Greenhouse: `${this.props.route.params.Greenhouse}`,
       Path: `${this.props.route.params.Path}`,
       Employee: `${this.props.route.params.Employee}`,
+      Email: `${this.props.route.params.Email}`,
+      TimeStart: `${this.props.route.params.TimeStart}`
     };
   }
 
@@ -117,14 +119,20 @@ export class GrowOverview extends React.Component {
     var date = new Date().getDate();
     var month = new Date().getMonth() + 1;
     var year = new Date().getFullYear();
+    var hours = new Date().getHours(); //To get the Current Hours
+    var min = new Date().getMinutes(); //To get the Current Minutes
+    var sec = new Date().getSeconds(); //To get the Current Seconds
+
+    var Seconds = ((hours * 3600) + (min * 60) + sec);
+    var TotaleTijd = (Seconds - `${this.state.TimeStart}`);
     email(to, {
         // Optional additional arguments
         cc: [], // string or array of email addresses
         bcc: '', // string or array of email addresses
-        subject: 'Resultaat controle: ' + `${this.props.route.params.Location}` + ' Datum: ' + date + '.' + month + '.' + year,
-        body: 'Dit zijn de resultaten: ' + '\n' + `${this.props.route.params.Greenhouse}` + '\n'  + `${this.state.Path}` + '\n' + 'Kop gebroken: ' + `${this.state.KopGebroken}` + '\n' + 'Kop Vergeten: ' + `${this.state.KopVergeten}` + '\n'
-        + 'Te strak gedraaid: ' + `${this.state.StrakGedraaid}` + '\n' + 'Top niet gedraaid: ' + `${this.state.TopNietGedraaid}` + '\n' + 'Vrucht op de grond: ' + `${this.state.VruchtOpDeGrond}` + '\n' + 'Bloem/vrucht eraf: ' + `${this.state.BloemVruchtEraf}` + '\n'
-        + 'Plaag niet gemeld: ' + `${this.state.PlaagNietGemeld}`
+        subject: 'Resultaat controle Toppen/Draaien: ' + `${this.props.route.params.Location}` + ' Datum: ' + date + '.' + month + '.' + year,
+        body: 'Dit zijn de resultaten: ' + '\n' + `${this.props.route.params.Greenhouse}` + ';' + `${this.state.Path}` + ';' + `${this.state.KopGebroken}` + ';' + `${this.state.KopVergeten}` + ';' +
+        `${this.state.StrakGedraaid}` + ';' + `${this.state.TopNietGedraaid}` + ';' + `${this.state.VruchtOpDeGrond}` + ';' + `${this.state.BloemVruchtEraf}` + ';' + `${this.state.PlaagNietGemeld}` + ';' + 
+         + date + '.' + month + '.' + year + ';' + `${this.state.Email}` + ';' + `${this.state.Employee}` + ';' + `${TotaleTijd}` + ';'
       }).catch(console.error);
     }
 
