@@ -109,7 +109,11 @@ export class ScoutMistakes extends React.Component {
       <View>
         <ScrollView>
           {/* Spint */}
-          <View style={styles.dropdown}>
+          <View style={styles.dropdown, {
+            ...(Platform !== 'android' && {
+              zIndex: 12
+            })
+          }}>
             <Text style={styles.subTitle}>Spint</Text>
             <DropDownPicker
               items={SelecteerbarePoten}
@@ -152,7 +156,11 @@ export class ScoutMistakes extends React.Component {
           </View>
 
           {/* Rups */}
-          <View style={styles.dropdown}>
+          <View style={styles.dropdown, {
+            ...(Platform !== 'android' && {
+              zIndex: 11
+            })
+          }}>
             <Text style={styles.subTitle}>Rups</Text>
             <DropDownPicker
               items={SelecteerbarePoten}
@@ -195,7 +203,11 @@ export class ScoutMistakes extends React.Component {
           </View>
 
           {/* Witte Vlieg */}
-          <View style={styles.dropdown}>
+          <View style={styles.dropdown, {
+            ...(Platform !== 'android' && {
+              zIndex: 10
+            })
+          }}>
             <Text style={styles.subTitle}>Witte Vlieg</Text>
             <DropDownPicker
               items={SelecteerbarePoten}
@@ -238,7 +250,11 @@ export class ScoutMistakes extends React.Component {
           </View>
 
           {/* Trips */}
-          <View style={styles.dropdown}>
+          <View style={styles.dropdown, {
+            ...(Platform !== 'android' && {
+              zIndex: 9
+            })
+          }}>
             <Text style={styles.subTitle}>Trips</Text>
             <DropDownPicker
               items={SelecteerbarePoten}
@@ -281,7 +297,11 @@ export class ScoutMistakes extends React.Component {
           </View>
 
           {/* Luis */}
-          <View style={styles.dropdown}>
+          <View style={styles.dropdown, {
+            ...(Platform !== 'android' && {
+              zIndex: 8
+            })
+          }}>
             <Text style={styles.subTitle}>Luis</Text>
             <DropDownPicker
               items={SelecteerbarePoten}
@@ -324,7 +344,11 @@ export class ScoutMistakes extends React.Component {
           </View>
 
           {/* Fruit Mot */}
-          <View style={styles.dropdown}>
+          <View style={styles.dropdown, {
+            ...(Platform !== 'android' && {
+              zIndex: 7
+            })
+          }}>
             <Text style={styles.subTitle}>Fruit Mot</Text>
             <DropDownPicker
               items={SelecteerbarePoten}
@@ -367,7 +391,11 @@ export class ScoutMistakes extends React.Component {
           </View>
 
           {/* Kevers */}
-          <View style={styles.dropdown}>
+          <View style={styles.dropdown, {
+            ...(Platform !== 'android' && {
+              zIndex: 6
+            })
+          }}>
             <Text style={styles.subTitle}>Kevers</Text>
             <DropDownPicker
               items={SelecteerbarePoten}
@@ -410,7 +438,11 @@ export class ScoutMistakes extends React.Component {
           </View>
 
           {/* Fusarium */}
-          <View style={styles.dropdown}>
+          <View style={styles.dropdown, {
+            ...(Platform !== 'android' && {
+              zIndex: 5
+            })
+          }}>
             <Text style={styles.subTitle}>Fusarium</Text>
             <DropDownPicker
               items={SelecteerbarePoten}
@@ -453,7 +485,11 @@ export class ScoutMistakes extends React.Component {
           </View>
 
           {/* Pythium */}
-          <View style={styles.dropdown}>
+          <View style={styles.dropdown, {
+            ...(Platform !== 'android' && {
+              zIndex: 4
+            })
+          }}>
             <Text style={styles.subTitle}>Pythium</Text>
             <DropDownPicker
               items={SelecteerbarePoten}
@@ -496,7 +532,11 @@ export class ScoutMistakes extends React.Component {
           </View>
 
           {/* Mineer Vlieg */}
-          <View style={styles.dropdown}>
+          <View style={styles.dropdown, {
+            ...(Platform !== 'android' && {
+              zIndex: 3
+            })
+          }}>
             <Text style={styles.subTitle}>Mineer Vlieg</Text>
             <DropDownPicker
               items={SelecteerbarePoten}
@@ -539,7 +579,11 @@ export class ScoutMistakes extends React.Component {
           </View>
 
           {/* Meeldauw */}
-          <View style={styles.dropdown}>
+          <View style={styles.dropdown, {
+            ...(Platform !== 'android' && {
+              zIndex: 2
+            })
+          }}>
             <Text style={styles.subTitle}>Meeldauw</Text>
             <DropDownPicker
               items={SelecteerbarePoten}
@@ -583,7 +627,11 @@ export class ScoutMistakes extends React.Component {
 
 
           {/* Wants */}
-          <View style={styles.dropdown}>
+          <View style={styles.dropdown, {
+            ...(Platform !== 'android' && {
+              zIndex: 1
+            })
+          }}>
             <Text style={styles.subTitle}>Wants</Text>
             <DropDownPicker
               items={SelecteerbarePoten}
