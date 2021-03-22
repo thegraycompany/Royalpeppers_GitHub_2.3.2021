@@ -1,10 +1,9 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
-import { Button, Image, Text, TextInput, TouchableOpacity, View, StyleSheet } from 'react-native';
+import { Alert, Button, Image, Text, TextInput, TouchableOpacity, View, StyleSheet, Platform, ScrollView } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { Flag, User } from "react-native-feather";
 import { getRealmApp } from "../../../../getRealmApp";
-import { Alert } from "react-native";
 
 const app = getRealmApp();
 const eteu = ({ children }) => {
@@ -260,127 +259,135 @@ export class ScoutScreen extends React.Component {
 
 
     return (
+      <ScrollView style={styles.container}>
       <View>
         <Text style={styles.title}>
           SCOUTEN
-      </Text>
+        </Text>
+          {/* Locatie */}
+          <View style={styles.dropdown, {
+            ...(Platform !== 'android' && {
+              zIndex: 10
+            })
+          }}>
+            <Text style={styles.subtitle}>Locatie</Text>
+            <DropDownPicker
+              items={locaties}
+              defaultValue={this.state.Location}
+              containerStyle={{ height: 40 }}
+              style={{ backgroundColor: '#fafafa' }}
+              itemStyle={{
+                justifyContent: 'flex-start'
+              }}
+              labelStyle={{
+                fontSize: 16,
+                textAlign: 'left',
+                color: '#000'
+              }}
+              dropDownStyle={{ backgroundColor: '#fafafa', minHeight: 230 }}
 
-        <View style={styles.dropdown, {
-          ...(Platform !== 'android' && {
-            zIndex: 10
-          })
-        }}>
-          <Text style={styles.subtitle}>Locatie</Text>
-          <DropDownPicker
-            items={locaties}
-            defaultValue={this.state.Location}
-            containerStyle={{ height: 40 }}
-            style={{ backgroundColor: '#fafafa' }}
-            itemStyle={{
-              justifyContent: 'flex-start'
-            }}
-            labelStyle={{
-              fontSize: 16,
-              textAlign: 'left',
-              color: '#000'
-            }}
-            dropDownStyle={{ backgroundColor: '#fafafa', minHeight: 200 }}
+              isVisible={this.state.isVisibleLocation}
+              onOpen={() => this.changeVisibility({
+                isVisibleLocation: true
+              })}
+              onClose={() => this.setState({
+                isVisibleLocation: false
+              })}
+              onChangeItem={item => this.setState({
+                Location: item.value,
+                Greenhouse: null,
+                Path: null,
+                Employee: null,
+                Color: null,
+              })}
+            />
+          </View>
+          {/* Greenhouse */}
+          <View style={styles.dropdown, {
+            ...(Platform !== 'android' && {
+              zIndex: 9
+            })
+          }}>
+            <Text style={styles.subtitle}>Kas</Text>
+            <DropDownPicker
+              items={kassen}
+              defaultValue={this.state.Greenhouse}
+              containerStyle={{ height: 40 }}
+              style={{ backgroundColor: '#fafafa' }}
+              itemStyle={{
+                justifyContent: 'flex-start'
+              }}
+              labelStyle={{
+                fontSize: 16,
+                textAlign: 'left',
+                color: '#000'
+              }}
+              dropDownStyle={{ backgroundColor: '#fafafa' }}
 
-            isVisible={this.state.isVisibleLocation}
-            onOpen={() => this.changeVisibility({
-              isVisibleLocation: true
-            })}
-            onClose={() => this.setState({
-              isVisibleLocation: false
-            })}
-            onChangeItem={item => this.setState({
-              Location: item.value,
-              Greenhouse: null,
-              Path: null
-            })}
-          />
-        </View>
+              isVisible={this.state.isVisibleGreenhouse}
+              onOpen={() => this.changeVisibility({
+                isVisibleGreenhouse: true
+              })}
+              onClose={() => this.setState({
+                isVisibleGreenhouse: false
+              })}
+              onChangeItem={item => this.setState({
+                Greenhouse: item.value,
+                Path: null,
+                Employee: null,
+                Color: null,
+              })}
+            />
+          </View>
 
-        <View style={styles.dropdown, {
-          ...(Platform !== 'android' && {
-            zIndex: 9
-          })
-        }}>
-          <Text style={styles.subtitle}>Kas</Text>
-          <DropDownPicker
-            items={kassen}
-            defaultValue={this.state.Greenhouse}
-            containerStyle={{ height: 40 }}
-            style={{ backgroundColor: '#fafafa' }}
-            itemStyle={{
-              justifyContent: 'flex-start'
-            }}
-            labelStyle={{
-              fontSize: 16,
-              textAlign: 'left',
-              color: '#000'
-            }}
-            dropDownStyle={{ backgroundColor: '#fafafa' }}
+          {/* Pad */}
+          <View style={styles.dropdown, {
+            ...(Platform !== 'android' && {
+              zIndex: 8
+            })
+          }}>
+            <Text style={styles.subtitle}>Pad</Text>
+            <DropDownPicker
+              items={paden}
+              defaultValue={this.state.Path}
+              searchable={true}
+              searchablePlaceholder="Zoek een pad"
+              searchablePlaceholderTextColor="gray"
+              searchableError={() => <Text>Pad niet gevonden</Text>}
+              searchableStyle={{ backgroundColor: '#dfdfdf' }}
+              containerStyle={{ height: 40 }}
+              style={{ backgroundColor: '#fafafa' }}
+              itemStyle={{
+                justifyContent: 'flex-start'
+              }}
+              labelStyle={{
+                fontSize: 16,
+                textAlign: 'left',
+                color: '#000'
+              }}
+              dropDownStyle={{ backgroundColor: '#fafafa', minHeight: 300 }}
 
-            isVisible={this.state.isVisibleGreenhouse}
-            onOpen={() => this.changeVisibility({
-              isVisibleGreenhouse: true
-            })}
-            onClose={() => this.setState({
-              isVisibleGreenhouse: false
-            })}
-            onChangeItem={item => this.setState({
-              Greenhouse: item.value,
-              Path: null
-            })}
-          />
-        </View>
-
-        <View style={styles.dropdown, {
-          ...(Platform !== 'android' && {
-            zIndex: 8
-          })
-        }}>
-          <Text style={styles.subtitle}>Pad</Text>
-          <DropDownPicker
-            items={paden}
-            defaultValue={this.state.Path}
-            searchable={true}
-            searchablePlaceholder="Zoek een pad"
-            searchablePlaceholderTextColor="gray"
-            searchableError={() => <Text>Not Found</Text>}
-            searchableStyle={{ backgroundColor: '#dfdfdf' }}
-            containerStyle={{ height: 40 }}
-            style={{ backgroundColor: '#fafafa' }}
-            itemStyle={{
-              justifyContent: 'flex-start'
-            }}
-            labelStyle={{
-              fontSize: 16,
-              textAlign: 'left',
-              color: '#000'
-            }}
-            dropDownStyle={{ backgroundColor: '#fafafa' }}
-
-            isVisible={this.state.isVisiblePath}
-            onOpen={() => this.changeVisibility({
-              isVisiblePath: true
-            })}
-            onClose={() => this.setState({
-              isVisiblePath: false
-            })}
-            onChangeItem={item => this.setState({
-              Path: item.value,
-            })}
-          />
-        </View>
-
+              isVisible={this.state.isVisiblePath}
+              onOpen={() => this.changeVisibility({
+                isVisiblePath: true
+              })}
+              onClose={() => this.setState({
+                isVisiblePath: false
+              })}
+              onChangeItem={item => this.setState({
+                Path: item.value,
+                Employee: null,
+                Color: null
+              })}
+            />
+          </View>
         <View style={{ paddingTop: 50 }}>
           <TouchableOpacity onPress={this.eventHandlers.navigateToScoutMistakes}>
             <Text style={styles.title}>START CONTROLE</Text>
           </TouchableOpacity>
         </View>
       </View>
+      </ScrollView>
     );
   }
 

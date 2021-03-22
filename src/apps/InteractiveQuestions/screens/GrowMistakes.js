@@ -125,7 +125,7 @@ export class GrowMistakes extends React.Component {
             </View>
           </View>
 
-          
+
         <View style={{paddingTop: 50}}>
         <TouchableOpacity onPress={this.eventHandlers.navigateToGrowOverview}>
           <Text style={styles.title}>NAAR OVERZICHT</Text>
@@ -142,7 +142,7 @@ export class GrowMistakes extends React.Component {
   navigateToGrowOverview() {
     this.props.navigation.navigate('GrowOverview', {Location: this.state.Location, Greenhouse: this.state.Greenhouse, Path: this.state.Path,
       Employee: this.state.Employee, KopGebroken: this.state.KopGebroken, KopVergeten: this.state.KopVergeten, StrakGedraaid: this.state.StrakGedraaid,
-      TopNietGedraaid: this.state.TopNietGedraaid, VruchtOpDeGrond: this.state.VruchtOpDeGrond, BloemVruchtEraf: this.state.BloemVruchtEraf, 
+      TopNietGedraaid: this.state.TopNietGedraaid, VruchtOpDeGrond: this.state.VruchtOpDeGrond, BloemVruchtEraf: this.state.BloemVruchtEraf,
       PlaagNietGemeld: this.state.PlaagNietGemeld, Email: this.state.Email, TimeStart: this.state.TimeStart});
   }
 
@@ -194,7 +194,7 @@ export class GrowMistakes extends React.Component {
       console.log("spint staat op 0");
     }
   }
-  
+
   addVOG() {
     this.setState({VruchtOpDeGrond: (this.state.VruchtOpDeGrond + 1)})
   }
@@ -234,10 +234,10 @@ export class GrowMistakes extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row", 
+    flexDirection: "row",
     alignItems: "center",
-    paddingLeft: 20, 
-    borderBottomWidth: 2, 
+    paddingLeft: 20,
+    borderBottomWidth: 2,
     borderColor: 'green',
     paddingBottom: 10,
     paddingTop: 10,
@@ -252,7 +252,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: 'row',
     position: "absolute",
-    paddingLeft: 210,
+    ...Platform.select({
+      ios: {
+        paddingLeft: 240
+      },
+      android: {
+        paddingLeft: 210
+      },
+      default: {
+        paddingLeft: 210
+      }
+    })
   },
   title: {
     textAlign: 'center',
@@ -264,6 +274,16 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   subTitle: {
-    fontSize: 24,
+    ...Platform.select({
+      ios: {
+        fontSize: 18,
+      },
+      android: {
+        fontSize: 24,
+      },
+      default: {
+        fontSize: 18,
+      }
+    })
   }
 });

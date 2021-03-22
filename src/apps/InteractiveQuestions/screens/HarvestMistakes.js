@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Image, Text, TextInput, TouchableOpacity, View, StyleSheet } from 'react-native';
+import { Button, Dimensions, Image, Text, TextInput, TouchableOpacity, View, StyleSheet } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 import * as Icon from "react-native-feather";
 
@@ -9,6 +9,7 @@ export class HarvestMistakes extends React.Component {
   };
 
   constructor(props) {
+    let windowWidth = Dimensions.get('window').width;
     super(props);
     this.state = {
       Sneetje: 0,
@@ -31,7 +32,7 @@ export class HarvestMistakes extends React.Component {
   }
 
   render() {
-    const { Overig } = this.state.Overig;    
+    const { Overig } = this.state.Overig;
     return (
       <View>
         <View style={styles.container}>
@@ -137,7 +138,7 @@ export class HarvestMistakes extends React.Component {
     this.setState({ Overig: text });
   }
 
-  navigateToHarvestOverview() {    
+  navigateToHarvestOverview() {
     this.props.navigation.navigate('HarvestOverview', {Location: this.state.Location, Greenhouse: this.state.Greenhouse, Path: this.state.Path,
       Employee: this.state.Employee, Color: this.state.Color, Sneetje: this.state.Sneetje, Buts: this.state.Buts, TeBont: this.state.TeBont,
       RafeligeSteel: this.state.RafeligeSteel, Blad: this.state.Blad, VruchtVergeten: this.state.VruchtVergeten,
@@ -249,7 +250,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: 'row',
     position: "absolute",
-    paddingLeft: 210,
+    ...Platform.select({
+      ios: {
+        paddingLeft: 240
+      },
+      android: {
+        paddingLeft: 210
+      },
+      default: {
+        paddingLeft: 210
+      }
+    })
   },
   title: {
     textAlign: 'center',
@@ -261,6 +272,16 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   subTitle: {
-    fontSize: 28,
+    ...Platform.select({
+      ios: {
+        fontSize: 22,
+      },
+      android: {
+        fontSize: 24,
+      },
+      default: {
+        fontSize: 18,
+      }
+    })
   }
 });

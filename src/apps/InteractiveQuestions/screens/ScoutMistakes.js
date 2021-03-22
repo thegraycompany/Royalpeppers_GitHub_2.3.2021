@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View, Platform} from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import * as Icon from "react-native-feather";
 import { NavigationInjectedProps } from 'react-navigation';
@@ -106,11 +106,11 @@ export class ScoutMistakes extends React.Component {
     const { Kas } = this.state.Kas;
     const { Overig } = this.state.Overig;
     return (
+      <ScrollView style={styles.generalContainer}>
       <View>
-        <ScrollView>
           {/* Spint */}
           <View style={styles.dropdown, {
-            ...(Platform !== 'android' && {
+            ...(Platform.OS !== 'android' && {
               zIndex: 12
             })
           }}>
@@ -157,7 +157,7 @@ export class ScoutMistakes extends React.Component {
 
           {/* Rups */}
           <View style={styles.dropdown, {
-            ...(Platform !== 'android' && {
+            ...(Platform.OS !== 'android' && {
               zIndex: 11
             })
           }}>
@@ -204,7 +204,7 @@ export class ScoutMistakes extends React.Component {
 
           {/* Witte Vlieg */}
           <View style={styles.dropdown, {
-            ...(Platform !== 'android' && {
+            ...(Platform.OS !== 'android' && {
               zIndex: 10
             })
           }}>
@@ -251,7 +251,7 @@ export class ScoutMistakes extends React.Component {
 
           {/* Trips */}
           <View style={styles.dropdown, {
-            ...(Platform !== 'android' && {
+            ...(Platform.OS !== 'android' && {
               zIndex: 9
             })
           }}>
@@ -298,7 +298,7 @@ export class ScoutMistakes extends React.Component {
 
           {/* Luis */}
           <View style={styles.dropdown, {
-            ...(Platform !== 'android' && {
+            ...(Platform.OS !== 'android' && {
               zIndex: 8
             })
           }}>
@@ -345,7 +345,7 @@ export class ScoutMistakes extends React.Component {
 
           {/* Fruit Mot */}
           <View style={styles.dropdown, {
-            ...(Platform !== 'android' && {
+            ...(Platform.OS !== 'android' && {
               zIndex: 7
             })
           }}>
@@ -392,7 +392,7 @@ export class ScoutMistakes extends React.Component {
 
           {/* Kevers */}
           <View style={styles.dropdown, {
-            ...(Platform !== 'android' && {
+            ...(Platform.OS !== 'android' && {
               zIndex: 6
             })
           }}>
@@ -439,7 +439,7 @@ export class ScoutMistakes extends React.Component {
 
           {/* Fusarium */}
           <View style={styles.dropdown, {
-            ...(Platform !== 'android' && {
+            ...(Platform.OS !== 'android' && {
               zIndex: 5
             })
           }}>
@@ -486,7 +486,7 @@ export class ScoutMistakes extends React.Component {
 
           {/* Pythium */}
           <View style={styles.dropdown, {
-            ...(Platform !== 'android' && {
+            ...(Platform.OS !== 'android' && {
               zIndex: 4
             })
           }}>
@@ -533,7 +533,7 @@ export class ScoutMistakes extends React.Component {
 
           {/* Mineer Vlieg */}
           <View style={styles.dropdown, {
-            ...(Platform !== 'android' && {
+            ...(Platform.OS !== 'android' && {
               zIndex: 3
             })
           }}>
@@ -580,7 +580,7 @@ export class ScoutMistakes extends React.Component {
 
           {/* Meeldauw */}
           <View style={styles.dropdown, {
-            ...(Platform !== 'android' && {
+            ...(Platform.OS !== 'android' && {
               zIndex: 2
             })
           }}>
@@ -628,7 +628,7 @@ export class ScoutMistakes extends React.Component {
 
           {/* Wants */}
           <View style={styles.dropdown, {
-            ...(Platform !== 'android' && {
+            ...(Platform.OS !== 'android' && {
               zIndex: 1
             })
           }}>
@@ -704,8 +704,8 @@ export class ScoutMistakes extends React.Component {
               <Text style={styles.title}>NAAR OVERZICHT</Text>
             </TouchableOpacity>
           </View>
-        </ScrollView>
-      </View>
+          </View>
+      </ScrollView>
     );
   }
   navigateToScoutOverview() {
@@ -724,6 +724,10 @@ export class ScoutMistakes extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  generalContainer: {
+    marginHorizontal: 16,
+    borderBottomWidth: 1,
+  },
   container: {
     flexDirection: "row",
     alignItems: "center",

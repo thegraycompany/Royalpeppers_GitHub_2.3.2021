@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>rn.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>864904F5B94336C0B34185D9CDF009A8C7B21FCE</string>
+				<key>dateExpires</key>
+				<string>18/03/2022</string>
+				<key>type</key>
+				<string>Apple Development</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>X56RPP4J74.Greenhouse-Excellence-IOS</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>X56RPP4J74</string>
+				<key>get-task-allow</key>
+				<true/>
+				<key>keychain-access-groups</key>
+				<array>
+					<string>X56RPP4J74.Greenhouse-Excellence-IOS</string>
+				</array>
+			</dict>
+			<key>name</key>
+			<string>Greenhouse-Excellence.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>d7bfd58d-d9cd-4e4a-bd61-96fa571cdba8</string>
+				<key>name</key>
+				<string>iOS Team Provisioning Profile: Greenhouse-Excellence-IOS</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>X56RPP4J74</string>
+				<key>name</key>
+				<string>Kevin van den Berge</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

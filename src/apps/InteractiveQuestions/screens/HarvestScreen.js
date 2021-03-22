@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, ScrollView, Text, View } from 'react-native';
+import { Alert, StyleSheet, ScrollView, Text, View, Platform } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Award, Flag, User } from "react-native-feather";
 import { NavigationInjectedProps } from 'react-navigation';
-import { Alert } from 'react-native';
+
 
 export class HarvestScreen extends React.Component {
   eventHandlers = {
@@ -1061,7 +1061,7 @@ export class HarvestScreen extends React.Component {
 
 
     return (
-      <ScrollView>
+      <ScrollView style={styles.container}>
         <View>
           <Text style={styles.title}>
             OOGSTEN
@@ -1069,7 +1069,7 @@ export class HarvestScreen extends React.Component {
 
           {/* Locatie */}
           <View style={styles.dropdown, {
-            ...(Platform !== 'android' && {
+            ...(Platform.OS !== 'android' && {
               zIndex: 10
             })
           }}>
@@ -1087,7 +1087,7 @@ export class HarvestScreen extends React.Component {
                 textAlign: 'left',
                 color: '#000'
               }}
-              dropDownStyle={{ backgroundColor: '#fafafa', minHeight: 200 }}
+              dropDownStyle={{ backgroundColor: '#fafafa', minHeight: 230 }}
 
               isVisible={this.state.isVisibleLocation}
               onOpen={() => this.changeVisibility({
@@ -1107,7 +1107,7 @@ export class HarvestScreen extends React.Component {
           </View>
           {/* Greenhouse */}
           <View style={styles.dropdown, {
-            ...(Platform !== 'android' && {
+            ...(Platform.OS !== 'android' && {
               zIndex: 9
             })
           }}>
@@ -1144,7 +1144,7 @@ export class HarvestScreen extends React.Component {
           </View>
           {/* Pad */}
           <View style={styles.dropdown, {
-            ...(Platform !== 'android' && {
+            ...(Platform.OS !== 'android' && {
               zIndex: 8
             })
           }}>
@@ -1167,7 +1167,7 @@ export class HarvestScreen extends React.Component {
                 textAlign: 'left',
                 color: '#000'
               }}
-              dropDownStyle={{ backgroundColor: '#fafafa' }}
+              dropDownStyle={{ backgroundColor: '#fafafa', minHeight: 300 }}
 
               isVisible={this.state.isVisiblePath}
               onOpen={() => this.changeVisibility({
@@ -1185,7 +1185,7 @@ export class HarvestScreen extends React.Component {
           </View>
           {/* Medewerker */}
           <View style={styles.dropdown, {
-            ...(Platform !== 'android' && {
+            ...(Platform.OS !== 'android' && {
               zIndex: 7
             })
           }}>
@@ -1208,7 +1208,7 @@ export class HarvestScreen extends React.Component {
                 textAlign: 'left',
                 color: '#000'
               }}
-              dropDownStyle={{ backgroundColor: '#fafafa' }}
+              dropDownStyle={{ backgroundColor: '#fafafa', minHeight: 300 }}
 
               isVisible={this.state.isVisibleEmployee}
               onOpen={() => this.changeVisibility({
@@ -1225,7 +1225,7 @@ export class HarvestScreen extends React.Component {
           </View>
           {/* Kleur */}
           <View style={styles.dropdown, {
-            ...(Platform !== 'android' && {
+            ...(Platform.OS !== 'android' && {
               zIndex: 6
             })
           }}>
@@ -1248,7 +1248,7 @@ export class HarvestScreen extends React.Component {
                 textAlign: 'left',
                 color: '#000'
               }}
-              dropDownStyle={{ backgroundColor: '#fafafa' }}
+              dropDownStyle={{ backgroundColor: '#fafafa', minHeight: 180 }}
 
               isVisible={this.state.isVisibleColor}
               onOpen={() => this.changeVisibility({
@@ -1310,6 +1310,16 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   subtitle: {
-    fontSize: 24,
+    ...Platform.select({
+      ios: {
+        fontSize: 18,
+      },
+      android: {
+        fontSize: 24,
+      },
+      default: {
+        fontSize: 18,
+      }
+    })
   },
 });
