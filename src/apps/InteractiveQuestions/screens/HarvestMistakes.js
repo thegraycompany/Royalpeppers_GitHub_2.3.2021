@@ -9,7 +9,7 @@ export class HarvestMistakes extends React.Component {
   };
 
   constructor(props) {
-    let windowWidth = Dimensions.get('window').width;
+    global.windowWidth = Dimensions.get('window').width;
     super(props);
     this.state = {
       Sneetje: 0,
@@ -252,10 +252,10 @@ const styles = StyleSheet.create({
     position: "absolute",
     ...Platform.select({
       ios: {
-        paddingLeft: 240
+        paddingLeft: (global.windowWidth / 2)
       },
       android: {
-        paddingLeft: 210
+        paddingLeft: (global.windowWidth / 2)
       },
       default: {
         paddingLeft: 210

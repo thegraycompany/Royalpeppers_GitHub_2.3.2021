@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Image, Text, TextInput, TouchableOpacity, View, StyleSheet } from 'react-native';
+import { Button, Dimensions, Image, Text, TextInput, TouchableOpacity, View, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import email from 'react-native-email'
 
@@ -11,6 +11,7 @@ export class HarvestOverview extends React.Component {
   };
 
   constructor(props) {
+    global.windowWidth = Dimensions.get('window').width;
     super(props);
     this.state = {
       Sneetje: `${this.props.route.params.Sneetje}`,
@@ -154,7 +155,7 @@ const styles = StyleSheet.create({
   },
   waarde: {
     position: "absolute",
-    paddingLeft: 350,
+    paddingLeft: (global.windowWidth / 1.2),
     fontSize: 24,
   }
 });

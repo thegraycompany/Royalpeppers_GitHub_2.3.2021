@@ -608,7 +608,7 @@ export class GrowScreen extends React.Component {
             Toppen/Draaien
         </Text>
             {/* Locatie */}
-            <View style={styles.dropdown, {
+            <View style={{ paddingBottom: 20,
               ...(Platform.OS !== 'android' && {
                 zIndex: 10
               })
@@ -646,7 +646,7 @@ export class GrowScreen extends React.Component {
               />
             </View>
             {/* Greenhouse */}
-            <View style={styles.dropdown, {
+            <View style={{ paddingBottom: 20,
               ...(Platform.OS !== 'android' && {
                 zIndex: 9
               })
@@ -683,7 +683,7 @@ export class GrowScreen extends React.Component {
               />
             </View>
             {/* Pad */}
-            <View style={styles.dropdown, {
+            <View style={{paddingBottom: 20,
               ...(Platform.OS !== 'android' && {
                 zIndex: 8
               })
@@ -724,7 +724,7 @@ export class GrowScreen extends React.Component {
               />
             </View>
             {/* Medewerker */}
-            <View style={styles.dropdown, {
+            <View style={{paddingBottom: 100,
               ...(Platform.OS !== 'android' && {
                 zIndex: 7
               })

@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
   },
   waarde: {
     position: "absolute",
-    paddingLeft: 350,
+    paddingLeft: (global.windowWidth / 1.2),
     fontSize: 24,
   }
 });

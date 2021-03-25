@@ -739,7 +739,7 @@ export class HarvestScreen extends React.Component {
             />
           </View>
           {/* Kleur */}
-          <View style={{ paddingBottom: 30,
+          <View style={{ paddingBottom: 50,
             ...(Platform.OS !== 'android' && {
               zIndex: 6
             })

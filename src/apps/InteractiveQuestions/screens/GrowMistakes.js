@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Image, Text, TextInput, TouchableOpacity, View, StyleSheet } from 'react-native';
+import { Button, Dimensions, Image, Text, TextInput, TouchableOpacity, View, StyleSheet } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 import * as Icon from "react-native-feather";
 
@@ -254,10 +254,10 @@ const styles = StyleSheet.create({
     position: "absolute",
     ...Platform.select({
       ios: {
-        paddingLeft: 240
+        paddingLeft: (global.windowWidth / 1.8)
       },
       android: {
-        paddingLeft: 210
+        paddingLeft: (global.windowWidth / 1.8)
       },
       default: {
         paddingLeft: 210
