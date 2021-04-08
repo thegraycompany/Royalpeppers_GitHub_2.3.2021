@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, TextInput, Button, Alert } from "react-native";
+import { View, Text, TextInput, Button, Alert, AsyncStorage } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useAuth } from "../providers/AuthProvider";
 import styles from "../stylesheet";
@@ -63,9 +63,6 @@ export function WelcomeView({ navigation }) {
       <TouchableOpacity onPress={onPressSignIn}>
           <Text style={styles.title}>INLOGGEN</Text>
       </TouchableOpacity>
-{/*       
-      <Button onPress={onPressSignIn} title="Sign In"  style={styles.subTitle}/>
-      <Button onPress={onPressSignUp} title="Sign Up" style={styles.subTitle}/> */}
     </View>
   );
 }

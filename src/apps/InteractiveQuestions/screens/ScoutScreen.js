@@ -55,7 +55,7 @@ export class ScoutScreen extends React.Component {
       var locaties = [{ label: 'Log opnieuw in', value: 'Log opnieuw in', icon: () => <Flag size={18} color="#000" /> },];
     } else if (this.state.email == "patrick@royalpeppers.nl" || this.state.email == "peter@royalpeppers.nl" ||
       this.state.email == "ronald@royalpeppers.nl" || this.state.email == "derk@royalpeppers.nl" || this.state.email == "arnoud@royalpeppers.nl"
-      || this.state.email == "dianaL@royalpeppers.nl" || this.state.email == "Richard@royalpeppers.nl") {
+      || this.state.email == "dianaL@royalpeppers.nl" || this.state.email == "Richard@royalpeppers.nl" || this.state.email == "joanna@royalpeppers.nl") {
       var locaties = [{ label: 'Rilland', value: 'Rilland', icon: () => <Flag size={18} color="#000" /> },
       { label: 'Warmoeziersweg', value: 'Warmoeziersweg', icon: () => <Flag size={18} color="#000" />, hidden: true },
       { label: 'Anthony Lionweg', value: 'Anthony Lionweg', icon: () => <Flag size={18} color="#000" /> },
@@ -81,7 +81,10 @@ export class ScoutScreen extends React.Component {
       var locaties = [{ label: 'Waddinxveen', value: 'Waddinxveen', icon: () => <Flag size={18} color="#000" />, },];
     } else if (this.state.email == "recep@royalpeppers.nl") {
       var locaties = [{ label: 'Waddinxveen', value: 'Waddinxveen', icon: () => <Flag size={18} color="#000" />, },];
+    } else if (this.state.email == "harold@royalpeppers.nl"){
+      var locaties = [{ label: 'Warmoeziersweg', value: 'Warmoeziersweg', icon: () => <Flag size={18} color="#000" />,}];
     }
+    
     if (this.state.Location == "Rilland") {
       var kassen = [{ label: '1R', value: '1R', icon: () => <Flag size={18} color="#000" /> },
       { label: '2R', value: '2R', icon: () => <Flag size={18} color="#000" /> },];

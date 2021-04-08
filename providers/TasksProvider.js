@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import Realm from "realm";
-import { Task } from "../schemas";
+import { Task, EmployeeTable} from "../schemas";
 import { useAuth } from "./AuthProvider";
 
 const TasksContext = React.createContext(null);
@@ -15,6 +15,7 @@ const TasksProvider = ({ children, projectPartition }) => {
   const realmRef = useRef(null);
 
   useEffect(() => {
+    console.log("ProjectPartition: " + projectPartition);
     const config = {
       sync: {
         user: user,
@@ -27,6 +28,7 @@ const TasksProvider = ({ children, projectPartition }) => {
 
       const syncTasks = projectRealm.objects("Task");
       let sortedTasks = syncTasks.sorted("name");
+      console.log(sortedTasks);
       setTasks([...sortedTasks]);
       sortedTasks.addListener(() => {
         setTasks([...sortedTasks]);

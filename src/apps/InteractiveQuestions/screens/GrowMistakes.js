@@ -16,6 +16,7 @@ export class GrowMistakes extends React.Component {
       KopVergeten: 0,
       StrakGedraaid: 0,
       TopNietGedraaid: 0,
+      TeKortGetopt: 0,
       VruchtOpDeGrond: 0,
       BloemVruchtEraf: 0,
       PlaagNietGemeld: 0,
@@ -87,6 +88,19 @@ export class GrowMistakes extends React.Component {
           </View>
 
           <View style={styles.container}>
+            <Text style={styles.subTitle}>Te kort getopt</Text>
+            <View style={styles.positionCount}>
+            <Text style={styles.count}>{this.state.TeKortGetopt}</Text>
+            <TouchableOpacity onPress={() => this.removeTeKortGetopt()} style={{paddingLeft: 10}}>
+              <Icon.MinusCircle stroke="green" fill="#fff" width={50} height={50} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => this.addTeKortGetopt()} style={{paddingLeft: 10}}>
+              <Icon.PlusCircle stroke="green" fill="#fff" width={50} height={50} />
+            </TouchableOpacity>
+            </View>
+          </View>
+
+          <View style={styles.container}>
             <Text style={styles.subTitle}>Vrucht op de grond</Text>
             <View style={styles.positionCount}>
               <Text style={styles.count}>{this.state.VruchtOpDeGrond}</Text>
@@ -142,8 +156,21 @@ export class GrowMistakes extends React.Component {
   navigateToGrowOverview() {
     this.props.navigation.navigate('GrowOverview', {Location: this.state.Location, Greenhouse: this.state.Greenhouse, Path: this.state.Path,
       Employee: this.state.Employee, KopGebroken: this.state.KopGebroken, KopVergeten: this.state.KopVergeten, StrakGedraaid: this.state.StrakGedraaid,
-      TopNietGedraaid: this.state.TopNietGedraaid, VruchtOpDeGrond: this.state.VruchtOpDeGrond, BloemVruchtEraf: this.state.BloemVruchtEraf,
+      TopNietGedraaid: this.state.TopNietGedraaid, TeKortGetopt: this.state.TeKortGetopt, VruchtOpDeGrond: this.state.VruchtOpDeGrond, BloemVruchtEraf: this.state.BloemVruchtEraf,
       PlaagNietGemeld: this.state.PlaagNietGemeld, Email: this.state.Email, TimeStart: this.state.TimeStart});
+  }
+
+
+  addTeKortGetopt() {
+    this.setState({TeKortGetopt: (this.state.TeKortGetopt + 1)})
+  }
+
+  removeTeKortGetopt() {
+    if (this.state.TeKortGetopt >= 1 ){
+    this.setState({TeKortGetopt: (this.state.TeKortGetopt - 1)})
+    } else {
+      console.log("spint staat op 0");
+    }
   }
 
 
@@ -151,7 +178,7 @@ export class GrowMistakes extends React.Component {
     this.setState({KopGebroken: (this.state.KopGebroken + 1)})
   }
 
-  removeKG() {Email
+  removeKG() {
     if (this.state.KopGebroken >= 1 ){
     this.setState({KopGebroken: (this.state.KopGebroken - 1)})
     } else {
@@ -257,7 +284,7 @@ const styles = StyleSheet.create({
         paddingLeft: (global.windowWidth / 1.8)
       },
       android: {
-        paddingLeft: (global.windowWidth / 1.8)
+        paddingLeft: 210
       },
       default: {
         paddingLeft: 210

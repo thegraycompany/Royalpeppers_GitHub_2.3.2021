@@ -58,7 +58,7 @@ export class HarvestScreen extends React.Component {
       var locaties = [{ label: 'Log opnieuw in', value: 'Log opnieuw in', icon: () => <Flag size={18} color="#000" /> },];
     } else if (this.state.email == "patrick@royalpeppers.nl" || this.state.email == "peter@royalpeppers.nl" ||
       this.state.email == "ronald@royalpeppers.nl" || this.state.email == "derk@royalpeppers.nl" || this.state.email == "arnoud@royalpeppers.nl"
-      || this.state.email == "dianaL@royalpeppers.nl" || this.state.email == "Richard@royalpeppers.nl") {
+      || this.state.email == "dianaL@royalpeppers.nl" || this.state.email == "Richard@royalpeppers.nl" || this.state.email == "joanna@royalpeppers.nl") {
       var locaties = [{ label: 'Rilland', value: 'Rilland', icon: () => <Flag size={18} color="#000" /> },
       { label: 'Warmoeziersweg', value: 'Warmoeziersweg', icon: () => <Flag size={18} color="#000" />, hidden: true },
       { label: 'Anthony Lionweg', value: 'Anthony Lionweg', icon: () => <Flag size={18} color="#000" /> },
@@ -84,6 +84,8 @@ export class HarvestScreen extends React.Component {
       var locaties = [{ label: 'Waddinxveen', value: 'Waddinxveen', icon: () => <Flag size={18} color="#000" />, },];
     } else if (this.state.email == "recep@royalpeppers.nl") {
       var locaties = [{ label: 'Waddinxveen', value: 'Waddinxveen', icon: () => <Flag size={18} color="#000" />, },];
+    } else if (this.state.email == "harold@royalpeppers.nl"){
+      var locaties = [{ label: 'Warmoeziersweg', value: 'Warmoeziersweg', icon: () => <Flag size={18} color="#000" />,}];
     }
 
     if (this.state.Location == "Rilland") {
@@ -109,13 +111,6 @@ export class HarvestScreen extends React.Component {
     if (this.state.Greenhouse == "1R") {
       var i;
       var paden = [];
-      var rillandEmployees = ["Albert-Jan de Jonge", "Krysztof Glugla", "Iwona Kubacka", "Ewelina Chmura", "Przemyslaw Mazurek", "Mirek Myler", "Patryk Kudon", "Dariusz Kudon", "Paulina Walkowiak", "Renata Krawczyk", "Artur Krawczyk", "Adam Ruszak", "Robert Kolczynski", "Przemyslaw Juchnowski", "Beata Dzierzanowska", "Joanna Dzierzanowska", "Dominik Golebiewski", "Piotr Dzierzanowski", "Piotr Grzejszczyk", "Alicja Kalas", "Wieslaw Oginski", "Justyna Brzozowska", "Mariusz Rogala", "Przemyslaw Maslowski", "Rafal Barsznica", "Monika Zieminska", "Wojciech Kubik", "Mehmet  Atli", "Nikolaos Giannakidis", "Murat Sarcan", "Erkout  Oglou", "Zina Ilieva", "Ismail Simsek", "Hristiyana Ilieva", "Asen Iliev"];
-      var k;
-      var Medewerkers = [{ label: 'N.T.B.', value: 'N.T.B.', icon: () => <User size={18} color="#000" /> }];
-      for (k = 0; k < rillandEmployees.length; k++) {
-        Medewerkers.push({ label: `${rillandEmployees[k]}`, value: `${rillandEmployees[k]}`, icon: () => <User size={18} color="#000" /> });
-      }
-
       for (i = 101; i < 197; i++) {
         paden.push({ label: `${i}`, value: `${i}`, icon: () => <Flag size={18} color="#000" /> })
       }
@@ -131,12 +126,6 @@ export class HarvestScreen extends React.Component {
     } else if (this.state.Greenhouse == "2R") {
       var i
       var paden = [];
-      var k;
-      var rillandEmployees = ["Albert-Jan de Jonge", "Krysztof Glugla", "Iwona Kubacka", "Ewelina Chmura", "Przemyslaw Mazurek", "Mirek Myler", "Patryk Kudon", "Dariusz Kudon", "Paulina Walkowiak", "Renata Krawczyk", "Artur Krawczyk", "Adam Ruszak", "Robert Kolczynski", "Przemyslaw Juchnowski", "Beata Dzierzanowska", "Joanna Dzierzanowska", "Dominik Golebiewski", "Piotr Dzierzanowski", "Piotr Grzejszczyk", "Alicja Kalas", "Wieslaw Oginski", "Justyna Brzozowska", "Mariusz Rogala", "Przemyslaw Maslowski", "Rafal Barsznica", "Monika Zieminska", "Wojciech Kubik", "Mehmet  Atli", "Nikolaos Giannakidis", "Murat Sarcan", "Erkout  Oglou", "Zina Ilieva", "Ismail Simsek", "Hristiyana Ilieva", "Asen Iliev"];
-      var Medewerkers = [{ label: 'N.T.B.', value: 'N.T.B.', icon: () => <User size={18} color="#000" /> }];
-      for (k = 0; k < rillandEmployees.length; k++) {
-        Medewerkers.push({ label: `${rillandEmployees[k]}`, value: `${rillandEmployees[k]}`, icon: () => <User size={18} color="#000" /> });
-      }
       for (i = 501; i < 597; i++) {
         paden.push({ label: `${i}`, value: `${i}`, icon: () => <Flag size={18} color="#000" /> })
       }
@@ -152,12 +141,6 @@ export class HarvestScreen extends React.Component {
     } else if (this.state.Greenhouse == "1A") {
       var i
       var paden = [];
-      var lionwegEmployee = ["Rutger Groen", "Arjan Vermeulen", "Carola Intveen", "Tomasz Sciubidlo", "Renata Czerwik", "Julita Zglenicka", "Kamil Zglenicki", "Tomasz Czerwik", "Tudor Sorin", "Mariusz Gill", "Nina Kokowicz", "Tomasz Gill", "Rodi Baycuman", "Erkan Atas"];
-      var k;
-      var Medewerkers = [{ label: 'N.T.B.', value: 'N.T.B.', icon: () => <User size={18} color="#000" /> }];
-      for (k = 0; k < lionwegEmployee.length; k++) {
-        Medewerkers.push({ label: `${lionwegEmployee[k]}`, value: `${lionwegEmployee[k]}`, icon: () => <User size={18} color="#000" /> });
-      }
       for (i = 101; i < 178; i++) {
         paden.push({ label: `${i}`, value: `${i}`, icon: () => <Flag size={18} color="#000" /> })
       }
@@ -173,12 +156,6 @@ export class HarvestScreen extends React.Component {
     } else if (this.state.Greenhouse == "2A") {
       var i
       var paden = [];
-      var lionwegEmployee = ["Rutger Groen", "Arjan Vermeulen", "Carola Intveen", "Tomasz Sciubidlo", "Renata Czerwik", "Julita Zglenicka", "Kamil Zglenicki", "Tomasz Czerwik", "Tudor Sorin", "Mariusz Gill", "Nina Kokowicz", "Tomasz Gill", "Rodi Baycuman", "Erkan Atas"];
-      var k;
-      var Medewerkers = [{ label: 'N.T.B.', value: 'N.T.B.', icon: () => <User size={18} color="#000" /> }];
-      for (k = 0; k < lionwegEmployee.length; k++) {
-        Medewerkers.push({ label: `${lionwegEmployee[k]}`, value: `${lionwegEmployee[k]}`, icon: () => <User size={18} color="#000" /> });
-      }
       for (i = 501; i < 559; i++) {
         paden.push({ label: `${i}`, value: `${i}`, icon: () => <Flag size={18} color="#000" /> })
       }
@@ -194,12 +171,6 @@ export class HarvestScreen extends React.Component {
     } else if (this.state.Greenhouse == "1W") {
       var i;
       var paden = [];
-      var k;
-      var Medewerkers = [{ label: 'N.T.B.', value: 'N.T.B.', icon: () => <User size={18} color="#000" /> }];
-      var WarmoezierswegEmployees = ["Arjan de Jong","danny nieuwkoop","Harold Motz","Jolijn Van Winden","Laura Engel","Monika Kransczuk","Agata Lewandowska","Ali Aydin","Ali Gabr","Ali Ismail","Asya Onur","Burhan  Aytemur","Cemil Aydinx","Enver Kaya","Koray Onur","Mehmet Celik","Moustafa Mitwalli","Onder Kilic","Sedat Surmeli","Serdin Baycuman","Yildiz Rasim","monika kaminska","serqiu serbu","Andrzej Nieweglowski"];
-      for (k = 0; k < WarmoezierswegEmployees.length; k++) {
-        Medewerkers.push({ label: `${WarmoezierswegEmployees[k]}`, value: `${WarmoezierswegEmployees[k]}`, icon: () => <User size={18} color="#000" /> });
-      }
       for (i = 113; i < 169; i++) {
         paden.push({ label: `${i}`, value: `${i}`, icon: () => <Flag size={18} color="#000" /> })
       }
@@ -215,12 +186,6 @@ export class HarvestScreen extends React.Component {
     } else if (this.state.Greenhouse == "2W") {
       var i
       var paden = [];
-      var k;
-      var Medewerkers = [{ label: 'N.T.B.', value: 'N.T.B.', icon: () => <User size={18} color="#000" /> }];
-      var WarmoezierswegEmployees = ["Arjan de Jong","danny nieuwkoop","Harold Motz","Jolijn Van Winden","Laura Engel","Monika Kransczuk","Agata Lewandowska","Ali Aydin","Ali Gabr","Ali Ismail","Asya Onur","Burhan  Aytemur","Cemil Aydinx","Enver Kaya","Koray Onur","Mehmet Celik","Moustafa Mitwalli","Onder Kilic","Sedat Surmeli","Serdin Baycuman","Yildiz Rasim","monika kaminska","serqiu serbu","Andrzej Nieweglowski"];
-      for (k = 0; k < WarmoezierswegEmployees.length; k++) {
-        Medewerkers.push({ label: `${WarmoezierswegEmployees[k]}`, value: `${WarmoezierswegEmployees[k]}`, icon: () => <User size={18} color="#000" /> });
-      }
       for (i = 501; i < 579; i++) {
         paden.push({ label: `${i}`, value: `${i}`, icon: () => <Flag size={18} color="#000" /> })
       }
@@ -236,38 +201,6 @@ export class HarvestScreen extends React.Component {
     } else if (this.state.Greenhouse == "1N") {
       var i
       var paden = [];
-      var Medewerkers = [{ label: 'Ali Aydin', value: 'Ali Aydin', icon: () => <User size={18} color="#000" /> },
-      { label: 'Ali Gabr', value: 'Ali Gabr', icon: () => <User size={18} color="#000" /> },
-      { label: 'Cemil Aydin', value: 'Cemil Aydin', icon: () => <User size={18} color="#000" /> },
-      { label: 'Enver Kaya', value: 'Enver Kaya', icon: () => <User size={18} color="#000" /> },
-      { label: 'Erdal Eryilmaz', value: 'Erdal Eryilmaz', icon: () => <User size={18} color="#000" /> },
-      { label: 'Fati Karabulut', value: 'Fati Karabulut', icon: () => <User size={18} color="#000" /> },
-      { label: 'Moustafa Soliman', value: 'Moustafa Soliman', icon: () => <User size={18} color="#000" /> },
-      { label: 'Ramazan Yilnazer', value: 'Ramazan Yilnazer', icon: () => <User size={18} color="#000" /> },
-      { label: 'Serdin Baycuman', value: 'Serdin Baycuman', icon: () => <User size={18} color="#000" /> },
-      { label: 'Severin Karadzhov', value: 'Severin Karadzhov', icon: () => <User size={18} color="#000" /> },
-      { label: 'Kamil Zglenicki', value: 'Kamil Zglenicki', icon: () => <User size={18} color="#000" /> },
-      { label: 'Thomas Czerwik', value: 'Thomas Czerwik', icon: () => <User size={18} color="#000" /> },
-      { label: 'Tudor Sorin', value: 'Tudor Sorin', icon: () => <User size={18} color="#000" /> },
-      { label: 'Mariusz Gill', value: 'Mariusz Gill', icon: () => <User size={18} color="#000" /> },
-      { label: 'Monika Kaminska', value: 'Monika Kaminska', icon: () => <User size={18} color="#000" /> },
-      { label: 'Monika Krawczuk', value: 'Monika Krawczuk', icon: () => <User size={18} color="#000" /> },
-      { label: 'Nina Kokowicz', value: 'Nina Kokowicz', icon: () => <User size={18} color="#000" /> },
-      { label: 'Sergiu Sizbu', value: 'Sergiu Sizbu', icon: () => <User size={18} color="#000" /> },
-      { label: 'Wojtek Nowak', value: 'Wojtek Nowak', icon: () => <User size={18} color="#000" /> },
-      { label: 'Alin Guina', value: 'Alin Guina', icon: () => <User size={18} color="#000" /> },
-      { label: 'Lenuta Tampu', value: 'Lenuta Tampu', icon: () => <User size={18} color="#000" /> },
-      { label: 'Maria Paraschivu', value: 'Maria Paraschivu', icon: () => <User size={18} color="#000" /> },
-      { label: 'Marian Guina', value: 'Marian Guina', icon: () => <User size={18} color="#000" /> },
-      { label: 'Andrzej Nieweglowski', value: 'Andrzej Nieweglowski', icon: () => <User size={18} color="#000" /> },
-      { label: 'Julita Zglenicka', value: 'Julita Zglenicka', icon: () => <User size={18} color="#000" /> },
-      { label: 'Pawel Maciejewski', value: 'Pawel Maciejewski', icon: () => <User size={18} color="#000" /> },
-      { label: 'Renata Czerwik', value: 'Renata Czerwik', icon: () => <User size={18} color="#000" /> },
-      { label: 'Thomas Sciubidlo', value: 'Thomas Sciubidlo', icon: () => <User size={18} color="#000" /> },
-      { label: 'Janusz Manko', value: 'Janusz Manko', icon: () => <User size={18} color="#000" /> },
-      { label: 'Marcin Mackowiak', value: 'Marcin Mackowiak', icon: () => <User size={18} color="#000" /> },
-      { label: 'N.T.B.', value: 'N.T.B.', icon: () => <User size={18} color="#000" /> },
-      ];
       for (i = 1; i < 145; i++) {
         paden.push({ label: `${i}`, value: `${i}`, icon: () => <Flag size={18} color="#000" /> })
       }
@@ -280,150 +213,12 @@ export class HarvestScreen extends React.Component {
     } else if (this.state.Greenhouse == "2N") {
       var i
       var paden = [];
-
-      var Medewerkers = [{ label: 'Ali Aydin', value: 'Ali Aydin', icon: () => <User size={18} color="#000" /> },
-      { label: 'Ali Gabr', value: 'Ali Gabr', icon: () => <User size={18} color="#000" /> },
-      { label: 'Cemil Aydin', value: 'Cemil Aydin', icon: () => <User size={18} color="#000" /> },
-      { label: 'Enver Kaya', value: 'Enver Kaya', icon: () => <User size={18} color="#000" /> },
-      { label: 'Erdal Eryilmaz', value: 'Erdal Eryilmaz', icon: () => <User size={18} color="#000" /> },
-      { label: 'Fati Karabulut', value: 'Fati Karabulut', icon: () => <User size={18} color="#000" /> },
-      { label: 'Moustafa Soliman', value: 'Moustafa Soliman', icon: () => <User size={18} color="#000" /> },
-      { label: 'Ramazan Yilnazer', value: 'Ramazan Yilnazer', icon: () => <User size={18} color="#000" /> },
-      { label: 'Serdin Baycuman', value: 'Serdin Baycuman', icon: () => <User size={18} color="#000" /> },
-      { label: 'Severin Karadzhov', value: 'Severin Karadzhov', icon: () => <User size={18} color="#000" /> },
-      { label: 'Kamil Zglenicki', value: 'Kamil Zglenicki', icon: () => <User size={18} color="#000" /> },
-      { label: 'Thomas Czerwik', value: 'Thomas Czerwik', icon: () => <User size={18} color="#000" /> },
-      { label: 'Tudor Sorin', value: 'Tudor Sorin', icon: () => <User size={18} color="#000" /> },
-      { label: 'Mariusz Gill', value: 'Mariusz Gill', icon: () => <User size={18} color="#000" /> },
-      { label: 'Monika Kaminska', value: 'Monika Kaminska', icon: () => <User size={18} color="#000" /> },
-      { label: 'Monika Krawczuk', value: 'Monika Krawczuk', icon: () => <User size={18} color="#000" /> },
-      { label: 'Nina Kokowicz', value: 'Nina Kokowicz', icon: () => <User size={18} color="#000" /> },
-      { label: 'Sergiu Sizbu', value: 'Sergiu Sizbu', icon: () => <User size={18} color="#000" /> },
-      { label: 'Wojtek Nowak', value: 'Wojtek Nowak', icon: () => <User size={18} color="#000" /> },
-      { label: 'Alin Guina', value: 'Alin Guina', icon: () => <User size={18} color="#000" /> },
-      { label: 'Lenuta Tampu', value: 'Lenuta Tampu', icon: () => <User size={18} color="#000" /> },
-      { label: 'Maria Paraschivu', value: 'Maria Paraschivu', icon: () => <User size={18} color="#000" /> },
-      { label: 'Marian Guina', value: 'Marian Guina', icon: () => <User size={18} color="#000" /> },
-      { label: 'Andrzej Nieweglowski', value: 'Andrzej Nieweglowski', icon: () => <User size={18} color="#000" /> },
-      { label: 'Julita Zglenicka', value: 'Julita Zglenicka', icon: () => <User size={18} color="#000" /> },
-      { label: 'Pawel Maciejewski', value: 'Pawel Maciejewski', icon: () => <User size={18} color="#000" /> },
-      { label: 'Renata Czerwik', value: 'Renata Czerwik', icon: () => <User size={18} color="#000" /> },
-      { label: 'Thomas Sciubidlo', value: 'Thomas Sciubidlo', icon: () => <User size={18} color="#000" /> },
-      { label: 'Janusz Manko', value: 'Janusz Manko', icon: () => <User size={18} color="#000" /> },
-      { label: 'Marcin Mackowiak', value: 'Marcin Mackowiak', icon: () => <User size={18} color="#000" /> },
-      { label: 'N.T.B.', value: 'N.T.B.', icon: () => <User size={18} color="#000" /> },
-      ];
       for (i = 601; i < 783; i++) {
         paden.push({ label: `${i}`, value: `${i}`, icon: () => <Flag size={18} color="#000" /> })
       }
     } else if (this.state.Greenhouse == "1WV") {
       var i
       var paden = [];
-      var Medewerkers = [
-        { label: 'Aleksandra Jawniak', value: 'Aleksandra Jawniak', icon: () => <User size={18} color="#000" /> },
-        { label: 'Alicja Kowalska', value: 'Alicja Kowalska', icon: () => <User size={18} color="#000" /> },
-        { label: 'Andy de Jong', value: 'Andy de Jong', icon: () => <User size={18} color="#000" /> },
-        { label: 'Angelika Sabastyn', value: 'Angelika Sabastyn', icon: () => <User size={18} color="#000" /> },
-        { label: 'Angelika Wisniowska', value: 'Angelika Wisniowska', icon: () => <User size={18} color="#000" /> },
-        { label: 'Anna Baradziej', value: 'Anna Baradziej', icon: () => <User size={18} color="#000" /> },
-        { label: 'Anna Osinska', value: 'Anna Osinska', icon: () => <User size={18} color="#000" /> },
-        { label: 'Anna Popova', value: 'Anna Popova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Arkadiusz Zielinski', value: 'Arkadiusz Zielinski', icon: () => <User size={18} color="#000" /> },
-        { label: 'Asen Iliev Asenov', value: 'Asen Iliev Asenov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Asie Angelova Tinkova', value: 'Asie Angelova Tinkova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Atif Yuksel', value: 'Atif Yuksel', icon: () => <User size={18} color="#000" /> },
-        { label: 'Aurelia Vlad', value: 'Aurelia Vlad', icon: () => <User size={18} color="#000" /> },
-        { label: 'Beata stypula', value: 'Beata stypula', icon: () => <User size={18} color="#000" /> },
-        { label: 'Bedri Topalov Aliev', value: 'Bedri Topalov Aliev', icon: () => <User size={18} color="#000" /> },
-        { label: 'Boris Chalakov Zhelev', value: 'Boris Chalakov Zhelev', icon: () => <User size={18} color="#000" /> },
-        { label: 'Cengiz Yilmaz', value: 'Cengiz Yilmaz', icon: () => <User size={18} color="#000" /> },
-        { label: 'Cevdet Kucuk', value: 'Cevdet Kucuk', icon: () => <User size={18} color="#000" /> },
-        { label: 'Daria Monika Witak', value: 'Daria Monika Witak', icon: () => <User size={18} color="#000" /> },
-        { label: 'Denka Radeva Toskova', value: 'Denka Radeva Toskova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Dimitar Rusev Angelov', value: 'Dimitar Rusev Angelov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Diyan Ogniyanov Asenov', value: 'Diyan Ogniyanov Asenov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Elena Vlad', value: 'Elena Vlad', icon: () => <User size={18} color="#000" /> },
-        { label: 'Enver Demir', value: 'Enver Demir', icon: () => <User size={18} color="#000" /> },
-        { label: 'Erika Bogdan', value: 'Erika Bogdan', icon: () => <User size={18} color="#000" /> },
-        { label: 'Erka Yungul', value: 'Erka Yungul', icon: () => <User size={18} color="#000" /> },
-        { label: 'Erkan Atas', value: 'Erkan Atas', icon: () => <User size={18} color="#000" /> },
-        { label: 'Erkan Yungul', value: 'Erkan Yungul', icon: () => <User size={18} color="#000" /> },
-        { label: 'Fahrettin Kantarciogl', value: 'Fahrettin Kantarciogl', icon: () => <User size={18} color="#000" /> },
-        { label: 'Fidanka Angelova Asenova', value: 'Fidanka Angelova Asenova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Firat Gunes', value: 'Firat Gunes', icon: () => <User size={18} color="#000" /> },
-        { label: 'Galya Dimitrova Ruseva', value: 'Galya Dimitrova Ruseva', icon: () => <User size={18} color="#000" /> },
-        { label: 'Gana Stayanova Yuliyanova', value: 'Gana Stayanova Yuliyanova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Gercho Hristov Naydenov', value: 'Gercho Hristov Naydenov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Gergana Atanasova Asenova', value: 'Gergana Atanasova Asenova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Haci Bekir Duran', value: 'Haci Bekir Duran', icon: () => <User size={18} color="#000" /> },
-        { label: 'Hanifi Polat', value: 'Hanifi Polat', icon: () => <User size={18} color="#000" /> },
-        { label: 'Hristina Ilkova Staykova', value: 'Hristina Ilkova Staykova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Hristinka Asenova Ilieva', value: 'Hristinka Asenova Ilieva', icon: () => <User size={18} color="#000" /> },
-        { label: 'Hristinka Ilieva Asenova', value: 'Hristinka Ilieva Asenova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Hristinka Misheva Angelova', value: 'Hristinka Misheva Angelova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Hristo Rusev Dimitrov', value: 'Hristo Rusev Dimitrov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Hristoz Hristozov Valentinov', value: 'Hristoz Hristozov Valentinov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Iliya Veselinov Popov', value: 'Iliya Veselinov Popov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Jolijn van Winden', value: 'Jolijn van Winden', icon: () => <User size={18} color="#000" /> },
-        { label: 'Jurgen Boesveld', value: 'Jurgen Boesveld', icon: () => <User size={18} color="#000" /> },
-        { label: 'Kamenka Petkova Kostova', value: 'Kamenka Petkova Kostova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Karolina Rattu', value: 'Karolina Rattu', icon: () => <User size={18} color="#000" /> },
-        { label: 'Karolina Yeghshatyan', value: 'Karolina Yeghshatyan', icon: () => <User size={18} color="#000" /> },
-        { label: 'Katarzyna Duda', value: 'Katarzyna Duda', icon: () => <User size={18} color="#000" /> },
-        { label: 'Laura Engel', value: 'Laura Engel', icon: () => <User size={18} color="#000" /> },
-        { label: 'Malgorzata Anna Chmielewska', value: 'Malgorzata Anna Chmielewska', icon: () => <User size={18} color="#000" /> },
-        { label: 'Mariya Misheva Angelova', value: 'Mariya Misheva Angelova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Martijn Mertens', value: 'Martijn Mertens', icon: () => <User size={18} color="#000" /> },
-        { label: 'Marzena Kowalczyk', value: 'Marzena Kowalczyk', icon: () => <User size={18} color="#000" /> },
-        { label: 'Mehmed Mehmed Hyussein', value: 'Mehmed Mehmed Hyussein', icon: () => <User size={18} color="#000" /> },
-        { label: 'Mehmet Ali Temur ', value: 'Mehmet Ali Temur ', icon: () => <User size={18} color="#000" /> },
-        { label: 'Mehmet Demirel', value: 'Mehmet Demirel', icon: () => <User size={18} color="#000" /> },
-        { label: 'Mehmet Gunes', value: 'Mehmet Gunes', icon: () => <User size={18} color="#000" /> },
-        { label: 'Mersil Mehmedali Sedat', value: 'Mersil Mehmedali Sedat', icon: () => <User size={18} color="#000" /> },
-        { label: 'Milan Georgiev Stefanov', value: 'Milan Georgiev Stefanov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Mircho Georgiev Elenov', value: 'Mircho Georgiev Elenov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Miryana Georgieva Tencheva', value: 'Miryana Georgieva Tencheva', icon: () => <User size={18} color="#000" /> },
-        { label: 'Mitko Angelov Tinkov', value: 'Mitko Angelov Tinkov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Mohamed Ahmed Mahmoud', value: 'Mohamed Ahmed Mahmoud', icon: () => <User size={18} color="#000" /> },
-        { label: 'Mohamed Veli Osman', value: 'Mohamed Veli Osman', icon: () => <User size={18} color="#000" /> },
-        { label: 'Monika Krawczk', value: 'Monika Krawczk', icon: () => <User size={18} color="#000" /> },
-        { label: 'Monika Krystyna Przygocka', value: 'Monika Krystyna Przygocka', icon: () => <User size={18} color="#000" /> },
-        { label: 'Monika Przygocka', value: 'Monika Przygocka', icon: () => <User size={18} color="#000" /> },
-        { label: 'Muhammed Demirel ', value: 'Muhammed Demirel ', icon: () => <User size={18} color="#000" /> },
-        { label: 'Murat Ozkay', value: 'Murat Ozkay', icon: () => <User size={18} color="#000" /> },
-        { label: 'Mustafa Borislavov Gerov', value: 'Mustafa Borislavov Gerov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Myumyun Mestan Osman', value: 'Myumyun Mestan Osman', icon: () => <User size={18} color="#000" /> },
-        { label: 'Natalia Medrala', value: 'Natalia Medrala', icon: () => <User size={18} color="#000" /> },
-        { label: 'Neslihan Ismailova Ahmedova', value: 'Neslihan Ismailova Ahmedova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Nevzer Lyutova Ahmedova', value: 'Nevzer Lyutova Ahmedova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Nicolai Vlad', value: 'Nicolai Vlad', icon: () => <User size={18} color="#000" /> },
-        { label: 'Nikodem Antosiak', value: 'Nikodem Antosiak', icon: () => <User size={18} color="#000" /> },
-        { label: 'Ognyan Uzunov Hristov', value: 'Ognyan Uzunov Hristov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Orlin Dobrev Stefanov', value: 'Orlin Dobrev Stefanov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Pencho Radev Bozhinov', value: 'Pencho Radev Bozhinov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Penco Bozhinov Radev', value: 'Penco Bozhinov Radev', icon: () => <User size={18} color="#000" /> },
-        { label: 'Rada Dimitrova Hristineva', value: 'Rada Dimitrova Hristineva', icon: () => <User size={18} color="#000" /> },
-        { label: 'Recep Gunes', value: 'Recep Gunes', icon: () => <User size={18} color="#000" /> },
-        { label: 'Robert Jankowski', value: 'Robert Jankowski', icon: () => <User size={18} color="#000" /> },
-        { label: 'Rolands Samsanov', value: 'Rolands Samsanov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Rumen Angelov Simeonov', value: 'Rumen Angelov Simeonov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Rumen Stoyanov Atanasov', value: 'Rumen Stoyanov Atanasov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Rumyana Miteva Nadkova', value: 'Rumyana Miteva Nadkova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Sasho Dimitrov Rusev', value: 'Sasho Dimitrov Rusev', icon: () => <User size={18} color="#000" /> },
-        { label: 'Serdal Ayyildiz', value: 'Serdal Ayyildiz ', icon: () => <User size={18} color="#000" /> },
-        { label: 'Slavey Atanasov Asenov', value: 'Slavey Atanasov Asenov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Slawomir Boleslaw Floryczyk', value: 'Slawomir Boleslaw Floryczyk', icon: () => <User size={18} color="#000" /> },
-        { label: 'Stefan Andonov Asenov', value: 'Stefan Andonov Asenov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Stefan Dimchev Stefanov', value: 'Stefan Dimchev Stefanov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Stoyan Stoyanov Stoykov', value: 'Stoyan Stoyanov Stoykov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Veli Asenov Mustafov', value: 'Veli Asenov Mustafov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Viktoria Cjacka', value: 'Viktoria Cjacka', icon: () => <User size={18} color="#000" /> },
-        { label: 'Viktors Paskevics', value: 'Viktors Paskevics', icon: () => <User size={18} color="#000" /> },
-        { label: 'Vitalijs Paskevics', value: 'Vitalijs Paskevics', icon: () => <User size={18} color="#000" /> },
-        { label: 'Yilmaz Ciftcioglu ', value: 'Yilmaz Ciftcioglu ', icon: () => <User size={18} color="#000" /> },
-        { label: 'Zoya Nikolaeva Yordanova', value: 'Zoya Nikolaeva Yordanova', icon: () => <User size={18} color="#000" /> },
-        { label: 'N.T.B.', value: 'N.T.B.', icon: () => <User size={18} color="#000" /> },
-      ];
       for (i = 101; i < 161; i++) {
         paden.push({ label: `${i}`, value: `${i}`, icon: () => <Flag size={18} color="#000" /> })
       }
@@ -451,111 +246,6 @@ export class HarvestScreen extends React.Component {
     } else if (this.state.Greenhouse == "2WV") {
       var i
       var paden = [];
-      var Medewerkers = [
-        { label: 'Aleksandra Jawniak', value: 'Aleksandra Jawniak', icon: () => <User size={18} color="#000" /> },
-        { label: 'Alicja Kowalska', value: 'Alicja Kowalska', icon: () => <User size={18} color="#000" /> },
-        { label: 'Andy de Jong', value: 'Andy de Jong', icon: () => <User size={18} color="#000" /> },
-        { label: 'Angelika Sabastyn', value: 'Angelika Sabastyn', icon: () => <User size={18} color="#000" /> },
-        { label: 'Angelika Wisniowska', value: 'Angelika Wisniowska', icon: () => <User size={18} color="#000" /> },
-        { label: 'Anna Baradziej', value: 'Anna Baradziej', icon: () => <User size={18} color="#000" /> },
-        { label: 'Anna Osinska', value: 'Anna Osinska', icon: () => <User size={18} color="#000" /> },
-        { label: 'Anna Popova', value: 'Anna Popova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Arkadiusz Zielinski', value: 'Arkadiusz Zielinski', icon: () => <User size={18} color="#000" /> },
-        { label: 'Asen Iliev Asenov', value: 'Asen Iliev Asenov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Asie Angelova Tinkova', value: 'Asie Angelova Tinkova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Atif Yuksel', value: 'Atif Yuksel', icon: () => <User size={18} color="#000" /> },
-        { label: 'Aurelia Vlad', value: 'Aurelia Vlad', icon: () => <User size={18} color="#000" /> },
-        { label: 'Beata stypula', value: 'Beata stypula', icon: () => <User size={18} color="#000" /> },
-        { label: 'Bedri Topalov Aliev', value: 'Bedri Topalov Aliev', icon: () => <User size={18} color="#000" /> },
-        { label: 'Boris Chalakov Zhelev', value: 'Boris Chalakov Zhelev', icon: () => <User size={18} color="#000" /> },
-        { label: 'Cengiz Yilmaz', value: 'Cengiz Yilmaz', icon: () => <User size={18} color="#000" /> },
-        { label: 'Cevdet Kucuk', value: 'Cevdet Kucuk', icon: () => <User size={18} color="#000" /> },
-        { label: 'Daria Monika Witak', value: 'Daria Monika Witak', icon: () => <User size={18} color="#000" /> },
-        { label: 'Denka Radeva Toskova', value: 'Denka Radeva Toskova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Dimitar Rusev Angelov', value: 'Dimitar Rusev Angelov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Diyan Ogniyanov Asenov', value: 'Diyan Ogniyanov Asenov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Elena Vlad', value: 'Elena Vlad', icon: () => <User size={18} color="#000" /> },
-        { label: 'Enver Demir', value: 'Enver Demir', icon: () => <User size={18} color="#000" /> },
-        { label: 'Erika Bogdan', value: 'Erika Bogdan', icon: () => <User size={18} color="#000" /> },
-        { label: 'Erka Yungul', value: 'Erka Yungul', icon: () => <User size={18} color="#000" /> },
-        { label: 'Erkan Atas', value: 'Erkan Atas', icon: () => <User size={18} color="#000" /> },
-        { label: 'Erkan Yungul', value: 'Erkan Yungul', icon: () => <User size={18} color="#000" /> },
-        { label: 'Fahrettin Kantarciogl', value: 'Fahrettin Kantarciogl', icon: () => <User size={18} color="#000" /> },
-        { label: 'Fidanka Angelova Asenova', value: 'Fidanka Angelova Asenova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Firat Gunes', value: 'Firat Gunes', icon: () => <User size={18} color="#000" /> },
-        { label: 'Galya Dimitrova Ruseva', value: 'Galya Dimitrova Ruseva', icon: () => <User size={18} color="#000" /> },
-        { label: 'Gana Stayanova Yuliyanova', value: 'Gana Stayanova Yuliyanova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Gercho Hristov Naydenov', value: 'Gercho Hristov Naydenov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Gergana Atanasova Asenova', value: 'Gergana Atanasova Asenova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Haci Bekir Duran', value: 'Haci Bekir Duran', icon: () => <User size={18} color="#000" /> },
-        { label: 'Hanifi Polat', value: 'Hanifi Polat', icon: () => <User size={18} color="#000" /> },
-        { label: 'Hristina Ilkova Staykova', value: 'Hristina Ilkova Staykova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Hristinka Asenova Ilieva', value: 'Hristinka Asenova Ilieva', icon: () => <User size={18} color="#000" /> },
-        { label: 'Hristinka Ilieva Asenova', value: 'Hristinka Ilieva Asenova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Hristinka Misheva Angelova', value: 'Hristinka Misheva Angelova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Hristo Rusev Dimitrov', value: 'Hristo Rusev Dimitrov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Hristoz Hristozov Valentinov', value: 'Hristoz Hristozov Valentinov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Iliya Veselinov Popov', value: 'Iliya Veselinov Popov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Jolijn van Winden', value: 'Jolijn van Winden', icon: () => <User size={18} color="#000" /> },
-        { label: 'Jurgen Boesveld', value: 'Jurgen Boesveld', icon: () => <User size={18} color="#000" /> },
-        { label: 'Kamenka Petkova Kostova', value: 'Kamenka Petkova Kostova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Karolina Rattu', value: 'Karolina Rattu', icon: () => <User size={18} color="#000" /> },
-        { label: 'Karolina Yeghshatyan', value: 'Karolina Yeghshatyan', icon: () => <User size={18} color="#000" /> },
-        { label: 'Katarzyna Duda', value: 'Katarzyna Duda', icon: () => <User size={18} color="#000" /> },
-        { label: 'Laura Engel', value: 'Laura Engel', icon: () => <User size={18} color="#000" /> },
-        { label: 'Malgorzata Anna Chmielewska', value: 'Malgorzata Anna Chmielewska', icon: () => <User size={18} color="#000" /> },
-        { label: 'Mariya Misheva Angelova', value: 'Mariya Misheva Angelova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Martijn Mertens', value: 'Martijn Mertens', icon: () => <User size={18} color="#000" /> },
-        { label: 'Marzena Kowalczyk', value: 'Marzena Kowalczyk', icon: () => <User size={18} color="#000" /> },
-        { label: 'Mehmed Mehmed Hyussein', value: 'Mehmed Mehmed Hyussein', icon: () => <User size={18} color="#000" /> },
-        { label: 'Mehmet Ali Temur ', value: 'Mehmet Ali Temur ', icon: () => <User size={18} color="#000" /> },
-        { label: 'Mehmet Demirel', value: 'Mehmet Demirel', icon: () => <User size={18} color="#000" /> },
-        { label: 'Mehmet Gunes', value: 'Mehmet Gunes', icon: () => <User size={18} color="#000" /> },
-        { label: 'Mersil Mehmedali Sedat', value: 'Mersil Mehmedali Sedat', icon: () => <User size={18} color="#000" /> },
-        { label: 'Milan Georgiev Stefanov', value: 'Milan Georgiev Stefanov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Mircho Georgiev Elenov', value: 'Mircho Georgiev Elenov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Miryana Georgieva Tencheva', value: 'Miryana Georgieva Tencheva', icon: () => <User size={18} color="#000" /> },
-        { label: 'Mitko Angelov Tinkov', value: 'Mitko Angelov Tinkov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Mohamed Ahmed Mahmoud', value: 'Mohamed Ahmed Mahmoud', icon: () => <User size={18} color="#000" /> },
-        { label: 'Mohamed Veli Osman', value: 'Mohamed Veli Osman', icon: () => <User size={18} color="#000" /> },
-        { label: 'Monika Krawczk', value: 'Monika Krawczk', icon: () => <User size={18} color="#000" /> },
-        { label: 'Monika Krystyna Przygocka', value: 'Monika Krystyna Przygocka', icon: () => <User size={18} color="#000" /> },
-        { label: 'Monika Przygocka', value: 'Monika Przygocka', icon: () => <User size={18} color="#000" /> },
-        { label: 'Muhammed Demirel ', value: 'Muhammed Demirel ', icon: () => <User size={18} color="#000" /> },
-        { label: 'Murat Ozkay', value: 'Murat Ozkay', icon: () => <User size={18} color="#000" /> },
-        { label: 'Mustafa Borislavov Gerov', value: 'Mustafa Borislavov Gerov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Myumyun Mestan Osman', value: 'Myumyun Mestan Osman', icon: () => <User size={18} color="#000" /> },
-        { label: 'Natalia Medrala', value: 'Natalia Medrala', icon: () => <User size={18} color="#000" /> },
-        { label: 'Neslihan Ismailova Ahmedova', value: 'Neslihan Ismailova Ahmedova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Nevzer Lyutova Ahmedova', value: 'Nevzer Lyutova Ahmedova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Nicolai Vlad', value: 'Nicolai Vlad', icon: () => <User size={18} color="#000" /> },
-        { label: 'Nikodem Antosiak', value: 'Nikodem Antosiak', icon: () => <User size={18} color="#000" /> },
-        { label: 'Ognyan Uzunov Hristov', value: 'Ognyan Uzunov Hristov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Orlin Dobrev Stefanov', value: 'Orlin Dobrev Stefanov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Pencho Radev Bozhinov', value: 'Pencho Radev Bozhinov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Penco Bozhinov Radev', value: 'Penco Bozhinov Radev', icon: () => <User size={18} color="#000" /> },
-        { label: 'Rada Dimitrova Hristineva', value: 'Rada Dimitrova Hristineva', icon: () => <User size={18} color="#000" /> },
-        { label: 'Recep Gunes', value: 'Recep Gunes', icon: () => <User size={18} color="#000" /> },
-        { label: 'Robert Jankowski', value: 'Robert Jankowski', icon: () => <User size={18} color="#000" /> },
-        { label: 'Rolands Samsanov', value: 'Rolands Samsanov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Rumen Angelov Simeonov', value: 'Rumen Angelov Simeonov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Rumen Stoyanov Atanasov', value: 'Rumen Stoyanov Atanasov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Rumyana Miteva Nadkova', value: 'Rumyana Miteva Nadkova', icon: () => <User size={18} color="#000" /> },
-        { label: 'Sasho Dimitrov Rusev', value: 'Sasho Dimitrov Rusev', icon: () => <User size={18} color="#000" /> },
-        { label: 'Serdal Ayyildiz', value: 'Serdal Ayyildiz ', icon: () => <User size={18} color="#000" /> },
-        { label: 'Slavey Atanasov Asenov', value: 'Slavey Atanasov Asenov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Slawomir Boleslaw Floryczyk', value: 'Slawomir Boleslaw Floryczyk', icon: () => <User size={18} color="#000" /> },
-        { label: 'Stefan Andonov Asenov', value: 'Stefan Andonov Asenov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Stefan Dimchev Stefanov', value: 'Stefan Dimchev Stefanov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Stoyan Stoyanov Stoykov', value: 'Stoyan Stoyanov Stoykov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Veli Asenov Mustafov', value: 'Veli Asenov Mustafov', icon: () => <User size={18} color="#000" /> },
-        { label: 'Viktoria Cjacka', value: 'Viktoria Cjacka', icon: () => <User size={18} color="#000" /> },
-        { label: 'Viktors Paskevics', value: 'Viktors Paskevics', icon: () => <User size={18} color="#000" /> },
-        { label: 'Vitalijs Paskevics', value: 'Vitalijs Paskevics', icon: () => <User size={18} color="#000" /> },
-        { label: 'Yilmaz Ciftcioglu ', value: 'Yilmaz Ciftcioglu ', icon: () => <User size={18} color="#000" /> },
-        { label: 'Zoya Nikolaeva Yordanova', value: 'Zoya Nikolaeva Yordanova', icon: () => <User size={18} color="#000" /> },
-        { label: 'N.T.B.', value: 'N.T.B.', icon: () => <User size={18} color="#000" /> },
-      ];
       for (i = 901; i < 961; i++) {
         paden.push({ label: `${i}`, value: `${i}`, icon: () => <Flag size={18} color="#000" /> })
       }
@@ -572,6 +262,13 @@ export class HarvestScreen extends React.Component {
     else {
       var Medewerkers = [{ label: 'Medewerkers niet gevonden', value: 'Medewerkers niet gevonden', icon: () => <Flag size={18} color="#000" /> }];
       var paden = [{ label: 'Selecteer eerst een Kas', value: 'Selecteer eerst een Kas', icon: () => <Flag size={18} color="#000" /> }];
+    }
+
+    var Employees = ["101 Albert-Jan de Jonge","102 Krysztof Glugla","103 Iwona Kubacka","120 Ewelina Chmura","121 Przemyslaw Mazurek","122 Mirek Myler","123 Patryk Kudon","124 Dariusz Kudon","125 Paulina Walkowiak","126 Renata Krawczyk","127 Artur Krawczyk","128 Adam Ruszak","129 Robert Kolczynski","130 Gabor Fabian","131 Bence Zoltan","132 Micula Szilvia","133 Marianna Dutka","140 Przemyslaw Juchnowski","141 Beata Dzierzanowska","142 Joanna Dzierzanowska","143 Dominik Golebiewski","144 Piotr Dzierzanowski","145 Piotr Grzejszczyk","146 Alicja Kalas","147 Wieslaw Oginski","148 Justyna Brzozowska","149 Mariusz Rogala","150 Przemyslaw Maslowski","151 Rafal Barsznica","152 Monika Zieminska","153 Wojciech Kubik","154 Florin Moraniu","155 Zicu Sirbu","156 Constantin Dobreanu","157 Adrian Sirbu","180 Mehmet Atli","181 Nikolaos Giannakidis","182 Murat Sarcan","183 Erkout Oglou","184 Zina Ilieva","185 Ismail Simsek","186 Hristiyana Ilieva","187 Asen Iliev","188 Yanko Blagoev","201 Arjan de Jong","202 danny nieuwkoop","203 Harold Motz","204 Jolijn Van Winden","205 Laura Engel","206 jakub dolata","207 aleksandra matusiak","208 katarzyna matusiak","221 monika kaminska","231 Monika Kransczuk","241 Agata Lewandowska","251 Ali Aydin","252 Ali Gabr","253 Ali Ismail","254 Asya Onur","255 Burhan Aytemur","256 Cemil Aydinx","257 Enver Kaya","258 Koray Onur","259 Mehmet Celik","260 Moustafa Mitwalli","261 Onder Kilic","262 Sedat Surmeli","263 Serdin Baycuman","264 Yildiz Rasim","302 Arjan Vermeulen","303 Carola In `t veen","304 Tomasz Sciubidlo","305 Renata Czerwik","306 Julita Zglenicka","320 Kamil Zglenicki","321 Tomasz Czerwik","322 Tudor Sorin","340 Mariusz Gill","341 Nina Kokowicz","342 Tomasz Gill","343 Rodi Baycuman","344 Erkan Atas","345 Harun Kocoglu","346 Marcin Mackowiak","401 Ruben Mertens","402 Roel Klapwijk","410 Ana Popova","412 Hristina Ivanova","413 Sasho Rusev","420 Robert Bak","421 Barbara Walkowiak","422 Florin Chiriac","423 Florin Dobreanu","424 Katarzyna Malinowska","425 Miroslaw Pecula","426 Miroslaw Pilarek","427 Piotr Mazurek","428 Alicia Masternak","429 Fetinia Maxim","430 Cozma Maxim","431 Arthur Jankowswki","440 Daniel Baicu","442 Cemil Aydin","444 Erdal Eryilmaz","445 Fati Karabulut","446 Moustafa Soliman","448 Severin Karadzhov","450 Marian  Baicu","451 Sla Hristova","460 Alin-Ionut Neagos","461 Bianca Cretu","462 Boris Gheorghe","463 Fanica Ghita","464 Ionut Urezanu","465 Maria Gheorghe","466 Thomas Czerwik","468 Virgil Gheorghe","471 Andrzej Nieweglowski","481 Monika Krawczuk","484 Sergiu Serbu","486 Wojtek Nowack","491 Tomasz Burzykowski","501 Andy de Jong","502 Jurgen Boesveld","503 Martijn Mertens","520 Aleksandra Jawniak","521 Alicja Kowalska","522 Angelika Sabastyn","523 Angelika Wisniowska","524 Anna Baradziej","525 Anna Osinska","526 Anna Popova","527 Binnaz karakoch","528 Asen Iliev Asenov","529 Asie Angelova Tinkova","530 Atif Uksel","531 Beata Agnieska Kudla","532 Beata stypula","533 Daniel Sumera","534 Bekir Duran","535 Cevdet Kucuk","536 Daria Monika Witak","537 Wiktoria Sumera","538 Dimitar Rusev Angelov","539 Diyan Ogniyanov Asenov","540 Gabriele Stunguryte","541 Enver Demir","542 Erika Lukoseviciute","543 Huseyin Eser","545 Vytene Rubeziute","546 Feysal  Coskun","547 Hristina Ivanova Demirova","548 Hristinta Ivanova","549 Galya Dimitrova","550 Gana Stayanova","551 Atanas Georgiev","552 Gergana Atanasova","553 Haci Bekir","554 Hanifi Polat","555 Hristina Ilkova","556 Hristinka Asenova","557 Hristinka Ilieva","558 Hristinka Misheva","559 Hristo Rusev","560 Hristoz Hristozov","561 Iliya Veselinov","562 Kamenka Petkova","563 Karolina Rattu","564 Marcin Krasucki","565 Katarzyna duda","566 Malgorzata Anna","567 Mariya Misheva","568 Marzena kowalczyk","569 Mehmed Mehmed","570 Mehmet Ali","571 Mehmet Demirel","572 Mehmet Gunes","573 Mersil Mehmedali","574 Milan Georgiev","575 Mircho Georgiev","576 Miryana Georgieva","577 Mitko Angelov","578 Mohamed Ahmed","579 Mohamed Veli","580 Serdal Ayyildiz","581 Monika Krystyna","582 Monika Przygocka","583 Muhammed Demirel","584 Murat Ozkay","585 Mustafa Borislavov","586 Myumyun Mestan","587 Natalia Medrala","588 Neslihan Ismailova","589 Nevzer Lyutova","590 Marcin Kaczmara","591 Nikodem Antosiak","592 Ognyan Uzunov","593 Orlin Dobrev","594 Irina Lodigina","595 Penco Bozhinov","596 Rada Dimitrova","597 Recep Gunes","598 Robert Jankowski","599 Rolands Samsanov","600 Rumen Stoyanov","601 Rumyana Miteva","602 Sasho Dimitrov","604 Slavey Atanasov","605 Slawomir Boleslaw","606 Stefan Andonov","607 Stefan Dimchev","608 Stoyan Stoyanov","609 Veli Asenov","610 Viktoria Cjacka","611 Viktors Paskevics","612 Vitalijs paskevics","613 Yilmaz Ciftcioglu","614 Zoya Nikolaeva","901 Peter van den Bosch","902 Patrick van den Bosch","903 Ronald van Winden","904 Arnoud  van den berge","905 Derk van Duijvenboode","906 Richard de Vreede","907 Tom Mosselman","908 Joanna Smola","909 Pawel Maciejewski","910 Diana van der Leer","911 Jan van den Bosch"];
+    var k;
+    var Medewerkers = [{ label: 'N.T.B.', value: 'N.T.B.', icon: () => <User size={18} color="#000" /> }];
+    for (k = 0; k < Employees.length; k++) {
+      Medewerkers.push({ label: `${Employees[k]}`, value: `${Employees[k]}`, icon: () => <User size={18} color="#000" /> });
     }
 
 

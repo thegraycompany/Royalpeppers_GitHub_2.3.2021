@@ -1,12 +1,12 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import Realm from "realm";
-import { Scout } from "../schemas";
+import { Task } from "../schemas";
 import { useAuth } from "./AuthProvider";
 
-const ScoutContext = React.createContext(null);
+const TasksContext = React.createContext(null);
 
-const ScoutProvider = ({ children, projectPartition }) => {
-  const [scouts, setScout] = useState([]);
+const TasksProvider = ({ children, projectPartition }) => {
+  const [tasks, setTasks] = useState([]);
   const { user } = useAuth();
 
   // Use a Ref to store the realm rather than the state because it is not
@@ -21,16 +21,15 @@ const ScoutProvider = ({ children, projectPartition }) => {
         partitionValue: projectPartition,
       },
     };
-    // open a realm for this particular project
+    // open a realm for this createTaskparticular project
     Realm.open(config).then((projectRealm) => {
       realmRef.current = projectRealm;
 
-      const syncTasks = projectRealm.objects("Scout");
-      let sortedScout = syncTasks.sorted("name");
-      console.log(test);
-      setScout([...sortedScout]);
-      sortedScout.addListener(() => {
-        setScout([...sortedScout]);
+      const syncTasks = projectRealm.objects("EmployeeTable");
+      let sortedTasks = syncTasks.sorted("name");
+      setTasks([...sortedTasks]);
+      sortedTasks.addListener(() => {
+        setTasks([...sortedTasks]);
       });
     });
 
@@ -40,68 +39,79 @@ const ScoutProvider = ({ children, projectPartition }) => {
       if (projectRealm) {
         projectRealm.close();
         realmRef.current = null;
-        setScout([]);
+        setTasks([]);
       }
     };
   }, [user, projectPartition]);
 
-  const sendScoutMistakes = (LocatieScout, KasScout, PadScout, ControleurScout, TijdScout, DatumScout, SpintScout, RupsScout, Witte_VliegScout, TripsScout, LuisScout, Fruit_MotScout, KeversScout, FusariumScout, PythiumScout,
-    Mineer_VliegScout, MeeldauwScout, WantsScout, CicadenScout, Kas_OpmerkingScout, OverigScout,) => {
+  const createTask = (newTaskName) => {
     const projectRealm = realmRef.current;
     projectRealm.write(() => {
       // Create a new task in the same partition -- that is, in the same project.
       projectRealm.create(
-        "Scout",
-        new Scout({
+        "Task",
+        new Task({
+          name: newTaskName || "New Task",
           partition: projectPartition,
-          Locatie: LocatieScout,
-          Kas: KasScout,
-          Pad: PadScout,
-          Controleur: ControleurScout,
-          Tijd: TijdScout,
-          Datum: DatumScout,
-          Spint: SpintScout,
-          Rups: RupsScout,
-          Witte_Vlieg: Witte_VliegScout,
-          Trips: TripsScout,
-          Luis: LuisScout,
-          Fruit_Mot: Fruit_MotScout,
-          Kevers: KeversScout,
-          Fusarium: FusariumScout,
-          Pythium: PythiumScout,
-          Mineer_Vlieg: Mineer_VliegScout,
-          Meeldauw: MeeldauwScout,
-          Wants: WantsScout,
-          Cicaden: CicadenScout,
-          Kas_Opmerking: Kas_OpmerkingScout,
-          Overig: OverigScout,
         })
       );
     });
   };
+
+  const setTaskStatus = (task, status) => {
+    // One advantage of centralizing the realm functionality in this provider is
+    // that we can check to make sure a valid status was passed in here.
+    if (
+      ![
+        Task.STATUS_OPEN,
+        Task.STATUS_IN_PROGRESS,
+        Task.STATUS_COMPLETE,
+      ].includes(status)
+    ) {
+      throw new Error(`Invalid status: ${status}`);
+    }
+    const projectRealm = realmRef.current;
+
+    projectRealm.write(() => {
+      task.status = status;
+    });
+  };
+
+  // Define the function for deleting a task.
+  const deleteTask = (task) => {
+    const projectRealm = realmRef.current;
+    projectRealm.write(() => {
+      projectRealm.delete(task);
+      setTasks([...projectRealm.objects("Task").sorted("name")]);
+    });
+  };
+
   // Render the children within the TaskContext's provider. The value contains
   // everything that should be made available to descendants that use the
   // useTasks hook.
   return (
-    <ScoutContext.Provider
+    <TasksContext.Provider
       value={{
-        sendScoutMistakes,
-        scouts,
+        createTask,
+        deleteTask,
+        setTaskStatus,
+        tasks,
       }}
     >
       {children}
-    </ScoutContext.Provider>
+    </TasksContext.Provider>
   );
 };
 
-const useScouts = () => {
-  const scout = useContext(ScoutContext);
-  console.log(scout);
-  if (scout == null) {
-    throw new Error("useScout() called outside of a ScoutProvider?"); // an alert is not placed because this is an error for the developer not the user
+// The useTasks hook can be used by any descendant of the TasksProvider. It
+// provides the tasks of the TasksProvider's project and various functions to
+// create, update, and delete the tasks in that project.
+const useTasks = () => {
+  const task = useContext(TasksContext);
+  if (task == null) {
+    throw new Error("useTasks() called outside of a TasksProvider?"); // an alert is not placed because this is an error for the developer not the user
   }
-  return scout;
+  return task;
 };
 
-
-export { ScoutProvider, useScouts };
+export { TasksProvider, useTasks };

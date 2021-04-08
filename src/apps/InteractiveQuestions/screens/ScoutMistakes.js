@@ -5,6 +5,7 @@ import * as Icon from "react-native-feather";
 import { NavigationInjectedProps } from 'react-navigation';
 import { useScout } from '../../../../providers/ScoutProvider';
 
+
 export class ScoutMistakes extends React.Component {
   eventHandlers = {
     onChangeKas: (text) => this.onChangeKas(text),
@@ -83,26 +84,14 @@ export class ScoutMistakes extends React.Component {
       ...state
     });
   }
-
+    
   render() {
     var SelecteerbarePoten = [
-      { label: 'Alle poten', value: 'Alle Poten', icon: () => <Icon.Flag size={18} color="#900" /> },
-      { label: '1', value: '1', icon: () => <Icon.Flag size={18} color="#900" /> },
-      { label: '2', value: '2', icon: () => <Icon.Flag size={18} color="#900" /> },
-      { label: '3', value: '3', icon: () => <Icon.Flag size={18} color="#900" /> },
-      { label: '4', value: '4', icon: () => <Icon.Flag size={18} color="#900" /> },
-      { label: '5', value: '5', icon: () => <Icon.Flag size={18} color="#900" /> },
-      { label: '6', value: '6', icon: () => <Icon.Flag size={18} color="#900" /> },
-      { label: '7', value: '7', icon: () => <Icon.Flag size={18} color="#900" /> },
-      { label: '8', value: '8', icon: () => <Icon.Flag size={18} color="#900" /> },
-      { label: '9', value: '9', icon: () => <Icon.Flag size={18} color="#900" /> },
-      { label: '10', value: '10', icon: () => <Icon.Flag size={18} color="#900" /> },
-      { label: '11', value: '11', icon: () => <Icon.Flag size={18} color="#900" /> },
-      { label: '12', value: '12', icon: () => <Icon.Flag size={18} color="#900" /> },
-      { label: '13', value: '13', icon: () => <Icon.Flag size={18} color="#900" /> },
-      { label: '14', value: '14', icon: () => <Icon.Flag size={18} color="#900" /> },
-      { label: '15', value: '15', icon: () => <Icon.Flag size={18} color="#900" /> },
-    ];
+      { label: 'Alle poten', value: 'Alle Poten', icon: () => <Icon.Flag size={18} color="#900" /> },];
+    var i;
+    for (let index = 1; index < 41; index++) {
+      SelecteerbarePoten.push({ label: `${index}`, value: `${index}`, icon: () => <Icon.Flag size={18} color="#000" /> });
+    }
     const { Kas } = this.state.Kas;
     const { Overig } = this.state.Overig;
     return (

@@ -15,6 +15,7 @@ export class GrowOverview extends React.Component {
       KopVergeten: `${this.props.route.params.KopVergeten}`,
       StrakGedraaid: `${this.props.route.params.StrakGedraaid}`,
       TopNietGedraaid: `${this.props.route.params.TopNietGedraaid}`,
+      TeKortGetopt: `${this.props.route.params.TeKortGetopt}`,
       VruchtOpDeGrond: `${this.props.route.params.VruchtOpDeGrond}`,
       BloemVruchtEraf: `${this.props.route.params.BloemVruchtEraf}`,
       PlaagNietGemeld: `${this.props.route.params.PlaagNietGemeld}`,
@@ -62,6 +63,10 @@ export class GrowOverview extends React.Component {
             <View style={styles.container}>
               <Text style={styles.subTitle}>Top niet gedraaid</Text>
               <Text style={styles.waarde}>{this.state.TopNietGedraaid}</Text>
+            </View>
+            <View style={styles.container}>
+              <Text style={styles.subTitle}>Te kort getopt</Text>
+              <Text style={styles.waarde}>{this.state.TeKortGetopt}</Text>
             </View>
             <View style={styles.container}>
               <Text style={styles.subTitle}>Vrucht op de grond</Text>
@@ -174,7 +179,7 @@ const styles = StyleSheet.create({
   },
   waarde: {
     position: "absolute",
-    paddingLeft: (global.windowWidth / 1.2),
+    paddingLeft: 310,
     fontSize: 24,
   }
 });

@@ -57,7 +57,7 @@ INJECTED from /home/kvdb/Royalpeppers_GitHub_2.3.2021/android/app/src/main/Andro
 INJECTED from /home/kvdb/Royalpeppers_GitHub_2.3.2021/android/app/src/main/AndroidManifest.xml:1:1-27:12
 INJECTED from /home/kvdb/Royalpeppers_GitHub_2.3.2021/android/app/src/main/AndroidManifest.xml:1:1-27:12
 	package
-		ADDED from /home/kvdb/Royalpeppers_GitHub_2.3.2021/android/app/src/main/AndroidManifest.xml:2:3-19
+		ADDED from /home/kvdb/Royalpeppers_GitHub_2.3.2021/android/app/src/main/AndroidManifest.xml:2:3-37
 		INJECTED from /home/kvdb/Royalpeppers_GitHub_2.3.2021/android/app/src/main/AndroidManifest.xml
 		INJECTED from /home/kvdb/Royalpeppers_GitHub_2.3.2021/android/app/src/main/AndroidManifest.xml
 	android:versionName
@@ -105,8 +105,8 @@ MERGED from [com.facebook.soloader:annotation:0.8.2] /home/kvdb/.gradle/caches/t
 	android:theme
 		ADDED from /home/kvdb/Royalpeppers_GitHub_2.3.2021/android/app/src/main/AndroidManifest.xml:12:7-38
 	android:name
-		ADDED from /home/kvdb/Royalpeppers_GitHub_2.3.2021/android/app/src/main/AndroidManifest.xml:7:7-38
-activity#com.rn.MainActivity
+		ADDED from /home/kvdb/Royalpeppers_GitHub_2.3.2021/android/app/src/main/AndroidManifest.xml:7:7-62
+activity#com.GreenhouseExcellence.MainActivity
 ADDED from /home/kvdb/Royalpeppers_GitHub_2.3.2021/android/app/src/main/AndroidManifest.xml:13:7-23:18
 	android:label
 		ADDED from /home/kvdb/Royalpeppers_GitHub_2.3.2021/android/app/src/main/AndroidManifest.xml:15:9-41
@@ -117,7 +117,7 @@ ADDED from /home/kvdb/Royalpeppers_GitHub_2.3.2021/android/app/src/main/AndroidM
 	android:configChanges
 		ADDED from /home/kvdb/Royalpeppers_GitHub_2.3.2021/android/app/src/main/AndroidManifest.xml:16:9-86
 	android:name
-		ADDED from /home/kvdb/Royalpeppers_GitHub_2.3.2021/android/app/src/main/AndroidManifest.xml:14:9-37
+		ADDED from /home/kvdb/Royalpeppers_GitHub_2.3.2021/android/app/src/main/AndroidManifest.xml:14:9-61
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from /home/kvdb/Royalpeppers_GitHub_2.3.2021/android/app/src/main/AndroidManifest.xml:19:9-22:25
 action#android.intent.action.MAIN

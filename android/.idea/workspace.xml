@@ -28,6 +28,7 @@
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/generated/assets/react/release/index.android.bundle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/assets/react/release/index.android.bundle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/rn/BuildConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/GreenhouseExcellence/BuildConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/generated/sourcemaps/react/release/index.android.bundle.map" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/sourcemaps/react/release/index.android.bundle.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/release/index.android.bundle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/release/index.android.bundle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageRelease/tmp/release/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageRelease/tmp/release/dex-renamer-state.txt" afterDir="false" />
@@ -35,8 +36,22 @@
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_assets/release/out/index.android.bundle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_assets/release/out/index.android.bundle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/reports/lint-results-release-fatal.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/reports/lint-results-release-fatal.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/release/app-release.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/release/app-release.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/debug/java/com/rn/ReactNativeFlipper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/debug/java/com/GreenhouseExcellence/ReactNativeFlipper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/rn/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/GreenhouseExcellence/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/rn/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/GreenhouseExcellence/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/master-index.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/master-index.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/react-native/scripts/.packager.env" beforeDir="false" afterPath="$PROJECT_DIR$/../node_modules/react-native/scripts/.packager.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/apps/InteractiveQuestions/screens/GrowMistakes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/apps/InteractiveQuestions/screens/GrowMistakes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/apps/InteractiveQuestions/screens/GrowOverview.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/apps/InteractiveQuestions/screens/GrowOverview.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/apps/InteractiveQuestions/screens/GrowScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/apps/InteractiveQuestions/screens/GrowScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/apps/InteractiveQuestions/screens/HarvestMistakes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/apps/InteractiveQuestions/screens/HarvestMistakes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/apps/InteractiveQuestions/screens/HarvestOverview.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/apps/InteractiveQuestions/screens/HarvestOverview.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/apps/InteractiveQuestions/screens/HarvestScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/apps/InteractiveQuestions/screens/HarvestScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/apps/InteractiveQuestions/screens/ScoutScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/apps/InteractiveQuestions/screens/ScoutScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../views/WelcomeView.js" beforeDir="false" afterPath="$PROJECT_DIR$/../views/WelcomeView.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

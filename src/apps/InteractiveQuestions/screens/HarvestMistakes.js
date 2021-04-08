@@ -255,7 +255,7 @@ const styles = StyleSheet.create({
         paddingLeft: (global.windowWidth / 2)
       },
       android: {
-        paddingLeft: (global.windowWidth / 2)
+        paddingLeft: 230
       },
       default: {
         paddingLeft: 210
