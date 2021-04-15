@@ -9,6 +9,9 @@ import { ManageTeam } from "../components/ManageTeam";
 import { useTasks } from "../providers/TasksProvider";
 import { TaskItem } from "../components/TaskItem";
 import { AddTask } from "../components/AddTask";
+import { ScrollView } from "react-native-gesture-handler";
+import { TouchableOpacity } from "react-native";
+import { Text } from "react-native";
 
 export function TasksView({ navigation, route }) {
   const { name } = route.params;
@@ -26,27 +29,36 @@ export function TasksView({ navigation, route }) {
   }, []);
 
   return (
-    <View>
-      {tasks.map((task) =>
-        task ? <TaskItem key={`${task._id}`} task={task} /> : null
-      )}
+    <ScrollView>
+      <View>
+        {tasks.map((task) =>
+          task ? <TaskItem key={`${task._id}`} task={task} /> : null
+        )}
 
-      {name === "My Project" ? (
-        <>
-          <View style={styles.manageTeamButtonContainer}>
-            <Button
-              title="Manage Team"
-              onPress={() => setOverlayVisible(true)}
-            />
-          </View>
-          <Overlay
-            isVisible={overlayVisible}
-            onBackdropPress={() => setOverlayVisible(false)}
-          >
-            <ManageTeam />
-          </Overlay>
-        </>
-      ) : null}
-    </View>
+        {name === "My Project" ? (
+          <>
+            <View style={styles.manageTeamButtonContainer}>
+              <Button
+                title="Manage Team"
+                onPress={() => setOverlayVisible(true)}
+              />
+            </View>
+            <Overlay
+              isVisible={overlayVisible}
+              onBackdropPress={() => setOverlayVisible(false)}
+            >
+              <ManageTeam />
+            </Overlay>
+          </>
+        ) : null}
+      </View>
+      <View>
+        <TouchableOpacity onPress={() => navigation.navigate("HomeNavScreen", {email: "richard@royalpeppers.nl"})}>
+          <Text>
+            bla bla test
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
   );
 }

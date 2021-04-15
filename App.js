@@ -25,6 +25,7 @@ import { GrowOverview } from './src/apps/InteractiveQuestions/screens/GrowOvervi
 import { ScoutScreen } from './src/apps/InteractiveQuestions/screens/ScoutScreen';
 import { ScoutMistakes } from './src/apps/InteractiveQuestions/screens/ScoutMistakes';
 import { ScoutOverview } from './src/apps/InteractiveQuestions/screens/ScoutOverview';
+import { View } from "react-native";
 
 
 const Stack = createStackNavigator();
@@ -65,7 +66,8 @@ const App = () => {
               );
             }}
           </Stack.Screen>
-          <Stack.Screen name="HomeNavScreen" component={HomeNavScreen} options={{title: 'GreenHouse Excellence', headerStyle: {backgroundColor: '#228B22'}, headerTitleStyle: {color: '#fff'}}} />
+          <Stack.Screen name="HomeNavScreen" component={HomeNavScreen} options={{title: 'GreenHouse Excellence', headerStyle: {backgroundColor: '#228B22'}, headerTitleStyle: {color: '#fff'}}} >
+            </Stack.Screen>
           
           <Stack.Screen name="HarvestScreen" component={HarvestScreen} options={{title: 'GreenHouse Excellence', headerStyle: {backgroundColor: '#228B22'}, headerTitleStyle: {color: '#fff'}}} />
           <Stack.Screen name="HarvestMistakes" component={HarvestMistakes} options={{title: 'GreenHouse Excellence', headerStyle: {backgroundColor: '#228B22'}, headerTitleStyle: {color: '#fff'}}} />

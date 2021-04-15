@@ -18,6 +18,7 @@ export class HomeNavScreen extends React.Component {
   }
 
   render() {
+    console.log(this.props.route.params.email);
     return (
       <View>
         <View style={styles.container}>

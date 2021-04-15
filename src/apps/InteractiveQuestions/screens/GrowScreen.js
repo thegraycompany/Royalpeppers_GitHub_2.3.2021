@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Alert, Text, TouchableOpacity, View, StyleSheet, ScrollView, Platform } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 import DropDownPicker from 'react-native-dropdown-picker';
@@ -264,13 +264,13 @@ export class GrowScreen extends React.Component {
       Medewerkers.push({ label: `${Employees[k]}`, value: `${Employees[k]}`, icon: () => <User size={18} color="#000" /> });
     }
 
-
     return (
       <ScrollView style={styles.container}>
         <View>
           <Text style={styles.title}>
             Toppen/Draaien
-        </Text>
+          </Text>
+
             {/* Locatie */}
             <View style={{ paddingBottom: 20,
               ...(Platform.OS !== 'android' && {
@@ -309,6 +309,7 @@ export class GrowScreen extends React.Component {
                 })}
               />
             </View>
+           
             {/* Greenhouse */}
             <View style={{ paddingBottom: 20,
               ...(Platform.OS !== 'android' && {
@@ -346,6 +347,7 @@ export class GrowScreen extends React.Component {
                 })}
               />
             </View>
+            
             {/* Pad */}
             <View style={{paddingBottom: 20,
               ...(Platform.OS !== 'android' && {
@@ -387,6 +389,7 @@ export class GrowScreen extends React.Component {
                 })}
               />
             </View>
+            
             {/* Medewerker */}
             <View style={{paddingBottom: 100,
               ...(Platform.OS !== 'android' && {

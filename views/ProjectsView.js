@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { Text,View } from "react-native";
 import { useAuth } from "../providers/AuthProvider";
 import { ListItem } from "react-native-elements";
 
@@ -9,7 +9,6 @@ export function ProjectsView({ navigation }) {
   // the onClickProject navigates to the Task List with the project name
   // and project partition value
   const onClickProject = async (project) => {
-    console.log(project);
     navigation.navigate("Task List", {
       name: project.name,
       projectPartition: project.partition,
@@ -26,6 +25,9 @@ export function ProjectsView({ navigation }) {
             bottomDivider
             key={project.name}
           />
+      <Text>
+        Test voor ProjectsView
+      </Text>
         </View>
       ))}
     </View>

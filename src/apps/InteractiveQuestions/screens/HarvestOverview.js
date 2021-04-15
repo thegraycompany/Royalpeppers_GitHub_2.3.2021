@@ -113,7 +113,7 @@ export class HarvestOverview extends React.Component {
         cc: [], // string or array of email addresses
         bcc: '', // string or array of email addresses
         subject: 'Resultaat controle oogsten: ' + `${this.props.route.params.Location}` + ' Datum: ' + date + '.' + month + '.' + year,
-        body: 'Dit zijn de resultaten: ' + '\n' + `${this.props.route.params.Greenhouse}` + ';'  + `${this.state.Path}` + ';' + `${this.state.Sneetje}` + ';' + `${this.state.Buts}` + ';'
+        body: 'Dit zijn de resultaten: ' + '\n' + `${this.props.route.params.Greenhouse}` + ';'  + `${this.state.Path}` + ';' + `${this.state.Sneetje}` + ';' + `${this.state.Color}` + ';' + `${this.state.Buts}` + ';'
         + `${this.state.TeBont}` + ';' + `${this.state.RafeligeSteel}` + ';' + `${this.state.Blad}` + ';' +  `${this.state.VruchtVergeten}` + ';'
         + `${this.state.KarNietSchoon}` + ';' + date + '.' + month + '.' + year + ';' + `${this.state.Email}` + ';' + `${this.state.Employee}` + ';' + `${TotaleTijd}` + ';'
       }).catch(console.error)

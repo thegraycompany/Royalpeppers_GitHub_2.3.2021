@@ -3,7 +3,6 @@ import { Alert, StyleSheet, ScrollView, Text, View, Platform } from 'react-nativ
 import DropDownPicker from 'react-native-dropdown-picker';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Award, Flag, User } from "react-native-feather";
-import { NavigationInjectedProps } from 'react-navigation';
 
 
 export class HarvestScreen extends React.Component {
@@ -30,10 +29,6 @@ export class HarvestScreen extends React.Component {
 
       Employee: null,
       isVisibleEmployee: false,
-
-      Color: null,
-      isVisibleColor: false,
-
 
       TimeStart: Seconds,
 

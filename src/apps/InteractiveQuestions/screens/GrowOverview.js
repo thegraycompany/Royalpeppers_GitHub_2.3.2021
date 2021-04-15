@@ -135,8 +135,8 @@ export class GrowOverview extends React.Component {
         cc: [], // string or array of email addresses
         bcc: '', // string or array of email addresses
         subject: 'Resultaat controle Toppen/Draaien: ' + `${this.props.route.params.Location}` + ' Datum: ' + date + '.' + month + '.' + year,
-        body: 'Dit zijn de resultaten: ' + '\n' + `${this.props.route.params.Greenhouse}` + ';' + `${this.state.Path}` + ';' + `${this.state.KopGebroken}` + ';' + `${this.state.KopVergeten}` + ';' +
-        `${this.state.StrakGedraaid}` + ';' + `${this.state.TopNietGedraaid}` + ';' + `${this.state.VruchtOpDeGrond}` + ';' + `${this.state.BloemVruchtEraf}` + ';' + `${this.state.PlaagNietGemeld}` + ';' + 
+        body: 'Dit zijn de resultaten: ' + '\n' + `${this.props.route.params.Greenhouse}` + ';' + `${this.state.Path}` + ';' + `${this.state.Color}` + ';' + `${this.state.KopGebroken}` + ';' + `${this.state.KopVergeten}` + ';' +
+        `${this.state.StrakGedraaid}` + ';' + `${this.state.TopNietGedraaid}` + ';' + `${this.state.TeKortGetopt}` + ';' +  `${this.state.VruchtOpDeGrond}` + ';' + `${this.state.BloemVruchtEraf}` + ';' + `${this.state.PlaagNietGemeld}` + ';' + 
          + date + '.' + month + '.' + year + ';' + `${this.state.Email}` + ';' + `${this.state.Employee}` + ';' + `${TotaleTijd}` + ';'
       }).catch(console.error);
     }
