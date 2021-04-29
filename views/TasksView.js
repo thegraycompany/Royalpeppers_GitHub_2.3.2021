@@ -52,13 +52,6 @@ export function TasksView({ navigation, route }) {
           </>
         ) : null}
       </View>
-      <View>
-        <TouchableOpacity onPress={() => navigation.navigate("HomeNavScreen", {email: "richard@royalpeppers.nl"})}>
-          <Text>
-            bla bla test
-          </Text>
-        </TouchableOpacity>
-      </View>
     </ScrollView>
   );
 }

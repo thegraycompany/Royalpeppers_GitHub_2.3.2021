@@ -20,6 +20,8 @@ export class HarvestMistakes extends React.Component {
       VruchtVergeten: 0,
       KarNietSchoon: 0,
       Overig: '',
+      TeKleinGesneden: 0,
+      TeGrootGesneden: 0,
 
       Location: `${this.props.route.params.Location}`,
       Greenhouse: `${this.props.route.params.Greenhouse}`,
@@ -33,105 +35,234 @@ export class HarvestMistakes extends React.Component {
 
   render() {
     const { Overig } = this.state.Overig;
-    return (
-      <View>
-        <View style={styles.container}>
-          <Text style={styles.subTitle}>Sneetje</Text>
-          <View style={styles.positionCount}>
-            <Text style={styles.count}>{this.state.Sneetje}</Text>
-            <TouchableOpacity onPress={() => this.removeSneetje()} style={{ paddingLeft: 10 }}>
-              <Icon.MinusCircle stroke="green" fill="#fff" width={50} height={50} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.addSneetje()} style={{ paddingLeft: 10 }}>
-              <Icon.PlusCircle stroke="green" fill="#fff" width={50} height={50} />
-            </TouchableOpacity>
+    if (this.state.Color == "Groen") {
+      return (
+        <View>
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Sneetje</Text>
+            <View style={styles.positionCount}>
+              <Text style={styles.count}>{this.state.Sneetje}</Text>
+              <TouchableOpacity onPress={() => this.removeSneetje()} style={{ paddingLeft: 10 }}>
+                <Icon.MinusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.addSneetje()} style={{ paddingLeft: 10 }}>
+                <Icon.PlusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
 
-        <View style={styles.container}>
-          <Text style={styles.subTitle}>Buts</Text>
-          <View style={styles.positionCount}>
-            <Text style={styles.count}>{this.state.Buts}</Text>
-            <TouchableOpacity onPress={() => this.removeButs()} style={{ paddingLeft: 10 }}>
-              <Icon.MinusCircle stroke="green" fill="#fff" width={50} height={50} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.addButs()} style={{ paddingLeft: 10 }}>
-              <Icon.PlusCircle stroke="green" fill="#fff" width={50} height={50} />
-            </TouchableOpacity>
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Buts</Text>
+            <View style={styles.positionCount}>
+              <Text style={styles.count}>{this.state.Buts}</Text>
+              <TouchableOpacity onPress={() => this.removeButs()} style={{ paddingLeft: 10 }}>
+                <Icon.MinusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.addButs()} style={{ paddingLeft: 10 }}>
+                <Icon.PlusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
 
-        <View style={styles.container}>
-          <Text style={styles.subTitle}>Te Bont</Text>
-          <View style={styles.positionCount}>
-            <Text style={styles.count}>{this.state.TeBont}</Text>
-            <TouchableOpacity onPress={() => this.removeTeBont()} style={{ paddingLeft: 10 }}>
-              <Icon.MinusCircle stroke="green" fill="#fff" width={50} height={50} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.addTeBont()} style={{ paddingLeft: 10 }}>
-              <Icon.PlusCircle stroke="green" fill="#fff" width={50} height={50} />
-            </TouchableOpacity>
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Te Bont</Text>
+            <View style={styles.positionCount}>
+              <Text style={styles.count}>{this.state.TeBont}</Text>
+              <TouchableOpacity onPress={() => this.removeTeBont()} style={{ paddingLeft: 10 }}>
+                <Icon.MinusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.addTeBont()} style={{ paddingLeft: 10 }}>
+                <Icon.PlusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
 
-        <View style={styles.container}>
-          <Text style={styles.subTitle}>Rafelige Steel</Text>
-          <View style={styles.positionCount}>
-            <Text style={styles.count}>{this.state.RafeligeSteel}</Text>
-            <TouchableOpacity onPress={() => this.removeRafeligeSteel()} style={{ paddingLeft: 10 }}>
-              <Icon.MinusCircle stroke="green" fill="#fff" width={50} height={50} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.addRafeligeSteel()} style={{ paddingLeft: 10 }}>
-              <Icon.PlusCircle stroke="green" fill="#fff" width={50} height={50} />
-            </TouchableOpacity>
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Rafelige Steel</Text>
+            <View style={styles.positionCount}>
+              <Text style={styles.count}>{this.state.RafeligeSteel}</Text>
+              <TouchableOpacity onPress={() => this.removeRafeligeSteel()} style={{ paddingLeft: 10 }}>
+                <Icon.MinusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.addRafeligeSteel()} style={{ paddingLeft: 10 }}>
+                <Icon.PlusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
 
-        <View style={styles.container}>
-          <Text style={styles.subTitle}>Blad</Text>
-          <View style={styles.positionCount}>
-            <Text style={styles.count}>{this.state.Blad}</Text>
-            <TouchableOpacity onPress={() => this.removeBlad()} style={{ paddingLeft: 10 }}>
-              <Icon.MinusCircle stroke="green" fill="#fff" width={50} height={50} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.addBlad()} style={{ paddingLeft: 10 }}>
-              <Icon.PlusCircle stroke="green" fill="#fff" width={50} height={50} />
-            </TouchableOpacity>
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Blad</Text>
+            <View style={styles.positionCount}>
+              <Text style={styles.count}>{this.state.Blad}</Text>
+              <TouchableOpacity onPress={() => this.removeBlad()} style={{ paddingLeft: 10 }}>
+                <Icon.MinusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.addBlad()} style={{ paddingLeft: 10 }}>
+                <Icon.PlusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
 
-        <View style={styles.container}>
-          <Text style={styles.subTitle}>Vrucht vergeten</Text>
-          <View style={styles.positionCount}>
-            <Text style={styles.count}>{this.state.VruchtVergeten}</Text>
-            <TouchableOpacity onPress={() => this.removeVruchtVergeten()} style={{ paddingLeft: 10 }}>
-              <Icon.MinusCircle stroke="green" fill="#fff" width={50} height={50} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.addVruchtVergeten()} style={{ paddingLeft: 10 }}>
-              <Icon.PlusCircle stroke="green" fill="#fff" width={50} height={50} />
-            </TouchableOpacity>
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Vrucht vergeten</Text>
+            <View style={styles.positionCount}>
+              <Text style={styles.count}>{this.state.VruchtVergeten}</Text>
+              <TouchableOpacity onPress={() => this.removeVruchtVergeten()} style={{ paddingLeft: 10 }}>
+                <Icon.MinusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.addVruchtVergeten()} style={{ paddingLeft: 10 }}>
+                <Icon.PlusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
 
-        <View style={styles.container}>
-          <Text style={styles.subTitle}>Kar niet schoon</Text>
-          <View style={styles.positionCount}>
-            <Text style={styles.count}>{this.state.KarNietSchoon}</Text>
-            <TouchableOpacity onPress={() => this.removeKarNietSchoon()} style={{ paddingLeft: 10 }}>
-              <Icon.MinusCircle stroke="green" fill="#fff" width={50} height={50} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.addKarNietSchoon()} style={{ paddingLeft: 10 }}>
-              <Icon.PlusCircle stroke="green" fill="#fff" width={50} height={50} />
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Kar niet schoon</Text>
+            <View style={styles.positionCount}>
+              <Text style={styles.count}>{this.state.KarNietSchoon}</Text>
+              <TouchableOpacity onPress={() => this.removeKarNietSchoon()} style={{ paddingLeft: 10 }}>
+                <Icon.MinusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.addKarNietSchoon()} style={{ paddingLeft: 10 }}>
+                <Icon.PlusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Te klein gesneden</Text>
+            <View style={styles.positionCount}>
+              <Text style={styles.count}>{this.state.TeKleinGesneden}</Text>
+              <TouchableOpacity onPress={() => this.removeTeKleinGesneden()} style={{ paddingLeft: 10 }}>
+                <Icon.MinusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.addTeKleinGesneden()} style={{ paddingLeft: 10 }}>
+                <Icon.PlusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Te groot gesneden</Text>
+            <View style={styles.positionCount}>
+              <Text style={styles.count}>{this.state.TeGrootGesneden}</Text>
+              <TouchableOpacity onPress={() => this.removeTeGrootGesneden()} style={{ paddingLeft: 10 }}>
+                <Icon.MinusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.addTeGrootGesneden()} style={{ paddingLeft: 10 }}>
+                <Icon.PlusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          <View style={{ paddingTop: 50 }}>
+            <TouchableOpacity onPress={this.eventHandlers.navigateToHarvestOverview}>
+              <Text style={styles.title}>NAAR OVERZICHT</Text>
             </TouchableOpacity>
           </View>
         </View>
-        <View style={{ paddingTop: 50 }}>
-          <TouchableOpacity onPress={this.eventHandlers.navigateToHarvestOverview}>
-            <Text style={styles.title}>NAAR OVERZICHT</Text>
-          </TouchableOpacity>
+      );
+    } else {
+      return (
+        <View>
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Sneetje</Text>
+            <View style={styles.positionCount}>
+              <Text style={styles.count}>{this.state.Sneetje}</Text>
+              <TouchableOpacity onPress={() => this.removeSneetje()} style={{ paddingLeft: 10 }}>
+                <Icon.MinusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.addSneetje()} style={{ paddingLeft: 10 }}>
+                <Icon.PlusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Buts</Text>
+            <View style={styles.positionCount}>
+              <Text style={styles.count}>{this.state.Buts}</Text>
+              <TouchableOpacity onPress={() => this.removeButs()} style={{ paddingLeft: 10 }}>
+                <Icon.MinusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.addButs()} style={{ paddingLeft: 10 }}>
+                <Icon.PlusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Te Bont</Text>
+            <View style={styles.positionCount}>
+              <Text style={styles.count}>{this.state.TeBont}</Text>
+              <TouchableOpacity onPress={() => this.removeTeBont()} style={{ paddingLeft: 10 }}>
+                <Icon.MinusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.addTeBont()} style={{ paddingLeft: 10 }}>
+                <Icon.PlusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Rafelige Steel</Text>
+            <View style={styles.positionCount}>
+              <Text style={styles.count}>{this.state.RafeligeSteel}</Text>
+              <TouchableOpacity onPress={() => this.removeRafeligeSteel()} style={{ paddingLeft: 10 }}>
+                <Icon.MinusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.addRafeligeSteel()} style={{ paddingLeft: 10 }}>
+                <Icon.PlusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Blad</Text>
+            <View style={styles.positionCount}>
+              <Text style={styles.count}>{this.state.Blad}</Text>
+              <TouchableOpacity onPress={() => this.removeBlad()} style={{ paddingLeft: 10 }}>
+                <Icon.MinusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.addBlad()} style={{ paddingLeft: 10 }}>
+                <Icon.PlusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Vrucht vergeten</Text>
+            <View style={styles.positionCount}>
+              <Text style={styles.count}>{this.state.VruchtVergeten}</Text>
+              <TouchableOpacity onPress={() => this.removeVruchtVergeten()} style={{ paddingLeft: 10 }}>
+                <Icon.MinusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.addVruchtVergeten()} style={{ paddingLeft: 10 }}>
+                <Icon.PlusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Kar niet schoon</Text>
+            <View style={styles.positionCount}>
+              <Text style={styles.count}>{this.state.KarNietSchoon}</Text>
+              <TouchableOpacity onPress={() => this.removeKarNietSchoon()} style={{ paddingLeft: 10 }}>
+                <Icon.MinusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.addKarNietSchoon()} style={{ paddingLeft: 10 }}>
+                <Icon.PlusCircle stroke="green" fill="#fff" width={50} height={50} />
+              </TouchableOpacity>
+            </View>
+          </View>
+          <View style={{ paddingTop: 50 }}>
+            <TouchableOpacity onPress={this.eventHandlers.navigateToHarvestOverview}>
+              <Text style={styles.title}>NAAR OVERZICHT</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
-    );
+      );
+    }
   }
 
   onChangeOverige(text) {
@@ -139,10 +270,12 @@ export class HarvestMistakes extends React.Component {
   }
 
   navigateToHarvestOverview() {
-    this.props.navigation.navigate('HarvestOverview', {Location: this.state.Location, Greenhouse: this.state.Greenhouse, Path: this.state.Path,
-      Employee: this.state.Employee, Color: this.state.Color, Sneetje: this.state.Sneetje, Buts: this.state.Buts, TeBont: this.state.TeBont,
-      RafeligeSteel: this.state.RafeligeSteel, Blad: this.state.Blad, VruchtVergeten: this.state.VruchtVergeten,
-      KarNietSchoon: this.state.KarNietSchoon, Email: this.state.Email, TimeStart: this.state.TimeStart});
+      this.props.navigation.navigate('HarvestOverview', {
+        Location: this.state.Location, Greenhouse: this.state.Greenhouse, Path: this.state.Path,
+        Employee: this.state.Employee, Color: this.state.Color, Sneetje: this.state.Sneetje, Buts: this.state.Buts, TeBont: this.state.TeBont,
+        RafeligeSteel: this.state.RafeligeSteel, Blad: this.state.Blad, VruchtVergeten: this.state.VruchtVergeten,
+        KarNietSchoon: this.state.KarNietSchoon, Email: this.state.Email, TimeStart: this.state.TimeStart, TeKleinGesneden: this.state.TeKleinGesneden, TeGrootGesneden: this.state.TeGrootGesneden
+      });
   }
 
   addSneetje() {
@@ -152,8 +285,6 @@ export class HarvestMistakes extends React.Component {
   removeSneetje() {
     if (this.state.Sneetje >= 1) {
       this.setState({ Sneetje: (this.state.Sneetje - 1) })
-    } else {
-      console.log("spint staat op 0");
     }
   }
 
@@ -164,8 +295,6 @@ export class HarvestMistakes extends React.Component {
   removeButs() {
     if (this.state.Buts >= 1) {
       this.setState({ Buts: (this.state.Buts - 1) })
-    } else {
-      console.log("spint staat op 0");
     }
   }
 
@@ -176,8 +305,6 @@ export class HarvestMistakes extends React.Component {
   removeTeBont() {
     if (this.state.TeBont >= 1) {
       this.setState({ TeBont: (this.state.TeBont - 1) })
-    } else {
-      console.log("spint staat op 0");
     }
   }
 
@@ -188,8 +315,6 @@ export class HarvestMistakes extends React.Component {
   removeRafeligeSteel() {
     if (this.state.RafeligeSteel >= 1) {
       this.setState({ RafeligeSteel: (this.state.RafeligeSteel - 1) })
-    } else {
-      console.log("spint staat op 0");
     }
   }
 
@@ -200,8 +325,6 @@ export class HarvestMistakes extends React.Component {
   removeBlad() {
     if (this.state.Blad >= 1) {
       this.setState({ Blad: (this.state.Blad - 1) })
-    } else {
-      console.log("spint staat op 0");
     }
   }
 
@@ -212,8 +335,6 @@ export class HarvestMistakes extends React.Component {
   removeVruchtVergeten() {
     if (this.state.VruchtVergeten >= 1) {
       this.setState({ VruchtVergeten: (this.state.VruchtVergeten - 1) })
-    } else {
-      console.log("spint staat op 0");
     }
   }
 
@@ -224,8 +345,26 @@ export class HarvestMistakes extends React.Component {
   removeKarNietSchoon() {
     if (this.state.KarNietSchoon >= 1) {
       this.setState({ KarNietSchoon: (this.state.KarNietSchoon - 1) })
-    } else {
-      console.log("spint staat op 0");
+    }
+  }
+
+  addTeKleinGesneden() {
+    this.setState({ TeKleinGesneden: (this.state.TeKleinGesneden + 1) })
+  }
+
+  removeTeKleinGesneden() {
+    if (this.state.TeKleinGesneden >= 1) {
+      this.setState({ TeKleinGesneden: (this.state.TeKleinGesneden - 1) })
+    }
+  }
+
+  addTeGrootGesneden() {
+    this.setState({ TeGrootGesneden: (this.state.TeGrootGesneden + 1) })
+  }
+
+  removeTeGrootGesneden() {
+    if (this.state.TeGrootGesneden >= 1) {
+      this.setState({ TeGrootGesneden: (this.state.TeGrootGesneden - 1) })
     }
   }
 }

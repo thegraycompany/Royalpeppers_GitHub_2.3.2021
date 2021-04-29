@@ -55,10 +55,6 @@ const App = () => {
             {(props) => {
               const { navigation, route } = props;
               const { user, projectPartition } = route.params;
-              console.log("this is route");
-              console.log(route.params);
-              console.log(projectPartition);
-              console.log(user);
               return (
                 <TasksProvider user={user} projectPartition={projectPartition}>
                   <TasksView navigation={navigation} route={route} />

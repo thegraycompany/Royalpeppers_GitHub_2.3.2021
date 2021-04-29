@@ -28,13 +28,80 @@ export class HarvestOverview extends React.Component {
       Employee: `${this.props.route.params.Employee}`,
       Color: `${this.props.route.params.Color}`,
       Email: `${this.props.route.params.Email}`,
-      TimeStart: `${this.props.route.params.TimeStart}`
+      TimeStart: `${this.props.route.params.TimeStart}`,
+
+      TeKleinGesneden: `${this.props.route.params.TeKleinGesneden}`,
+      TeGrootGesneden: `${this.props.route.params.TeGrootGesneden}`,
     };
   }
 
   render() {
+    if(this.state.Color == "Groen"){
     return (
-      <View>
+      <ScrollView>
+        <View style={styles.superContainer}>
+          <View style={styles.container}>
+            <Text style={styles.title}>{this.state.Location}</Text>
+            <Text style={styles.title}>{this.state.Color}</Text>
+          </View>
+          <View style={styles.container}>
+            <Text style={styles.title}>{this.state.Greenhouse}</Text>
+
+            <Text style={styles.title}>{this.state.Path}</Text>
+          </View>
+          <View style={styles.container}>
+            <Text style={styles.title}>{this.state.Employee}</Text>
+          </View>
+        </View>
+
+        <View style={styles.superContainer}>
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Sneetje</Text>
+            <Text style={styles.waarde}>{this.state.Sneetje}</Text>
+          </View>
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Buts</Text>
+            <Text style={styles.waarde}>{this.state.Buts}</Text>
+          </View>
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Te bont</Text>
+            <Text style={styles.waarde}>{this.state.TeBont}</Text>
+          </View>
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Rafelige steel</Text>
+            <Text style={styles.waarde}>{this.state.RafeligeSteel}</Text>
+          </View>
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Blad</Text>
+            <Text style={styles.waarde}>{this.state.Blad}</Text>
+          </View>
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Vrucht vergeten</Text>
+            <Text style={styles.waarde}>{this.state.VruchtVergeten}</Text>
+          </View>
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Kar niet schoon</Text>
+            <Text style={styles.waarde}>{this.state.KarNietSchoon}</Text>
+          </View>
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Te klein gesneden</Text>
+            <Text style={styles.waarde}>{this.state.TeKleinGesneden}</Text>
+          </View>
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Te groot gesneden</Text>
+            <Text style={styles.waarde}>{this.state.TeGrootGesneden}</Text>
+          </View>
+        </View>
+
+        <View style={{ paddingTop: 20 }}>
+          <TouchableOpacity onPress={this.eventHandlers.onSendHarvest}>
+            <Text style={styles.title}>OPSLAAN</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+    );
+    } else {
+      return (
         <ScrollView>
           <View style={styles.superContainer}>
             <View style={styles.container}>
@@ -43,14 +110,14 @@ export class HarvestOverview extends React.Component {
             </View>
             <View style={styles.container}>
               <Text style={styles.title}>{this.state.Greenhouse}</Text>
-
+  
               <Text style={styles.title}>{this.state.Path}</Text>
             </View>
             <View style={styles.container}>
               <Text style={styles.title}>{this.state.Employee}</Text>
             </View>
           </View>
-
+  
           <View style={styles.superContainer}>
             <View style={styles.container}>
               <Text style={styles.subTitle}>Sneetje</Text>
@@ -81,15 +148,15 @@ export class HarvestOverview extends React.Component {
               <Text style={styles.waarde}>{this.state.KarNietSchoon}</Text>
             </View>
           </View>
-
+  
           <View style={{ paddingTop: 20 }}>
             <TouchableOpacity onPress={this.eventHandlers.onSendHarvest}>
               <Text style={styles.title}>OPSLAAN</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
-      </View>
-    );
+      );
+    }
   }
 
   onChangeText(text) {
@@ -109,15 +176,15 @@ export class HarvestOverview extends React.Component {
     var Seconds = ((hours * 3600) + (min * 60) + sec);
     var TotaleTijd = (Seconds - `${this.state.TimeStart}`);
     email(to, {
-        // Optional additional arguments
-        cc: [], // string or array of email addresses
-        bcc: '', // string or array of email addresses
-        subject: 'Resultaat controle oogsten: ' + `${this.props.route.params.Location}` + ' Datum: ' + date + '.' + month + '.' + year,
-        body: 'Dit zijn de resultaten: ' + '\n' + `${this.props.route.params.Greenhouse}` + ';'  + `${this.state.Path}` + ';' + `${this.state.Sneetje}` + ';' + `${this.state.Color}` + ';' + `${this.state.Buts}` + ';'
-        + `${this.state.TeBont}` + ';' + `${this.state.RafeligeSteel}` + ';' + `${this.state.Blad}` + ';' +  `${this.state.VruchtVergeten}` + ';'
-        + `${this.state.KarNietSchoon}` + ';' + date + '.' + month + '.' + year + ';' + `${this.state.Email}` + ';' + `${this.state.Employee}` + ';' + `${TotaleTijd}` + ';'
-      }).catch(console.error)
-}
+      // Optional additional arguments
+      cc: [], // string or array of email addresses
+      bcc: '', // string or array of email addresses
+      subject: 'Resultaat controle oogsten: ' + `${this.props.route.params.Location}` + ' Datum: ' + date + '.' + month + '.' + year,
+      body: 'Dit zijn de resultaten: ' + '\n' + `${this.props.route.params.Greenhouse}` + ';' + `${this.state.Path}` + ';' + `${this.state.Sneetje}` + ';' + `${this.state.Color}` + ';' + `${this.state.Buts}` + ';'
+        + `${this.state.TeBont}` + ';' + `${this.state.RafeligeSteel}` + ';' + `${this.state.Blad}` + ';' + `${this.state.VruchtVergeten}` + ';'
+        + `${this.state.KarNietSchoon}` + ';' + `${this.state.TeKleinGesneden}` + ';' + `${this.state.TeGrootGesneden}` + ';' + date + '.' + month + '.' + year + ';' + `${this.state.Email}` + ';' + `${this.state.Employee}` + ';' + `${TotaleTijd}` + ';'
+    }).catch(console.error)
+  }
 
   onSendHarvest() {
     this.handleEmail();

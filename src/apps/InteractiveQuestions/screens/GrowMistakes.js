@@ -20,7 +20,6 @@ export class GrowMistakes extends React.Component {
       VruchtOpDeGrond: 0,
       BloemVruchtEraf: 0,
       PlaagNietGemeld: 0,
-      Overig: '',
 
       Location: `${this.props.route.params.Location}`,
       Greenhouse: `${this.props.route.params.Greenhouse}`,
@@ -32,7 +31,6 @@ export class GrowMistakes extends React.Component {
   }
 
   render() {
-    const {Overig} = this.state.Overig;
     return (
       <View>
          <View style={styles.container}>

@@ -7,7 +7,6 @@ import { useAuth } from "../../../../providers/AuthProvider";
 import { ActionSheet } from "../../../../components/ActionSheet";
 import { ListItem } from "react-native-elements";
 import email from 'react-native-email'
-import RNFetchBlob from 'react-native-fetch-blob';
 
 
 const TestingDataThing = ({ children, projectPartition }) => {

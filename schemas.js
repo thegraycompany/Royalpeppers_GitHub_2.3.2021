@@ -55,4 +55,64 @@ class EmployeeTable {
   };
 }
 
-export { Task, EmployeeTable };
+class GrowTable {
+  constructor({
+    Greenhouse,
+    Path,
+    KopGebroken,
+    KopVergeten,
+    StrakGedraaid,
+    TopNietGedraaid,
+    TeKortGetopt,
+    VruchtOpDeGrond,
+    BloemVruchtEraf,
+    PlaagNietGemeld,
+    Date,
+    Controleur,
+    Employee,
+    TijdControle,
+    partition,
+    id = new ObjectId(),
+  }) {
+    this._partition = partition;
+    this._id = id;
+    this.Greenhouse = Greenhouse;
+    this.Path = Path;
+    this.KopGebroken = KopGebroken;
+    this.KopVergeten = KopVergeten;
+    this.StrakGedraaid = StrakGedraaid;
+    this.TopNietGedraaid = TopNietGedraaid;
+    this.TeKortGetopt = TeKortGetopt;
+    this.VruchtOpDeGrond = VruchtOpDeGrond;
+    this.BloemVruchtEraf = BloemVruchtEraf;
+    this.PlaagNietGemeld = PlaagNietGemeld;
+    this.Date = Date;
+    this.Controleur = Controleur;
+    this.Employee = Employee;
+    this.TijdControle = TijdControle;
+  }
+  static schema = {
+    name: "GrowTable",
+    properties: {
+      _id: "objectId",
+      _partition: "string?",
+      Greenhouse: "string",
+      Path: "int",
+      KopGebroken: "int",
+      KopVergeten: "int",
+      StrakGedraaid: "int",
+      TopNietGedraaid: "int",
+      TeKortGetopt: "int",
+      VruchtOpDeGrond: "int",
+      BloemVruchtEraf: "int",
+      PlaagNietGemeld: "int",
+      Date: "date",
+      Controleur: "string",
+      Employee: "string",
+      TijdControle: "int",
+    },
+    primaryKey: "_id",
+  };
+}
+
+export { Task, EmployeeTable, GrowTable };
