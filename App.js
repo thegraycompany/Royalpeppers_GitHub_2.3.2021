@@ -16,15 +16,15 @@ import { HomeNavScreen } from './src/apps/InteractiveQuestions/screens/HomeNavSc
 
 import { HarvestScreen } from './src/apps/InteractiveQuestions/screens/HarvestScreen';
 import { HarvestMistakes } from './src/apps/InteractiveQuestions/screens/HarvestMistakes';
-import { HarvestOverview } from './src/apps/InteractiveQuestions/screens/HarvestOverview';
+import { HarvestOverviewNieuwV2, HarvestOverview } from './src/apps/InteractiveQuestions/screens/HarvestOverview';
 
 import { GrowScreen } from './src/apps/InteractiveQuestions/screens/GrowScreen';
 import { GrowMistakes } from './src/apps/InteractiveQuestions/screens/GrowMistakes';
-import { GrowOverview } from './src/apps/InteractiveQuestions/screens/GrowOverview';
+import { GrowOverviewNieuwV2 } from './src/apps/InteractiveQuestions/screens/GrowOverview';
 
 import { ScoutScreen } from './src/apps/InteractiveQuestions/screens/ScoutScreen';
 import { ScoutMistakes } from './src/apps/InteractiveQuestions/screens/ScoutMistakes';
-import { ScoutOverview } from './src/apps/InteractiveQuestions/screens/ScoutOverview';
+import { ScoutOverview, ScoutOverviewNieuwV2 } from './src/apps/InteractiveQuestions/screens/ScoutOverview';
 import { View } from "react-native";
 
 
@@ -67,15 +67,15 @@ const App = () => {
           
           <Stack.Screen name="HarvestScreen" component={HarvestScreen} options={{title: 'GreenHouse Excellence', headerStyle: {backgroundColor: '#228B22'}, headerTitleStyle: {color: '#fff'}}} />
           <Stack.Screen name="HarvestMistakes" component={HarvestMistakes} options={{title: 'GreenHouse Excellence', headerStyle: {backgroundColor: '#228B22'}, headerTitleStyle: {color: '#fff'}}} />
-          <Stack.Screen name="HarvestOverview" component={HarvestOverview} options={{title: 'GreenHouse Excellence', headerStyle: {backgroundColor: '#228B22'}, headerTitleStyle: {color: '#fff'}}} />
+          <Stack.Screen name="HarvestOverview" component={HarvestOverviewNieuwV2} options={{title: 'GreenHouse Excellence', headerStyle: {backgroundColor: '#228B22'}, headerTitleStyle: {color: '#fff'}}} />
           
           <Stack.Screen name="GrowScreen" component={GrowScreen} options={{title: 'GreenHouse Excellence', headerStyle: {backgroundColor: '#228B22'}, headerTitleStyle: {color: '#fff'}}} />
           <Stack.Screen name="GrowMistakes" component={GrowMistakes} options={{title: 'GreenHouse Excellence', headerStyle: {backgroundColor: '#228B22'}, headerTitleStyle: {color: '#fff'}}} />
-          <Stack.Screen name="GrowOverview" component={GrowOverview} options={{title: 'GreenHouse Excellence', headerStyle: {backgroundColor: '#228B22'}, headerTitleStyle: {color: '#fff'}}} />
+          <Stack.Screen name="GrowOverview" component={GrowOverviewNieuwV2} options={{title: 'GreenHouse Excellence', headerStyle: {backgroundColor: '#228B22'}, headerTitleStyle: {color: '#fff'}}} />
       
           <Stack.Screen name="ScoutScreen" component={ScoutScreen} options={{title: 'Scouten', headerStyle: {backgroundColor: '#228B22'}, headerTitleStyle: {color: '#fff'}}} />
           <Stack.Screen name="ScoutMistakes" component={ScoutMistakes} options={{title: 'Scouten Controle', headerStyle: {backgroundColor: '#228B22'}, headerTitleStyle: {color: '#fff'}}} />
-          <Stack.Screen name="ScoutOverview" component={ScoutOverview} options={{title: 'Scouten Overzicht', headerStyle: {backgroundColor: '#228B22'}, headerTitleStyle: {color: '#fff'}}} />
+          <Stack.Screen name="ScoutOverview" component={ScoutOverviewNieuwV2} options={{title: 'Scouten Overzicht', headerStyle: {backgroundColor: '#228B22'}, headerTitleStyle: {color: '#fff'}}} />
         </Stack.Navigator>
       </NavigationContainer>
     </AuthProvider>

@@ -1,100 +1,126 @@
-import React from 'react';
-import { Button, Dimensions, Image, Text, TextInput, TouchableOpacity, View, StyleSheet } from 'react-native';
+import React, { useEffect, useState, useRef } from 'react';
+import { Alert, Button, Dimensions, Image, Text, TextInput, TouchableOpacity, View, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import email from 'react-native-email'
+import { useAuth } from "../../../../providers/AuthProvider";
+import { HarvestTable } from "../../../../schemas";
+import { HomeNavScreen } from './HomeNavScreen';
 
 
-export class HarvestOverview extends React.Component {
-  eventHandlers = {
-    onChangeText: (text) => this.onChangeText(text),
-    onSendHarvest: () => this.onSendHarvest(),
-  };
+export function HarvestOverviewNieuwV2({ navigation, route }) {
+  const { user, signUp, signIn } = useAuth();
+  const realmRef = useRef(null);
 
-  constructor(props) {
-    global.windowWidth = Dimensions.get('window').width;
-    super(props);
-    this.state = {
-      Sneetje: `${this.props.route.params.Sneetje}`,
-      Buts: `${this.props.route.params.Buts}`,
-      TeBont: `${this.props.route.params.TeBont}`,
-      RafeligeSteel: `${this.props.route.params.RafeligeSteel}`,
-      Blad: `${this.props.route.params.Blad}`,
-      VruchtVergeten: `${this.props.route.params.VruchtVergeten}`,
-      KarNietSchoon: `${this.props.route.params.KarNietSchoon}`,
+  const versturen = async () => {
+    try {   
+      var hours = new Date().getHours(); //To get the Current Hours
+      var min = new Date().getMinutes(); //To get the Current Minutes
+      var sec = new Date().getSeconds(); //To get the Current Seconds
+      var TimeStop = ((hours * 3600) + (min * 60) + sec);
+      const totaleTijd = TimeStop - `${route.params.TimeStart}`;
 
-      Location: `${this.props.route.params.Location}`,
-      Greenhouse: `${this.props.route.params.Greenhouse}`,
-      Path: `${this.props.route.params.Path}`,
-      Employee: `${this.props.route.params.Employee}`,
-      Color: `${this.props.route.params.Color}`,
-      Email: `${this.props.route.params.Email}`,
-      TimeStart: `${this.props.route.params.TimeStart}`,
-
-      TeKleinGesneden: `${this.props.route.params.TeKleinGesneden}`,
-      TeGrootGesneden: `${this.props.route.params.TeGrootGesneden}`,
-    };
+      var date = new Date().getDate();
+      var month = new Date().getMonth();
+      var year = new Date().getFullYear();
+      const config = {
+        sync: {
+          user: user,
+          partitionValue: `project=${user.id}`,
+        },
+      };
+      Realm.open(config).then((projectRealm) => {
+        projectRealm.write(() => {
+          // Create a new task in the same partition -- that is, in the same project.
+          projectRealm.create(
+            "HarvestTable",
+            new HarvestTable({
+              Greenhouse: `${route.params.Greenhouse}`,
+              Path: parseInt(`${route.params.Path}`),
+              Sneetje: parseInt(`${route.params.Sneetje}`),
+              Buts: parseInt(`${route.params.Buts}`),
+              TeBont: parseInt(`${route.params.TeBont}`),
+              RafeligeSteel: parseInt(`${route.params.RafeligeSteel}`),
+              Blad: parseInt(`${route.params.Blad}`),
+              VruchtVergeten: parseInt(`${route.params.VruchtVergeten}`),
+              KarNietSchoon: parseInt(`${route.params.KarNietSchoon}`),
+              TeKleinGesneden: parseInt(`${route.params.TeKleinGesneden}`),
+              TeGrootGesneden: parseInt(`${route.params.TeGrootGesneden}`),
+              Date: date + '.' + month + '.' + year,
+              Controleur: `${route.params.Email}`,
+              Employee: `${route.params.Employee}`,
+              TijdControle: totaleTijd,
+              partition: `project=${user.id}`,
+            })
+          );
+        });
+        Alert.alert("Succesvol verstuurd");
+        navigation.navigate(HomeNavScreen);
+      });
+    } catch (error) {
+      Alert.alert("Kon gegevens niet versturen, probeer later opnieuw");
+    }
+    navigation.navigate(HomeNavScreen);
   }
 
-  render() {
-    if(this.state.Color == "Groen"){
+  if(route.params.Color == "Groen"){
     return (
       <ScrollView>
         <View style={styles.superContainer}>
           <View style={styles.container}>
-            <Text style={styles.title}>{this.state.Location}</Text>
-            <Text style={styles.title}>{this.state.Color}</Text>
+            <Text style={styles.title}>{route.params.Location}</Text>
+            <Text style={styles.title}>{route.params.Color}</Text>
           </View>
           <View style={styles.container}>
-            <Text style={styles.title}>{this.state.Greenhouse}</Text>
+            <Text style={styles.title}>{route.params.Greenhouse}</Text>
 
-            <Text style={styles.title}>{this.state.Path}</Text>
+            <Text style={styles.title}>{route.params.Path}</Text>
           </View>
           <View style={styles.container}>
-            <Text style={styles.title}>{this.state.Employee}</Text>
+            <Text style={styles.title}>{route.params.Employee}</Text>
           </View>
         </View>
 
         <View style={styles.superContainer}>
           <View style={styles.container}>
             <Text style={styles.subTitle}>Sneetje</Text>
-            <Text style={styles.waarde}>{this.state.Sneetje}</Text>
+            <Text style={styles.waarde}>{route.params.Sneetje}</Text>
           </View>
           <View style={styles.container}>
             <Text style={styles.subTitle}>Buts</Text>
-            <Text style={styles.waarde}>{this.state.Buts}</Text>
+            <Text style={styles.waarde}>{route.params.Buts}</Text>
           </View>
           <View style={styles.container}>
             <Text style={styles.subTitle}>Te bont</Text>
-            <Text style={styles.waarde}>{this.state.TeBont}</Text>
+            <Text style={styles.waarde}>{route.params.TeBont}</Text>
           </View>
           <View style={styles.container}>
             <Text style={styles.subTitle}>Rafelige steel</Text>
-            <Text style={styles.waarde}>{this.state.RafeligeSteel}</Text>
+            <Text style={styles.waarde}>{route.params.RafeligeSteel}</Text>
           </View>
           <View style={styles.container}>
             <Text style={styles.subTitle}>Blad</Text>
-            <Text style={styles.waarde}>{this.state.Blad}</Text>
+            <Text style={styles.waarde}>{route.params.Blad}</Text>
           </View>
           <View style={styles.container}>
             <Text style={styles.subTitle}>Vrucht vergeten</Text>
-            <Text style={styles.waarde}>{this.state.VruchtVergeten}</Text>
+            <Text style={styles.waarde}>{route.params.VruchtVergeten}</Text>
           </View>
           <View style={styles.container}>
             <Text style={styles.subTitle}>Kar niet schoon</Text>
-            <Text style={styles.waarde}>{this.state.KarNietSchoon}</Text>
+            <Text style={styles.waarde}>{route.params.KarNietSchoon}</Text>
           </View>
           <View style={styles.container}>
             <Text style={styles.subTitle}>Te klein gesneden</Text>
-            <Text style={styles.waarde}>{this.state.TeKleinGesneden}</Text>
+            <Text style={styles.waarde}>{route.params.TeKleinGesneden}</Text>
           </View>
           <View style={styles.container}>
             <Text style={styles.subTitle}>Te groot gesneden</Text>
-            <Text style={styles.waarde}>{this.state.TeGrootGesneden}</Text>
+            <Text style={styles.waarde}>{route.params.TeGrootGesneden}</Text>
           </View>
         </View>
 
         <View style={{ paddingTop: 20 }}>
-          <TouchableOpacity onPress={this.eventHandlers.onSendHarvest}>
+          <TouchableOpacity onPress={versturen}>
             <Text style={styles.title}>OPSLAAN</Text>
           </TouchableOpacity>
         </View>
@@ -105,92 +131,60 @@ export class HarvestOverview extends React.Component {
         <ScrollView>
           <View style={styles.superContainer}>
             <View style={styles.container}>
-              <Text style={styles.title}>{this.state.Location}</Text>
-              <Text style={styles.title}>{this.state.Color}</Text>
+              <Text style={styles.title}>{route.params.Location}</Text>
+              <Text style={styles.title}>{route.params.Color}</Text>
             </View>
             <View style={styles.container}>
-              <Text style={styles.title}>{this.state.Greenhouse}</Text>
+              <Text style={styles.title}>{route.params.Greenhouse}</Text>
   
-              <Text style={styles.title}>{this.state.Path}</Text>
+              <Text style={styles.title}>{route.params.Path}</Text>
             </View>
             <View style={styles.container}>
-              <Text style={styles.title}>{this.state.Employee}</Text>
+              <Text style={styles.title}>{route.params.Employee}</Text>
             </View>
           </View>
   
           <View style={styles.superContainer}>
             <View style={styles.container}>
               <Text style={styles.subTitle}>Sneetje</Text>
-              <Text style={styles.waarde}>{this.state.Sneetje}</Text>
+              <Text style={styles.waarde}>{route.params.Sneetje}</Text>
             </View>
             <View style={styles.container}>
               <Text style={styles.subTitle}>Buts</Text>
-              <Text style={styles.waarde}>{this.state.Buts}</Text>
+              <Text style={styles.waarde}>{route.params.Buts}</Text>
             </View>
             <View style={styles.container}>
               <Text style={styles.subTitle}>Te bont</Text>
-              <Text style={styles.waarde}>{this.state.TeBont}</Text>
+              <Text style={styles.waarde}>{route.params.TeBont}</Text>
             </View>
             <View style={styles.container}>
               <Text style={styles.subTitle}>Rafelige Steel</Text>
-              <Text style={styles.waarde}>{this.state.RafeligeSteel}</Text>
+              <Text style={styles.waarde}>{route.params.RafeligeSteel}</Text>
             </View>
             <View style={styles.container}>
               <Text style={styles.subTitle}>Blad</Text>
-              <Text style={styles.waarde}>{this.state.Blad}</Text>
+              <Text style={styles.waarde}>{route.params.Blad}</Text>
             </View>
             <View style={styles.container}>
               <Text style={styles.subTitle}>Vrucht Vergeten</Text>
-              <Text style={styles.waarde}>{this.state.VruchtVergeten}</Text>
+              <Text style={styles.waarde}>{route.params.VruchtVergeten}</Text>
             </View>
             <View style={styles.container}>
               <Text style={styles.subTitle}>Kar niet schoon</Text>
-              <Text style={styles.waarde}>{this.state.KarNietSchoon}</Text>
+              <Text style={styles.waarde}>{route.params.KarNietSchoon}</Text>
             </View>
           </View>
   
           <View style={{ paddingTop: 20 }}>
-            <TouchableOpacity onPress={this.eventHandlers.onSendHarvest}>
+            <TouchableOpacity onPress={versturen}>
               <Text style={styles.title}>OPSLAAN</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
       );
     }
-  }
-
-  onChangeText(text) {
-    this.setState({ nameInput: text });
-  }
-
-  handleEmail = () => {
-    //this.createCSV();
-    const to = ['arnoud@royalpeppers.nl'] // string or array of email addresses
-    var date = new Date().getDate();
-    var month = new Date().getMonth() + 1;
-    var year = new Date().getFullYear();
-    var hours = new Date().getHours(); //To get the Current Hours
-    var min = new Date().getMinutes(); //To get the Current Minutes
-    var sec = new Date().getSeconds(); //To get the Current Seconds
-
-    var Seconds = ((hours * 3600) + (min * 60) + sec);
-    var TotaleTijd = (Seconds - `${this.state.TimeStart}`);
-    email(to, {
-      // Optional additional arguments
-      cc: [], // string or array of email addresses
-      bcc: '', // string or array of email addresses
-      subject: 'Resultaat controle oogsten: ' + `${this.props.route.params.Location}` + ' Datum: ' + date + '.' + month + '.' + year,
-      body: 'Dit zijn de resultaten: ' + '\n' + `${this.props.route.params.Greenhouse}` + ';' + `${this.state.Path}` + ';' + `${this.state.Sneetje}` + ';' + `${this.state.Color}` + ';' + `${this.state.Buts}` + ';'
-        + `${this.state.TeBont}` + ';' + `${this.state.RafeligeSteel}` + ';' + `${this.state.Blad}` + ';' + `${this.state.VruchtVergeten}` + ';'
-        + `${this.state.KarNietSchoon}` + ';' + `${this.state.TeKleinGesneden}` + ';' + `${this.state.TeGrootGesneden}` + ';' + date + '.' + month + '.' + year + ';' + `${this.state.Email}` + ';' + `${this.state.Employee}` + ';' + `${TotaleTijd}` + ';'
-    }).catch(console.error)
-  }
-
-  onSendHarvest() {
-    this.handleEmail();
-    this.props.navigation.navigate('HomeNavScreen');
-  }
 }
+
 
 const styles = StyleSheet.create({
   superContainer: {
