@@ -13,46 +13,46 @@ export function WelcomeView({ navigation }) {
   const realmRef = useRef(null);
   const [tasks, setTasks] = useState([]);
 
+  
+  // useEffect(() => {
+  //   const config = {
+  //     sync: {
+  //       user: user,
+  //       partitionValue: `project=${user.id}`,
+  //     },
+  //   };
+  //   // open a realm for this particular project
+  //   Realm.open(config).then((projectRealm) => {
+  //     realmRef.current = projectRealm;
 
-  useEffect(() => {
-    const config = {
-      sync: {
-        user: user,
-        partitionValue: `project=${user.id}`,
-      },
-    };
-    // open a realm for this particular project
-    Realm.open(config).then((projectRealm) => {
-      realmRef.current = projectRealm;
+  //     const syncTasks = projectRealm.objects("EmployeeTable");
+  //     let sortedTasks = syncTasks.sorted("name");
+  //     global.GlobalEmployees = sortedTasks;
+  //     console.log("\n");
+  //     //console.log(global.GlobalEmployees);
+  //     setTasks([...sortedTasks]);
+  //     sortedTasks.addListener(() => {
+  //       setTasks([...sortedTasks]);
+  //     });
+  //   });
 
-      const syncTasks = projectRealm.objects("EmployeeTable");
-      let sortedTasks = syncTasks.sorted("name");
-      global.GlobalEmployees = sortedTasks;
-      console.log("\n");
-      //console.log(global.GlobalEmployees);
-      setTasks([...sortedTasks]);
-      sortedTasks.addListener(() => {
-        setTasks([...sortedTasks]);
-      });
-    });
-
-    // If there is a user logged in, go to the Projects page.
-    if (user != null) {
-      //navigation.navigate("Projects");
-      navigation.navigate("HomeNavScreen", { email: email });
+  //   // If there is a user logged in, go to the Projects page.
+  //   if (user != null) {
+  //     //navigation.navigate("Projects");
+  //     navigation.navigate("HomeNavScreen", { email: email });
       
-    }
+  //   }
 
-    return () => {
-      // cleanup function
-      const projectRealm = realmRef.current;
-      if (projectRealm) {
-        projectRealm.close();
-        realmRef.current = null;
-        setTasks([]);
-      }
-    };
-  }, [user]);
+  //   return () => {
+  //     // cleanup function
+  //     const projectRealm = realmRef.current;
+  //     if (projectRealm) {
+  //       projectRealm.close();
+  //       realmRef.current = null;
+  //       setTasks([]);
+  //     }
+  //   };
+  // }, [user]);
 
   // The onPressSignIn method calls AuthProvider.signIn with the
   // email/password in state.
@@ -60,8 +60,45 @@ export function WelcomeView({ navigation }) {
     console.log("Press sign in");
     try {
       await signIn(email, password);
+      const config = {
+        sync: {
+          user: user,
+          partitionValue: `project=${user.id}`,
+        },
+      };
+      // open a realm for this particular project
+      Realm.open(config).then((projectRealm) => {
+        realmRef.current = projectRealm;
+  
+        const syncTasks = projectRealm.objects("EmployeeTable");
+        let sortedTasks = syncTasks.sorted("name");
+        global.GlobalEmployees = sortedTasks;
+        console.log("\n");
+        //console.log(global.GlobalEmployees);
+        setTasks([...sortedTasks]);
+        sortedTasks.addListener(() => {
+          setTasks([...sortedTasks]);
+        });
+      });
+  
+      // If there is a user logged in, go to the Projects page.
+      if (user != null) {
+        //navigation.navigate("Projects");
+        navigation.navigate("HomeNavScreen", { email: email });
+        
+      }
+  
+      return () => {
+        // cleanup function
+        const projectRealm = realmRef.current;
+        if (projectRealm) {
+          projectRealm.close();
+          realmRef.current = null;
+          setTasks([]);
+        }
+      };
     } catch (error) {
-      Alert.alert(`Failed to sign in: ${error.message}`);
+      Alert.alert(`Druk nog een keer op Inloggen`);
     }
   };
 

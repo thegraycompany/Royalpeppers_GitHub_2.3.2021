@@ -16,6 +16,7 @@ MERGED from [:realm] /home/kvdb/Royalpeppers_GitHub_2.3.2021/node_modules/realm/
 MERGED from [com.facebook.react:react-native:0.63.2] /home/kvdb/.gradle/caches/transforms-2/files-2.1/5746de2f2aa345152a7ae5dfd4b6ecb9/jetified-react-native-0.63.2/AndroidManifest.xml:2:1-13:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /home/kvdb/.gradle/caches/transforms-2/files-2.1/37b6f551bc5ae153b0b627de8f563815/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [org.webkit:android-jsc:r245459] /home/kvdb/.gradle/caches/transforms-2/files-2.1/6dd6245206e34676e1ee3aa6ee0f68c9/android-jsc-r245459/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.multidex:multidex:2.0.0] /home/kvdb/.gradle/caches/transforms-2/files-2.1/d8031ba7ad89eac391d4216992656ff2/multidex-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.material:material:1.1.0] /home/kvdb/.gradle/caches/transforms-2/files-2.1/863e0c3c6716935cd3657ad638fd992d/material-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] /home/kvdb/.gradle/caches/transforms-2/files-2.1/1cb9b9ea592aa2ea85233be252327dcf/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.facebook.fresco:fresco:2.0.0] /home/kvdb/.gradle/caches/transforms-2/files-2.1/454c96154d0a2efb5f34ced0245cf76d/fresco-2.0.0/AndroidManifest.xml:2:1-9:12
@@ -160,6 +161,8 @@ MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /home/kvdb/.g
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /home/kvdb/.gradle/caches/transforms-2/files-2.1/37b6f551bc5ae153b0b627de8f563815/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [org.webkit:android-jsc:r245459] /home/kvdb/.gradle/caches/transforms-2/files-2.1/6dd6245206e34676e1ee3aa6ee0f68c9/android-jsc-r245459/AndroidManifest.xml:7:5-9:41
 MERGED from [org.webkit:android-jsc:r245459] /home/kvdb/.gradle/caches/transforms-2/files-2.1/6dd6245206e34676e1ee3aa6ee0f68c9/android-jsc-r245459/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.multidex:multidex:2.0.0] /home/kvdb/.gradle/caches/transforms-2/files-2.1/d8031ba7ad89eac391d4216992656ff2/multidex-2.0.0/AndroidManifest.xml:20:5-43
+MERGED from [androidx.multidex:multidex:2.0.0] /home/kvdb/.gradle/caches/transforms-2/files-2.1/d8031ba7ad89eac391d4216992656ff2/multidex-2.0.0/AndroidManifest.xml:20:5-43
 MERGED from [com.google.android.material:material:1.1.0] /home/kvdb/.gradle/caches/transforms-2/files-2.1/863e0c3c6716935cd3657ad638fd992d/material-1.1.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.1.0] /home/kvdb/.gradle/caches/transforms-2/files-2.1/863e0c3c6716935cd3657ad638fd992d/material-1.1.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.1.0] /home/kvdb/.gradle/caches/transforms-2/files-2.1/1cb9b9ea592aa2ea85233be252327dcf/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41

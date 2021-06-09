@@ -22,8 +22,9 @@ export function GrowOverviewNieuwV2({ navigation, route }) {
       var TimeStop = ((hours * 3600) + (min * 60) + sec);
       const totaleTijd = TimeStop - `${route.params.TimeStart}`;
 
+
       var date = new Date().getDate();
-      var month = new Date().getMonth();
+      var month = new Date().getMonth() + 1;
       var year = new Date().getFullYear();
       const config = {
         sync: {
