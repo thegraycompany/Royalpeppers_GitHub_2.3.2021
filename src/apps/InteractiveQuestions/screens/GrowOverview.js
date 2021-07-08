@@ -41,7 +41,7 @@ export function GrowOverviewNieuwV2({ navigation, route }) {
 
 
       var date = new Date().getDate();
-      var month = new Date().getMonth();
+      var month = new Date().getMonth() + 1;
       var year = new Date().getFullYear();
       const config = {
         sync: {

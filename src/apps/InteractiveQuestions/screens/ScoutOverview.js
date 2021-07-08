@@ -35,7 +35,7 @@ export function ScoutOverviewNieuwV2({ navigation, route }) {
       const totaleTijd = TimeStop - `${route.params.TimeStart}`;
 
       var date = new Date().getDate();
-      var month = new Date().getMonth();
+      var month = new Date().getMonth() + 1;
       var year = new Date().getFullYear();
       const config = {
         sync: {
