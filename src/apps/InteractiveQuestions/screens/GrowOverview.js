@@ -6,6 +6,10 @@ import { parse } from 'react-native-svg';
 import { useAuth } from "../../../../providers/AuthProvider";
 import { GrowTable, EmployeeTable } from "../../../../schemas";
 import { HomeNavScreen } from './HomeNavScreen';
+import { GrowScreen } from './GrowScreen';
+import RNExitApp from 'react-native-exit-app';
+import * as Icon from "react-native-feather";
+
 
 export function GrowOverviewNieuwV2({ navigation, route }) {
   const [email, setEmail] = useState("");
@@ -14,7 +18,20 @@ export function GrowOverviewNieuwV2({ navigation, route }) {
   const realmRef = useRef(null);
   const [tasks, setTasks] = useState([]);
 
-  const versturen = async () => {
+
+  const navigeerGrow = () => {
+    navigation.navigate('GrowScreen');
+  }
+
+  const navigeerHome = () => {
+    navigation.navigate('HomeNavScreen');
+  }
+
+  const closeApp = () => {
+    RNExitApp.exitApp();
+  }
+
+  const versturen = () => {
     try {   
       var hours = new Date().getHours(); //To get the Current Hours
       var min = new Date().getMinutes(); //To get the Current Minutes
@@ -24,7 +41,7 @@ export function GrowOverviewNieuwV2({ navigation, route }) {
 
 
       var date = new Date().getDate();
-      var month = new Date().getMonth() + 1;
+      var month = new Date().getMonth();
       var year = new Date().getFullYear();
       const config = {
         sync: {
@@ -56,13 +73,11 @@ export function GrowOverviewNieuwV2({ navigation, route }) {
             })
           );
         });
-        navigation.navigate(HomeNavScreen);
         Alert.alert("Succesvol verstuurd");
       });
     } catch (error) {
       Alert.alert("Kon gegevens niet versturen, probeer later opnieuw");
     }
-    navigation.navigate(HomeNavScreen);
   }
 
   return (
@@ -121,6 +136,19 @@ export function GrowOverviewNieuwV2({ navigation, route }) {
             <Text style={styles.title}>OPSLAAN</Text>
           </TouchableOpacity>
         </View>
+        <View style={{ paddingTop: 60 }}>
+          <View style={styles.NavigationContainer}>
+            <TouchableOpacity onPress={() => navigeerGrow()} style={{ paddingLeft: 40 }}>
+              <Icon.PlusCircle stroke="black" fill="#fff" width={50} height={50} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigeerHome()} style={{ paddingLeft: 40 }}>
+              <Icon.Home stroke="black" fill="#fff" width={50} height={50} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => closeApp()} style={{ paddingLeft: 40 }}>
+              <Icon.XCircle stroke="black" fill="#fff" width={50} height={50} />
+            </TouchableOpacity>
+          </View>
+        </View>
       </ScrollView>
     </View>
   );
@@ -128,6 +156,12 @@ export function GrowOverviewNieuwV2({ navigation, route }) {
 
 
 const styles = StyleSheet.create({
+  NavigationContainer: {
+    paddingLeft: 50,
+    alignItems: "center",
+    flexDirection: 'row',
+    position: "absolute",
+  },
   superContainer: {
     borderBottomWidth: 2,
     borderColor: 'green',

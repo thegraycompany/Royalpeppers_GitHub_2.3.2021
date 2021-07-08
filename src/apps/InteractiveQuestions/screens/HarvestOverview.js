@@ -1,18 +1,32 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { Alert, Button, Dimensions, Image, Text, TextInput, TouchableOpacity, View, StyleSheet } from 'react-native';
+import React, { useRef } from 'react';
+import { Alert, Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import email from 'react-native-email'
 import { useAuth } from "../../../../providers/AuthProvider";
 import { HarvestTable } from "../../../../schemas";
 import { HomeNavScreen } from './HomeNavScreen';
+import { HarvestScreen } from './HarvestScreen';
+import RNExitApp from 'react-native-exit-app';
+import * as Icon from "react-native-feather";
 
 
 export function HarvestOverviewNieuwV2({ navigation, route }) {
   const { user, signUp, signIn } = useAuth();
   const realmRef = useRef(null);
 
-  const versturen = async () => {
-    try {   
+  const navigeerHarvest = () => {
+    navigation.navigate('HarvestScreen');
+  }
+
+  const navigeerHome = () => {
+    navigation.navigate('HomeNavScreen');
+  }
+
+  const closeApp = () => {
+    RNExitApp.exitApp();
+  }
+
+  const versturen = () => {
+    try {
       var hours = new Date().getHours(); //To get the Current Hours
       var min = new Date().getMinutes(); //To get the Current Minutes
       var sec = new Date().getSeconds(); //To get the Current Seconds
@@ -20,7 +34,7 @@ export function HarvestOverviewNieuwV2({ navigation, route }) {
       const totaleTijd = TimeStop - `${route.params.TimeStart}`;
 
       var date = new Date().getDate();
-      var month = new Date().getMonth() + 1;
+      var month = new Date().getMonth();
       var year = new Date().getFullYear();
       const config = {
         sync: {
@@ -54,15 +68,13 @@ export function HarvestOverviewNieuwV2({ navigation, route }) {
           );
         });
         Alert.alert("Succesvol verstuurd");
-        navigation.navigate(HomeNavScreen);
       });
     } catch (error) {
       Alert.alert("Kon gegevens niet versturen, probeer later opnieuw");
     }
-    navigation.navigate(HomeNavScreen);
   }
 
-  if(route.params.Color == "Groen"){
+  if (route.params.Color == "Groen") {
     return (
       <ScrollView>
         <View style={styles.superContainer}>
@@ -124,69 +136,101 @@ export function HarvestOverviewNieuwV2({ navigation, route }) {
             <Text style={styles.title}>OPSLAAN</Text>
           </TouchableOpacity>
         </View>
-      </ScrollView>
-    );
-    } else {
-      return (
-        <ScrollView>
-          <View style={styles.superContainer}>
-            <View style={styles.container}>
-              <Text style={styles.title}>{route.params.Location}</Text>
-              <Text style={styles.title}>{route.params.Color}</Text>
-            </View>
-            <View style={styles.container}>
-              <Text style={styles.title}>{route.params.Greenhouse}</Text>
-  
-              <Text style={styles.title}>{route.params.Path}</Text>
-            </View>
-            <View style={styles.container}>
-              <Text style={styles.title}>{route.params.Employee}</Text>
-            </View>
-          </View>
-  
-          <View style={styles.superContainer}>
-            <View style={styles.container}>
-              <Text style={styles.subTitle}>Sneetje</Text>
-              <Text style={styles.waarde}>{route.params.Sneetje}</Text>
-            </View>
-            <View style={styles.container}>
-              <Text style={styles.subTitle}>Buts</Text>
-              <Text style={styles.waarde}>{route.params.Buts}</Text>
-            </View>
-            <View style={styles.container}>
-              <Text style={styles.subTitle}>Te bont</Text>
-              <Text style={styles.waarde}>{route.params.TeBont}</Text>
-            </View>
-            <View style={styles.container}>
-              <Text style={styles.subTitle}>Rafelige Steel</Text>
-              <Text style={styles.waarde}>{route.params.RafeligeSteel}</Text>
-            </View>
-            <View style={styles.container}>
-              <Text style={styles.subTitle}>Blad</Text>
-              <Text style={styles.waarde}>{route.params.Blad}</Text>
-            </View>
-            <View style={styles.container}>
-              <Text style={styles.subTitle}>Vrucht Vergeten</Text>
-              <Text style={styles.waarde}>{route.params.VruchtVergeten}</Text>
-            </View>
-            <View style={styles.container}>
-              <Text style={styles.subTitle}>Kar niet schoon</Text>
-              <Text style={styles.waarde}>{route.params.KarNietSchoon}</Text>
-            </View>
-          </View>
-  
-          <View style={{ paddingTop: 20 }}>
-            <TouchableOpacity onPress={versturen}>
-              <Text style={styles.title}>OPSLAAN</Text>
+        <View style={{ paddingTop: 60 }}>
+          <View style={styles.NavigationContainer}>
+            <TouchableOpacity onPress={() => navigeerHarvest()} style={{ paddingLeft: 40 }}>
+              <Icon.PlusCircle stroke="black" fill="#fff" width={50} height={50} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigeerHome()} style={{ paddingLeft: 40 }}>
+              <Icon.Home stroke="black" fill="#fff" width={50} height={50} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => closeApp()} style={{ paddingLeft: 40 }}>
+              <Icon.XCircle stroke="black" fill="#fff" width={50} height={50} />
             </TouchableOpacity>
           </View>
-        </ScrollView>
-      );
-    }
+        </View>
+      </ScrollView>
+    );
+  } else {
+    return (
+      <ScrollView>
+        <View style={styles.superContainer}>
+          <View style={styles.container}>
+            <Text style={styles.title}>{route.params.Location}</Text>
+            <Text style={styles.title}>{route.params.Color}</Text>
+          </View>
+          <View style={styles.container}>
+            <Text style={styles.title}>{route.params.Greenhouse}</Text>
+
+            <Text style={styles.title}>{route.params.Path}</Text>
+          </View>
+          <View style={styles.container}>
+            <Text style={styles.title}>{route.params.Employee}</Text>
+          </View>
+        </View>
+
+        <View style={styles.superContainer}>
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Sneetje</Text>
+            <Text style={styles.waarde}>{route.params.Sneetje}</Text>
+          </View>
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Buts</Text>
+            <Text style={styles.waarde}>{route.params.Buts}</Text>
+          </View>
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Te bont</Text>
+            <Text style={styles.waarde}>{route.params.TeBont}</Text>
+          </View>
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Rafelige Steel</Text>
+            <Text style={styles.waarde}>{route.params.RafeligeSteel}</Text>
+          </View>
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Blad</Text>
+            <Text style={styles.waarde}>{route.params.Blad}</Text>
+          </View>
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Vrucht Vergeten</Text>
+            <Text style={styles.waarde}>{route.params.VruchtVergeten}</Text>
+          </View>
+          <View style={styles.container}>
+            <Text style={styles.subTitle}>Kar niet schoon</Text>
+            <Text style={styles.waarde}>{route.params.KarNietSchoon}</Text>
+          </View>
+        </View>
+
+        <View style={{ paddingTop: 20 }}>
+          <TouchableOpacity onPress={versturen}>
+            <Text style={styles.title}>OPSLAAN</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={{ paddingTop: 60 }}>
+          <View style={styles.NavigationContainer}>
+            <TouchableOpacity onPress={() => navigeerHarvest()} style={{ paddingLeft: 40 }}>
+              <Icon.PlusCircle stroke="black" fill="#fff" width={50} height={50} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigeerHome()} style={{ paddingLeft: 40 }}>
+              <Icon.Home stroke="black" fill="#fff" width={50} height={50} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => closeApp()} style={{ paddingLeft: 40 }}>
+              <Icon.XCircle stroke="black" fill="#fff" width={50} height={50} />
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ScrollView>
+    );
+  }
 }
 
 
 const styles = StyleSheet.create({
+  NavigationContainer: {
+    paddingLeft: 50,
+    alignItems: "center",
+    flexDirection: 'row',
+    position: "absolute",
+  },
   superContainer: {
     borderBottomWidth: 2,
     borderColor: 'green',

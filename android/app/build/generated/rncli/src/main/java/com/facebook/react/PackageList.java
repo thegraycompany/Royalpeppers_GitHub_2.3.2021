@@ -13,6 +13,8 @@ import java.util.ArrayList;
 
 // @react-native-community/masked-view
 import org.reactnative.maskedview.RNCMaskedViewPackage;
+// react-native-exit-app
+import com.github.wumke.RNExitApp.RNExitAppPackage;
 // react-native-fetch-blob
 import com.RNFetchBlob.RNFetchBlobPackage;
 // react-native-gesture-handler
@@ -75,6 +77,7 @@ public class PackageList {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
       new RNCMaskedViewPackage(),
+      new RNExitAppPackage(),
       new RNFetchBlobPackage(),
       new RNGestureHandlerPackage(),
       new ReanimatedPackage(),
